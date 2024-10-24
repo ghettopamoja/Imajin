@@ -1,0 +1,3558 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(305deg, #feb47b, #ff65a3, #ff337b);
+    min-height: 100vh;
+    background-image: url('logo.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+/* Header styles with pink gradient background --------------------------------------------------------------------------------------------*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #ff7eb9, #ff65a3, #ff337b); /* Pink gradient */
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+}
+
+/* Left header styling */
+.left-header {
+    display: flex;
+    align-items: center;
+}
+
+.left-header .logo{
+    width: 50px;
+    height: 50px; /* Adjust size of the logo */
+    margin-right: 15px; /* Space between logo and title */
+    overflow: hidden;
+}
+
+.left-header .logo img{
+    width: 100%;
+    height: 100%;
+}
+/* Title styling */
+.left-header .title h1 {
+    font-size: 24px;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(to right, #7a0395, #80520e, #2b7610);
+    -webkit-background-clip: text;
+    color: transparent;
+    cursor: pointer;
+    border: 5px groove #7a0395;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.left-header .title h1:hover{
+    background: linear-gradient(to right, #7a0395, #178604, #102c56);
+    -webkit-background-clip: text;
+    color: transparent;
+    border: 5px groove #00bfff;
+}
+
+/* Right header styling */
+.right-header ul {
+    list-style: none;
+    display: flex;
+    gap: 15px; /* Space between icons */
+}
+
+.right-header ul li {
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(to right, #0077be, #00bfff, #00e5ff);
+    -webkit-background-clip: text;
+    color: transparent;
+    cursor: pointer;
+}
+
+.right-header ul li:hover{
+    background: linear-gradient(to right, #790499, #9c03fb, #88ff00);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.song-menu{
+    width: 300px;
+    height: 400px;
+    top: 90px;
+    right: 10px;
+    position: absolute;
+    overflow-y: auto;
+    background: linear-gradient(to top, #6c01be, #ff65a3);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+    animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+.song-menu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.song-menu ul li {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    background: linear-gradient(90deg,  #0077be,#00bfff, #00e5ff);
+}
+
+.song-menu ul li:hover{
+    background: linear-gradient(90deg,  #6c01be,#790499, #7c05e3);
+}
+
+.song-menu.active{
+    display: flex;
+}
+
+
+/* Responsive styling for 800px */
+@media screen and (max-width: 800px) {
+    
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .left-header {
+        justify-content: center;
+        margin-bottom: 10px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .left-header .logo {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .left-header .title h1 {
+        font-size: 20px;
+        padding: 8px;
+        border-radius: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    .right-header{
+        width: 100%;
+    }
+
+    .right-header ul {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .right-header ul li {
+        font-size: 20px;
+    }
+
+    /* Adjust song menu size */
+    .song-menu {
+        width: 250px;
+        height: 60vh;
+        right: 10px;
+        top: 120px;
+        overflow-y: auto;
+    }
+   
+
+    .song-menu ul li {
+        font-size: 18px;
+        height: 35px;
+    }
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------*/
+main{
+    width: 100%;
+    height: 100%;
+    margin-top: 80px;
+    
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    overflow-y: auto;
+    align-items: center;
+    padding: 10px;
+    background-color:rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive styling for 800px */
+@media screen and (max-width: 800px) {
+    
+    main {
+        margin-top: 110px; /* Reduce top margin for smaller screens */
+        
+    }
+
+    .container {
+        flex-direction: column; /* Stack elements vertically */
+        padding: 8px; /* Reduce padding for better fit */
+        min-height: 100vh; /* Let the container grow as needed */
+        height: auto; /* Allow the height to adjust */
+        width: 100%; /* Ensure it takes full width */
+        overflow-y: visible; /* Avoid unnecessary scrolling */
+    }
+}
+
+
+/************************************************************************************************************************/
+
+
+@keyframes myAnim2 {
+	0% {
+		opacity: 0;
+		transform: scale(0.6);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+
+.container .welcome-div {
+    background: transparent;
+    width: 60%;
+    height: 100vh;
+    border: 3px groove #feb47b;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    animation: myAnim2 2s ease 0s 1 normal forwards;
+}
+
+.welcome-div.hidden{
+    display: none;
+}
+
+.welcome-div .message{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
+
+.container .welcome-div h2{
+    background: linear-gradient(to right, #1ef901, #58dd7c, #03f8c7);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bolder;
+    font-size: 36px;
+    text-transform: capitalize;
+}
+
+.container .welcome-div p{
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(to right, #1ef901, #58dd7c, #03f8c7);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-transform: capitalize;
+}
+
+.welcome-div .controls{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 2px solid #180de2;
+}
+
+.carousel-container {
+    position: relative;
+    width: 80%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 70vh;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    border-radius: 10px;
+    background: transparent;
+}
+
+.carousel-item {
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+    display: none; 
+    height: 100%;
+   
+}
+
+.carousel-item.active{
+    display: block;
+}
+
+
+.video-intro {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.video-intro .progress-video-truck{
+    position: absolute;
+    top:20px;
+    left: 0;
+    width: 50px;
+    height: 59px;
+    background:rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    z-index: 3;
+}
+
+.video-intro .progress-video-truck .progress-video-bar{
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #f2cb05, #16f802); /* Pink gradient */
+    transition: width 0.5s ease-in-out;
+
+}
+
+.video-intro video {
+    width: 100%;
+    height: 100%;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 5px;
+}
+
+
+.video-intro .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(192, 46, 46, 0.4);
+    color: #f4f4f4;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-intro .video-overlay.active {
+    display: flex;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+
+.welcome-div .controls button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    
+    /* Ocean blue gradient */
+    background: linear-gradient(to right, #0077be, #00bfff, #00e5ff); 
+    color: white;
+    border-radius: 5px;
+    transition: background 0.3s ease; /* Smooth transition effect */
+}
+
+.welcome-div .controls button:hover {
+    /* Sunset gradient on hover */
+    background: linear-gradient(90deg, #ff7eb9, #ff65a3, #ff337b); /* Red-orange gradient */
+}
+
+.welcome-div .controls button.playing{
+    background: linear-gradient(90deg, #53f403, #ebe005, #f48404);
+}
+
+button i {
+    margin-right: 8px; /* Adds spacing between icon and text */
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.3); /* Light border */
+    border-top-color: #fff; /* Color of the spinner */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.spinner-icon.hidden {
+    display: none;
+}
+
+/* Responsive styling for 800px */
+@media screen and (max-width: 800px) {
+    
+    .container .welcome-div {
+        width: 90%; /* Adjust the width to fit smaller screens */
+        height: auto; /* Let the height adapt to the content */
+        padding: 5px; /* Reduce padding for smaller devices */
+        font-size: 16px; /* Adjust font size */
+    }
+
+    .container .welcome-div h2 {
+        font-size: 24px; /* Reduce heading font size */
+    }
+
+    .container .welcome-div p {
+        font-size: 18px; /* Reduce paragraph font size */
+    }
+
+    .welcome-div .controls {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center;
+    }
+
+    .welcome-div .controls button {
+        width: 100%; /* Buttons take full width */
+        font-size: 14px; /* Smaller text size */
+        padding: 8px; /* Reduce padding */
+        margin: 5px 0; /* Adjust margin for vertical stacking */
+    }
+
+    .carousel-container {
+        width: 100%; /* Make carousel take full width */
+        height: 60vh; /* Adjust height for smaller screens */
+    }
+
+    .carousel {
+        height: 50vh; /* Reduce carousel height */
+    }
+
+    .carousel-prev, .carousel-next {
+        padding: 8px; /* Reduce padding for buttons */
+        font-size: 18px; /* Reduce font size */
+    }
+
+    .video-intro .progress-video-truck {
+        width: 40px; /* Reduce size of progress bar container */
+        height: 50px; /* Adjust height */
+    }
+
+    .video-intro .progress-video-truck .progress-video-bar {
+        transition: width 0.3s ease; /* Faster progress bar transition */
+    }
+
+    .video-overlay {
+        font-size: 14px; /* Adjust font size for overlay text */
+    }
+}
+
+
+/********************************************************************************************************************************************/
+.container .about-imajin {
+    background: rgba(255, 255, 255, 0.2); /* Slightly transparent white background */
+    width: 60%;
+    height: 100vh;
+    overflow-y: auto;
+    border: 3px groove #feb47b;
+    padding: 20px; /* Increased padding for better spacing */
+    text-align: center;
+    border-radius: 10px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    animation: myAnim2 2s ease 0s 1 normal forwards;
+    scrollbar-width: none;
+}
+
+.container .about-imajin::-webkit-scrollbar {
+    display: none;
+}
+
+
+.about-imajin.visible {
+    display: flex;
+}
+
+.header-about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    position: relative;
+    width: 100%;
+}
+
+.back-home button {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.back-home button:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.header-image img {
+    width: 80px; /* Adjust image size as needed */
+    height: auto;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.header-title-name h2 {
+    font-size: 28px;
+    color: white;
+    
+}
+
+.description{
+    width: 100%;
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    text-align: left;
+    padding: 10px;
+    overflow-y: visible;
+   
+}
+
+.description h3 {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.description p {
+    font-size: 16px;
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.description p.active{
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(to right, #1ef901, #58dd7c, #03f8c7);
+    -webkit-background-clip: text;
+    color: transparent;
+
+}
+
+.description .voice-overs{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.description .voice-overs button{
+    background: linear-gradient(to right, #790499, #9c03fb, #ff00aa);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.description .voice-overs button:hover{
+    background: linear-gradient(to right, #0077be, #00bfff, #00e5ff);
+}
+
+.description .voice-overs button.active{
+    background: linear-gradient(to right, #e6f605, #ff7300, #ff4d00);
+}
+.vote-gratitude{
+    margin-top: 20px;
+}
+
+.vote-gratitude ul {
+    width:100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around; /* Adjust the spacing as needed */
+}
+
+.vote-gratitude li {
+    margin-right: 15px;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    width: calc(30% + 20px);
+    height: 30vh;
+    justify-content: space-between;
+    padding: 10px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.vote-gratitude li::-webkit-scrollbar{
+    display: none;
+}
+
+.vote-gratitude button {
+    background: linear-gradient(to right, #790499, #9c03fb, #ff00aa);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.vote-gratitude button:hover {
+    background: linear-gradient(to right, #0077be, #00bfff, #00e5ff); 
+}
+
+@media screen and (max-width: 800px) {
+    .container .about-imajin {
+        width: 95%; /* Adjust width for small screens */
+        height: 80vh; /* Reduce height to avoid overflow */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .header-image img {
+        width: 60px; /* Smaller image size */
+        margin-right: 10px;
+    }
+
+    .header-title-name h2 {
+        font-size: 22px; /* Smaller heading font size */
+    }
+
+    .back-home button {
+        background-color: #6c01be;
+        color: white;
+        border: 2px solid white;
+        font-size: 18px;
+    }
+
+    .back-home button:hover{
+        color: #790499;
+    }
+    .description {
+        height: 100vh;
+       
+    }
+
+    .description h3 {
+        font-size: 20px; /* Smaller font size for the description header */
+    }
+
+    .description p {
+        font-size: 14px; /* Smaller paragraph font size */
+        line-height: 1.4;
+    }
+
+    .description p.active{
+        font-size: 14px;
+    }
+
+    .description .voice-overs{
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .description .voice-overs::-webkit-scrollbar{
+        display: none;
+    }
+
+    .description .voice-overs button {
+        padding: 8px 16px; /* Smaller button padding */
+        font-size: 14px; /* Smaller font size */
+    }
+
+    .vote-gratitude{
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .vote-gratitude ul{
+        justify-content: center;
+        width: 100%;
+       overflow-x: auto;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 10px;
+
+    }
+
+    .vote-gratitude li {
+        background-color: rgba(255, 255, 255, 0.1);
+        width: 100%; /* Full width for list items on small screens */
+        height: 30vh; /* Auto height for better adaptability */
+        font-size: 16px; /* Smaller font size */
+        margin: 10px auto;
+    }
+
+    .vote-gratitude button {
+        padding: 8px 12px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Smaller font size for buttons */
+    }
+}
+
+
+/******************************************************************************************************************************************/
+
+.motivational-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.motivational-overlay.active{
+    display: flex;
+}
+
+.close-motivational {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 36px;
+    cursor: pointer;
+    color: white;
+    font-weight: bolder;
+}
+
+.close-motivational:hover{
+    color: #ff4d00;
+}
+
+.motivational-content {
+    background: transparent;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 60%;
+    height: 100vh;
+    color: #fff;
+    overflow-y: auto;
+    font-family: 'Arial', sans-serif;
+    scrollbar-width: none;
+    z-index: 2;
+}
+
+.motivational-content::-webkit-scrollbar{
+    display: none;
+}
+.motivational-content p {
+    opacity: 0.3; /* Less opaque */
+    transition: opacity 0.5s ease; /* Smooth transition */
+    text-transform: capitalize;
+    font-size: 24px;
+    margin: 5px;
+    color: #555;
+}
+
+.motivational-content p.active {
+    opacity: 1; /* Fully opaque when active */
+    font-weight: bold;
+    background: linear-gradient(to right, #1ef901, #58dd7c, #03f8c7);
+    -webkit-background-clip: text;
+    color: transparent;
+
+}
+
+@media screen and (max-width: 800px) {
+    .motivational-content {
+        width: 90%; /* Make content width wider for small screens */
+        height: 80vh; /* Adjust height to prevent overflow */
+        padding: 15px; /* Adjust padding for mobile */
+        font-size: 20px; /* Smaller font size */
+    }
+
+    .motivational-content p {
+        font-size: 20px; /* Smaller font size for paragraphs */
+        margin: 3px; /* Reduce margin for better spacing */
+    }
+
+    .close-motivational {
+        font-size: 40px; /* Slightly smaller close button */
+        top: 10px;
+        right: 10px;
+        font-weight: bold;
+    }
+}
+
+/*********************************************************************************************************************************************************************/
+
+.big-thanks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.thank-content {
+    background:rgba(255, 255, 255, 0.09);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+    font-family: 'Arial', sans-serif;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    border: 2px solid #6c01be;
+    border-radius: 50%;
+
+}
+
+.thank-content h2 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(to right, #7c05e3, #6c01be, #bb07ac);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Styling for each heart (love-div) */
+.love-div {
+    width: 100px;
+    height: 100px;
+    position: absolute; /* To allow random positioning */
+    animation: float 5s ease-in-out infinite;
+    color: #ff00aa; /* Heart color */
+    font-size: 30px; /* Adjust font size for heart icon */
+}
+
+.lyrics-self{
+    width:100%;
+    background:transparent;
+    height: 100%;
+    position:absolute;
+    z-index: 9999;
+    top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lyrics-self p{
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(to right, #1ef901, #58dd7c, #03f8c7);
+    -webkit-background-clip: text;
+    color: transparent;
+   
+}
+
+.lyrics-self p.anim{
+    animation: fade 2s ease 0s 1 normal forwards;
+}
+
+@keyframes fade {
+	0% {
+		opacity: 0;
+		transform: scale(0.6);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/* Specific styling for .love-div with the icognito class */
+.love-div.icognito {
+    font-size: 200px;
+    font-weight: bolder;
+    transform: translate(-50%, -50%);
+    color: #2b7610; /* You can change color for icognito if needed */
+    margin-left: 20px;
+    z-index:3;
+}
+
+
+.love-div.jello{
+    animation: Jello 3s ease 0s 1 normal forwards;
+}
+
+@keyframes Jello {
+	0% {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(0.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, 0.95, 1);
+	}
+
+	100% {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+/**************************************************************************************************************************************************/
+
+.dream-lyrics-overly {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.dream-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 36px;
+    cursor: pointer;
+    color: white;
+    font-weight: bolder;
+}
+
+.dream-content {
+    background: rgba(255, 255, 255, 0.09);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: black;
+    font-family: 'Arial', sans-serif;
+    width: 80%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border:2px solid #6c01be;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+}
+
+.dream-content::before{
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+}
+
+.dream-content p {
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(to right, #7c05e3, #e106bd, #bb07ac);
+    -webkit-background-clip: text;
+    color: transparent;
+    z-index: 4;
+    animation: blink 2s ease 0s 1 normal forwards;
+}
+
+.dream-content p:nth-child(even) {
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(to right, #1ef901, #58dd7c, #03f8c7);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.dream-content p.even {
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(to right, #1ef901, #58dd7c, #03f8c7);
+    -webkit-background-clip: text;
+    color: transparent;
+    /* Any additional styles for even-indexed paragraphs */
+}
+
+.dream-content p.odd {
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(to right, #7c05e3, #e106bd, #bb07ac);
+    -webkit-background-clip: text;
+    color: transparent;
+    /* Any additional styles for odd-indexed paragraphs */
+}
+
+
+@keyframes blink {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.2;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+
+@media screen and (max-width: 800px) {
+    /* Dream overlay adjustments for smaller screens */
+    .dream-lyrics-overly {
+        align-items: center; /* Align content near the top */
+        justify-content: center;
+        padding: 20px;
+    }
+
+    /* Dream content container adjustments */
+    .dream-content {
+        width: 90%; /* Increase width for mobile screens */
+        height: 50vh; /* Decrease height to fit better on mobile */
+        padding: 20px; /* Reduce padding for mobile */
+    }
+
+    /* Close button adjustments */
+    .dream-close {
+        font-size: 28px; /* Reduce the size of the close button */
+        top: 15px; /* Adjust the top position */
+        right: 15px; /* Adjust the right position */
+    }
+
+    /* Text adjustments inside dream-content */
+    .dream-content p {
+        font-size: 24px; /* Reduce font size for better readability on smaller screens */
+    }
+
+    .dream-content p.odd, .dream-content p.even {
+        font-size: 24px; /* Adjust font size for both odd and even paragraphs */
+    }
+}
+
+/**********************************************************************************************************************************/
+.show-yourself {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.show-yourself-content {
+    background:rgba(255, 255, 255, 0.09);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+    font-family: 'Arial', sans-serif;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    border: 2px solid #6c01be;
+    border-radius: 50%;
+
+}
+
+.show-yourself-content  h2 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(to right, #7c05e3, #6c01be, #bb07ac);
+    -webkit-background-clip: text;
+    color: transparent;
+    z-index:2;
+    opacity: 0;
+}
+
+@media screen and (max-width: 800px) {
+    .show-yourself-content {
+        width: 90vw; /* Scale the modal width to 90% of the viewport width */
+        height: 90vw; /* Maintain a circular shape by using the same value for height */
+        padding: 10px; /* Reduce padding on smaller screens */
+        font-size: 14px; /* Reduce font size for better readability */
+    }
+
+    .show-yourself-content h2 {
+        font-size: 14px; /* Reduce the font size for the heading */
+        z-index: 2;
+        text-align: center;
+    }
+}
+
+
+
+/**********************************************************************************************************************************************/
+.slideshow-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 10px; /* Add some padding to the edges */
+}
+
+.slideshow-overlay .image-preview::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(112, 66, 20, 0.4); /* Adjust for a sepia tone */
+    mix-blend-mode: multiply; /* Blend the overlay with the image */
+    z-index: 1; /* Ensure it sits on top of the image */
+}
+
+.slideshow-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    z-index: 3;
+    transition: color 0.3s;
+}
+
+.slideshow-close:hover {
+    color: #ff69b4; /* Pink on hover */
+}
+
+.slideshow-overlay ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slideshow-overlay li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f4e1c4; /* light vintage paper color */
+    border: 5px solid #c19a6b; /* sepia toned border */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* shadow for 3D look */
+    padding: 20px;
+    width: 600px;
+    height: 100vh;
+    text-align: center;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.slideshow-overlay li::-webkit-scrollbar{
+    display: none;
+}
+
+.slideshow-overlay  .name-title h2 {
+    font-family: 'Courier New', Courier, monospace; /* classic typeface */
+    color: #6b4226; /* darker sepia color */
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.slideshow-overlay  .image-preview {
+    width: 100%;
+    height: 70vh;
+
+    border: 4px solid #6b4226; /* photo frame look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* give image depth */
+    margin-bottom: 20px;
+}
+
+.slideshow-overlay  .image-preview img{
+    width: 100%;
+    height: 100%;
+    filter: grayscale(100%);
+}
+
+.slideshow-overlay  .lyrics-display{
+    width:100%;
+   height: 20vh;
+}
+
+.slideshow-overlay  .lyrics-display p {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #6b4226;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+@media screen and (max-width: 800px) {
+    .slideshow-overlay li {
+        width: 90%; /* Reduce width on smaller screens */
+        height: 80vh; /* Adjust height */
+        padding: 10px; /* Reduce padding */
+        border-width: 3px; /* Thinner border for smaller screens */
+    }
+
+    .slideshow-overlay .name-title h2 {
+        font-size: 1.2rem; /* Reduce font size for titles */
+    }
+
+    .slideshow-overlay .image-preview {
+        height: 50vh; /* Reduce image size for smaller screens */
+        border-width: 3px; /* Thinner border */
+    }
+
+    .slideshow-overlay .lyrics-display {
+        height: 15vh; /* Adjust height for lyrics */
+    }
+
+    .slideshow-overlay .lyrics-display p {
+        font-size: 1rem; /* Adjust font size for lyrics */
+    }
+}
+
+
+
+
+/**********************************************************************************************************************************************************/
+
+.trailer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Dark, dramatic background */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    animation: myAnim5 2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim5 {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.trailer-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 60px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s;
+}
+
+.trailer-close:hover {
+    color: #ff4500; /* Cinematic orange on hover */
+}
+
+.trailer-content {
+    background-color:transparent; /* Slightly transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    height: 100vh;
+    color: white;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+   
+}
+
+.trailer-number {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 5vh;
+    padding: 5px;
+   
+}
+
+.trailer-number .number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    display: none;
+}
+
+.trailer-number  .play-control{
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.progress-truck {
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+    margin-left: 10px;
+    position: relative;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #a9994a, #e106bd); /* Pink gradient */
+    transition: width 0.5s ease-in-out;
+}
+
+/* Trailer preview */
+.trailer-preview {
+    margin-top: 20px;
+    width: 80%; /* Full width on smaller screens */
+    height: 800px; /* Height for the video preview */
+    background: url('logo.jpg') no-repeat center center/cover; /* Placeholder image */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    position: relative;
+    margin: 10px;
+    animation: myAnim5 2s ease 0s 1 normal forwards;
+    transition: background-image 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* Black overlay */
+.trailer-preview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust opacity as needed */
+    border-radius: 10px; /* Match border radius */
+    z-index: 1; /* Ensure it sits above the background */
+    transition: opacity 0.5s ease-in-out; /* Fading effect */
+}
+
+.trailer-preview .names-display {
+    background:rgba(255, 255, 255, 0.2);
+    width: 500px;
+    height: auto;
+    font-size: 36px;
+    z-index: 3;
+    border-radius: 10px;
+    animation: myAnim6 2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim6 {
+	0% {
+		opacity: 0;
+		transform: translateX(-250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.names-display h2{
+    font-weight: bold;
+    background: linear-gradient(to right, #4fe305, #03ffd5, #fc03ec);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-transform: capitalize;
+   
+}
+
+@media screen and (max-width: 800px) {
+    .trailer-overlay {
+        padding: 10px; /* Reduced padding */
+    }
+
+    .trailer-close {
+        font-size: 40px; /* Smaller close icon for mobile */
+        top: 10px;
+        right: 10px;
+    }
+
+    .trailer-content {
+        width: 100%; /* Full width on smaller screens */
+        height: 90vh; /* Adjusted height for smaller screens */
+        padding: 15px;
+        flex-direction: column; /* Default flex-direction for better stacking */
+        
+    }
+
+    .trailer-number {
+        font-size: 18px; /* Smaller font size */
+        flex-direction: row; /* Stack the number and play-control vertically */
+        height: auto; /* Allow height to adjust dynamically */
+       
+    }
+
+    .trailer-number .number, 
+    .trailer-number .play-control {
+        font-size: 18px; /* Smaller font size */
+    }
+
+    .progress-truck {
+        height: 8px; /* Slightly smaller progress bar */
+    }
+
+    .trailer-preview {
+        width: 100%; /* Full width for trailer preview */
+        height: 400px; /* Adjusted height for smaller screens */
+        align-items: flex-end;
+    }
+
+    .names-display {
+        width: 100%; /* Full width for names display */
+        font-size: 28px; /* Smaller font size */
+        margin-bottom: 10px;
+    }
+
+    .names-display h2 {
+        font-size: 24px; /* Smaller header font */
+    }
+}
+
+
+
+/********************************************************************************************************************************************/
+/* Overlay background */
+.good-bye-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black overlay */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease; /* Smooth fade-in */
+    
+}
+
+/* Center content */
+.good-bye-content {
+    background: rgba(255, 255, 255, 0.1); /* Transparent white overlay for content */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    height: 100vh;
+    width: 100%;
+    backdrop-filter: blur(10px); /* Blurred background effect */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    overflow-y: auto;
+    position: relative;
+    scrollbar-width: none;
+}
+
+.good-bye-content::-webkit-scrollbar{
+    display: none;
+}
+
+/* Styling for video section */
+.good-bye-video {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 60vh;
+}
+
+.good-bye-video video {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
+    position: relative;
+    
+}
+
+.good-bye-video button {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff5757; /* Fancy red button */
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.good-bye-video button:hover {
+    background-color: #ff2020;
+    transform: scale(1.05);
+}
+
+/* Styling for audio section */
+.good-bye-audio {
+    margin-top: 20px;
+}
+
+.good-bye-message {
+    width: 100%;
+    height: 30vh;
+    margin-bottom: 10px;
+    overflow-y: auto;
+    font-weight: 300;
+    backdrop-filter: blur(10px); /* Blurred background effect */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6);
+    display: none;
+    flex-wrap: wrap;
+    white-space:wrap;
+    padding: 20px;
+    scrollbar-width: none;
+}
+
+.good-bye-message::-webkit-scrollbar{
+    display: none;
+}
+
+.good-bye-message p {
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(to right, #4fe305, #03ffd5, #fc03ec);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: left;
+}
+
+.good-bye-audio button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #57a0ff; /* Fancy blue button */
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.good-bye-audio button:hover {
+    background-color: #308bff;
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 800px) {
+    /* Overlay background */
+    .good-bye-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8); /* Semi-transparent black overlay */
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease; /* Smooth fade-in */
+    }
+
+    /* Center content */
+    .good-bye-content {
+        background: rgba(255, 255, 255, 0.1); /* Transparent white overlay for content */
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        height: 100vh;
+        width: 100%;
+        backdrop-filter: blur(10px); /* Blurred background effect */
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6);
+        color: #fff;
+        font-family: 'Arial', sans-serif;
+        overflow-y: auto;
+        position: relative;
+        scrollbar-width: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .good-bye-content::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Styling for video section */
+    .good-bye-video {
+        margin-bottom: 20px;
+        width: 100%;
+        height: 60vh;
+    }
+
+    .good-bye-video video {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
+        position: relative;
+    }
+
+    .good-bye-video button {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #ff5757; /* Fancy red button */
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .good-bye-video button:hover {
+        background-color: #ff2020;
+        transform: scale(1.05);
+    }
+
+    /* Styling for audio section */
+    .good-bye-audio {
+        margin-top: 20px;
+    }
+
+    .good-bye-message {
+        width: 100%;
+        height: 30vh;
+        margin-bottom: 10px;
+        overflow-y: auto;
+        font-weight: 300;
+        backdrop-filter: blur(10px); /* Blurred background effect */
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6);
+        display: none;
+        flex-wrap: wrap;
+        white-space: wrap;
+        padding: 20px;
+        scrollbar-width: none;
+    }
+
+    .good-bye-message::-webkit-scrollbar {
+        display: none;
+    }
+
+    .good-bye-message p {
+        font-size: 18px;
+        font-weight: bold;
+        background: linear-gradient(to right, #4fe305, #03ffd5, #fc03ec);
+        -webkit-background-clip: text;
+        color: transparent;
+        text-align: left;
+    }
+
+    .good-bye-audio button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #57a0ff; /* Fancy blue button */
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .good-bye-audio button:hover {
+        background-color: #308bff;
+        transform: scale(1.05);
+    }
+}
+
+
+/**********************************************************************************************************************************/
+.container .friends-section {
+    background: rgba(255, 255, 255, 0.2); /* Slightly transparent white background */
+    width: 60%;
+    height: 100vh;
+    overflow-y: auto;
+    border: 3px groove #feb47b;
+    padding: 20px; /* Increased padding for better spacing */
+    text-align: center;
+    border-radius: 10px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    animation: myAnim2 2s ease 0s 1 normal forwards;
+    scrollbar-width: none;
+}
+
+
+.friends-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between each friend */
+    width: 100%;
+    scroll-snap-type: y mandatory;
+}
+
+.friends-section li {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%; /* Four items in a row with a 20px gap */
+    height:100vh;
+    transition: transform 0.3s ease;
+ 
+}
+
+.friends-section li:hover {
+    transform: translateY(-10px); /* Lift on hover */
+}
+
+.friend {
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.friend-image{
+    width: 100%;
+    height: 80vh;
+}
+
+.friend-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.friend  fieldset {
+    border: 2px solid #ff65a3;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.friend legend {
+    font-weight: bold;
+    color: #ff65a3;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+
+.friend  button {
+    background-color: #ff69b4;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.friend  button:hover {
+    background-color: #ff4791;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .friends-section li {
+        width: calc(50% - 20px); /* Two items in a row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .friends-section li {
+        width: 100%; /* Full width on extra small screens */
+    }
+}
+
+/* Styles for .friends-section at 800px */
+@media screen and (max-width: 800px) {
+    .container .friends-section {
+        width: 100%; /* Increase width for smaller screens */
+        height: auto; /* Allow height to adjust based on content */
+        padding: 10px; /* Reduced padding for better spacing */
+        display: none; /* Change display to flex for better responsiveness */
+        justify-content: center; /* Center content */
+        align-items: flex-start; /* Align items at the start */
+    }
+
+    .friends-section ul {
+       
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid with smaller min width */
+    }
+
+    .friends-section li {
+        height: auto; /* Allow list items to adjust height based on content */
+    }
+
+    .friend-image {
+        height: 50vh; /* Adjust image height for smaller screens */
+    }
+
+    .friend-image img {
+        height: 100%; /* Allow images to maintain aspect ratio */
+    }
+
+    .friend fieldset {
+        padding: 5px; /* Reduced padding in fieldsets */
+    }
+
+    .friend button {
+        padding: 8px 16px; /* Adjust button padding */
+        font-size: 14px; /* Reduce button font size */
+    }
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+.friend-preview-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease; /* Smooth fade-in/out effect */
+}
+
+.friend-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 5rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.friend-close span:hover {
+    color: #ff6b6b; /* Soft red on hover */
+    transition: color 0.3s ease;
+}
+
+.friend-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: rgba(248, 146, 5, 0.81);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: opacity 0.3s ease; /* Smooth transition */
+    font-family: 'Cursive', sans-serif; /* Cursive font for signature style */
+    font-size: 1.5em; /* Font size */
+    text-align: left; /* Center the text */
+    padding: 20px; /* Increased padding for better spacing */
+    opacity: 1; /* Start as hidden */
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    z-index: 2;
+    scrollbar-width: none;
+    
+}
+
+.friend-image-overlay::-webkit-scrollbar{
+    display: none;
+}
+
+
+.friend-image-overlay p {
+    margin: 20px; /* Remove default margin */
+    
+    line-height: 1.2; /* Increase line height for better readability */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Subtle text shadow for better visibility */
+    animation: fadeIn 0.3s ease forwards; /* Fade-in effect when shown */
+}
+
+/* Optional: Add a fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start from invisible */
+    }
+    to {
+        opacity: 1; /* End at visible */
+    }
+}
+
+
+
+.friend-content {
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    text-align: center;
+    position: relative;
+    width: 500px;
+    height: 100vh;
+}
+
+.friend-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Nice image shadow */
+    margin-bottom: 20px;
+}
+
+.friend-name h2 {
+    font-family: 'Cursive', sans-serif;
+    font-size: 2rem;
+    color: #ff477e; /* Vibrant, fancy color for the name */
+    margin-bottom: 15px;
+    animation: slideIn 0.6s ease forwards; /* Smooth slide-in effect */
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.friend-button-controls {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.friend-button-controls button {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.friend-button-controls button:hover {
+    background-color:#790499;
+  
+}
+
+.friend-button-controls button i {
+    margin-right: 8px;
+}
+
+.friend-button-controls button:disabled{
+    background-color: #ff2020;
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Styles for small screens */
+@media screen and (max-width: 800px) {
+    .friend-close {
+        font-size: 3rem; /* Smaller close button on small screens */
+    }
+
+    .friend-content {
+        width: 90vw; /* More flexible width for content */
+        height: 70vh; /* Allow content height to adjust */
+        overflow-y: auto;
+        padding: 20px; /* Reduced padding for small screens */
+        scrollbar-width: none;
+    }
+
+    .friend-content::-webkit-scrollbar{
+        display: none;
+    }
+
+    .friend-button-controls button {
+        padding: 4px 8px; /* Smaller buttons on small screens */
+        font-size:16px; /* Slightly smaller font size */
+    }
+    .friend-image-overlay {
+        align-items: flex-start;
+        height: 70vh;
+        overflow-y: auto;
+    }
+    .friend-button-controls {
+        justify-content: space-between;
+    }
+}
+
+/********************************************************************************************************************************************************/
+
+/* Style for the quote icon at the top-left corner */
+.quote-icon {
+    position: fixed;
+    top: 100px;
+    left: 10px;
+    font-size: 24px;
+    background: #ff69b4; /* Pink background */
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    
+}
+
+.quote-icon:hover {
+    color: #333;
+}
+/* Quote side-div style */
+.quote-side-div {
+    position: fixed;
+    top: 80px;
+    left: -300px; /* Hidden off-screen initially */
+    width: 300px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black for overlay effect */
+    background-image: url('logo.jpg'); /* Set your background image here */
+    background-size: cover; /* Ensure the background covers the entire div */
+    background-position: center; /* Center the background image */
+    box-shadow: 3px 0 5px rgba(0,0,0,0.1);
+    z-index: 9999;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+/* Pseudo-element for black overlay */
+.quote-side-div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black overlay */
+    z-index: 1; /* Make sure the overlay is above the background but below the content */
+}
+
+/* Ensure the content inside the side-div is above the overlay */
+.quote-side-div > * {
+    position: relative; /* Make children position relative */
+    z-index: 2; /* Position children above the overlay */
+}
+
+
+.quote-side-div.open {
+    left: 0; /* Slide in from the left */
+}
+
+.quote-close {
+    padding: 10px;
+    text-align: right;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #f4f4f4;
+    top:10px;
+    right: 20px;
+    position: absolute;
+}
+
+.quote-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.quote-top-content {
+    margin-bottom: 20px;
+}
+
+.quote-text {
+    font-size: 18px;
+    font-style: italic;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.quote-text p {
+    margin: 0; /* Remove default margin from <p> */
+}
+
+.quote-author {
+    font-size: 16px;
+    font-weight: bold;
+    color: gold;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.quote-controls-buttons {
+    display: flex;
+    gap: 10px;
+    border-top: 2px solid #f4f4f4;
+    padding: 10px;
+}
+
+.quote-side-div button {
+    background-color: #008cba;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quote-side-div button:disabled{
+    background-color: transparent;
+    border: 1px solid #005f75;
+    opacity: 0.3;
+}
+
+.quote-side-div button:hover {
+    background-color: #005f75;
+}
+
+.quote-side-div button i {
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 800px) {
+    /* Adjust quote icon size and position for small screens */
+    .quote-icon {
+        top: 120px; /* Move it slightly higher */
+        left: 5px; /* Closer to the edge */
+        font-size: 18px; /* Reduce size */
+        padding: 8px; /* Adjust padding */
+    }
+
+    /* Adjust the size of the side-div for smaller screens */
+    .quote-side-div {
+        top: 0;
+        width: 100%; /* Take up a smaller percentage of the screen width */
+        left: -100%; /* Adjust the hidden position */
+        background-size: cover; /* Ensure background adapts */
+    }
+
+    /* When opened, take up less space on smaller screens */
+    .quote-side-div.open {
+        left: 0; /* Fully visible on mobile */
+    }
+
+    /* Ensure content padding and text size is more readable */
+    .quote-content {
+        padding: 10px;
+    }
+
+    /* Adjust the text for readability on small screens */
+    .quote-text {
+        font-size: 16px; /* Reduce font size for quotes */
+    }
+
+    .quote-author {
+        font-size: 24px; /* Smaller author text */
+    }
+
+    /* Make control buttons more compact on mobile */
+    .quote-controls-buttons {
+        gap: 5px; /* Reduce gap between buttons */
+        padding: 5px;
+        justify-content: space-between;
+    }
+
+    .quote-side-div button {
+        padding: 8px; /* Smaller button padding */
+        font-size: 14px; /* Smaller button text */
+    }
+}
+
+
+/************************************************************************************************************************************************/
+/* Overlay styles */
+.quote-preview-overlay {
+    position: fixed; /* Position the overlay fixed to the viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    display: none; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 9999; /* Ensure it appears on top of other content */
+}
+
+/* Quote preview container styles */
+.quote-preview {
+    background:linear-gradient(45deg, #6c01be, #00bfff); /* White background for the quote preview */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding around content */
+    width: 90%; /* Responsive width */
+    height: 100vh;
+    overflow-y: auto;
+    max-width: 600px; /* Maximum width */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    position: relative; /* Position relative for close button */
+    scrollbar-width: none;
+}
+
+.quote-preview::-webkit-scrollbar{
+    display: none;
+}
+
+/* Text area styles */
+.quote-preview-text {
+    font-size: 18px; /* Font size for the quote text */
+    margin-bottom: 15px; /* Spacing below the text */
+    line-height: 1.4; /* Line height for readability */
+    color: #470454;
+}
+
+.quote-preview-image .image-arena img{
+    width: 100%;
+    height: 100%;
+}
+
+.quote-preview-image .image-arena{
+    width: 100%; /* Responsive image width */
+    height: 100%; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners for image */
+    margin-bottom: 15px; /* Spacing below the image */
+}
+
+/* Image preview styles */
+.quote-preview-image{
+    width: 100%; /* Responsive image width */
+    height: 70vh; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners for image */
+    margin-bottom: 15px; /* Spacing below the image */
+    position: relative;
+}
+
+.quote-preview-image .text-arena{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.quote-preview-image .text-arena p {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient(to right, #4fe305, #03ffd5, #03f7db);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Audio field styles */
+.quote-preview-audio {
+    margin-bottom: 15px; /* Spacing below the audio player */
+}
+
+/* Actions button styles */
+.quote-preview-actions {
+    display: flex; /* Use flexbox for button alignment */
+    justify-content: space-between; /* Space buttons evenly */
+}
+
+/* Individual button styles */
+.quote-preview-actions button {
+    background:linear-gradient(45deg, #6c01be, #0960e3); /* Primary button color */
+    color: #fff; /* White text color */
+    border: 2px solid #f4f4f4; /* No border */
+    padding: 10px 15px; /* Padding for buttons */
+    border-radius: 5px; /* Rounded corners for buttons */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.quote-preview-actions button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.quote-preview-actions button:nth-child(3) {
+    background-color: #dc3545; /* Red color for the close button */
+}
+
+.quote-preview-actions button:nth-child(3):hover {
+    background-color: #c82333; /* Darker shade for close button on hover */
+}
+
+
+@media screen and (max-width: 800px) {
+    /* Adjust the overlay for smaller screens */
+    .quote-preview-overlay {
+        justify-content: center; /* Align content to the top */
+        align-items: center;
+       
+    }
+
+    /* Adjust the quote preview container */
+    .quote-preview {
+        width: 95%; /* Make it more responsive */
+        height: 90vh; /* Reduce height for smaller screens */
+        padding: 15px; /* Reduce padding */
+        overflow-y: auto;
+    }
+
+    /* Adjust the text area font size */
+    .quote-preview-text {
+        font-size: 16px; /* Reduce font size for readability */
+    }
+
+    .quote-preview-image .image-arena{
+        height: 60vh;
+    }
+
+    /* Adjust the image arena within the quote preview */
+    .quote-preview-image .image-arena img {
+        height: 100%; /* Adjust image height for smaller screens */
+    }
+
+    /* Adjust the image preview container */
+    .quote-preview-image {
+        height: 60vh; /* Reduce image preview height */
+    }
+
+
+    /* Adjust the text within the text arena */
+    .quote-preview-image .text-arena p {
+        font-size: 20px; /* Smaller font for text overlay */
+    }
+
+    /* Adjust button padding for mobile */
+    .quote-preview-actions button {
+        padding: 8px 10px; /* Smaller padding for buttons */
+        font-size: 14px; /* Reduce button text size */
+    }
+}
+
+
+/**************************************************************************************************************************/
+.magical-slideshow-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.magical-slideshow-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.magical-slideshow-close:hover {
+    color: #ff69b4; /* Pink on hover */
+}
+
+.slideshow-content {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    text-align: center;
+}
+
+.image-slide-view {
+    width: 100%;
+    height: 600px; /* Adjust height as needed */
+    background: black; /* Temporary background until images are added */
+    
+}
+
+.image-slide-view img{
+    width: 100%;
+    height: 100%;
+    animation: myAnim13 2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim13 {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.left-carousel-slideshow, .right-carousel-slideshow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 36px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    opacity:0 ;
+}
+
+.left-carousel-slideshow {
+    left: 20px;
+}
+
+.right-carousel-slideshow {
+    right: 20px;
+}
+
+.left-carousel-slideshow:hover, .right-carousel-slideshow:hover {
+    color: #ff69b4; /* Pink on hover */
+}
+
+/* Media query for small screens (max-width: 800px) */
+@media screen and (max-width: 800px) {
+    .magical-slideshow-close {
+        font-size: 50px; /* Smaller close button on small screens */
+    }
+
+    .slideshow-content {
+        width: 90%; /* More flexible width for content */
+       height: 60vh;
+    }
+
+    .image-slide-view {
+        height: 400px; /* Adjusted height for smaller screens */
+    }
+
+    .magical-slideshow-overlay {
+        padding: 10px; /* Reduced padding for smaller screens */
+    }
+}
+
+/********************************************************************************************************************************/
+
+.name-ping {
+    position: absolute;
+    transform: translateX(-50%);
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    text-align: center;
+    opacity: 0;
+    text-transform: capitalize;
+    z-index: 9999;
+    animation: myHeart 2.5s ease 0s 1 normal forwards;
+}
+
+
+.pulse{
+    z-index: 9999;
+   
+}
+
+@keyframes myHeart {
+	0% {
+		opacity: 0.8;
+		transform: scale(0.2);
+	}
+
+	80% {
+		opacity: 0;
+		transform: scale(1.2);
+	}
+
+	100% {
+		opacity: 0;
+        transform: rotate(12deg);
+		transform: scale(2.5);
+        
+	}
+}
+
+
+/***************************************************************************************************************************/
+
+/* Loading Animation Container */
+.loading-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full screen height */
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background to cover content */
+    position: fixed; /* Overlay */
+    top: 0;
+    left: 0;
+    z-index: 9999; /* On top of all content */
+}
+
+/* Animated Lyrics Loader */
+.loading-lyrics-anim {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 10px;
+    background: linear-gradient(45deg, #ff65a3, #57a0ff, #ff69b4, #00f260);
+    background-size: 400% 400%; /* Moving gradient */
+    animation: pulse 2s infinite ease-in-out, gradientMove 3s infinite linear;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Gradient movement */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.loading-message {
+    position: absolute; /* Absolute positioning to overlay */
+    top: 40%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Centering trick */
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(to right, #4fe305, #03ffd5, #03f7db); /* Gradient background for text */
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    z-index: 10000; /* Ensure it stays on top of the loading animation */
+    padding: 10px;
+
+}
+
+.loading-message {
+    font-size: 1.5rem;
+    
+    text-align: center;
+    padding: 10px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+/* Small Screen Adjustments */
+@media screen and (max-width: 800px) {
+    .loading-lyrics-anim {
+        width: 40px; /* Smaller size for smaller screens */
+        height: 40px;
+    }
+
+    .loading-message {
+        font-size: 18px; /* Smaller font size for better fit */
+        padding: 8px;
+    }
+}
+
+@media (max-width: 500px) {
+    .loading-lyrics-anim {
+        width: 30px; /* Even smaller size for very small screens */
+        height: 30px;
+    }
+
+    .loading-message {
+        font-size: 16px; /* Further reduce font size */
+        padding: 6px;
+    }
+}
+/*****************************************************************************************************************************************************/
+
+/* General styling for the overlay */
+.quote-maker-verlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(34, 193, 195, 0.7), rgba(145, 2, 255, 0.7)); /* Linear gradient background */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it overlays other content */
+}
+
+/* Close button styling */
+.quote-maker-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    font-weight: bold;
+    background-color: #fff;
+    color: #ff2020;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+/* Content container */
+.quote-maker-content {
+    /* Slightly transparent white background */
+    background: linear-gradient(135deg, #4A90E2, #9013FE);
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    height: 90vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+.quote-maker-content::-webkit-scrollbar{
+    display: none;
+}
+
+.quote-maker-content h1{
+    color:#00f260;
+    margin-left: 10px;
+}
+
+/* Top section styling */
+.top-quote-maker {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Styling for the .quote-intro-preview and .quote-maker-preview containers */
+.quote-intro-preview, .quote-maker-preview {
+    background: linear-gradient(135deg, #9702fa, #ff5e62); /* Gradient background */
+    width: 48%;
+    height: 150px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    padding: 10px; /* Add padding to create space for the text */
+    overflow-y: auto; /* Enable scrolling if the text is too long */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    scrollbar-width: none;
+}
+
+.quote-intro-preview::-webkit-scrollbar, .quote-maker-preview-::-webkit-scrollbar{
+    display: none;
+}
+
+/* Styling the p tags inside .quote-intro-preview and .quote-maker-preview */
+.quote-intro-preview p, .quote-maker-preview p {
+    font-size: 1.2rem; /* Adjust the font size */
+    color: #fff; /* White text color */
+    text-align: center; /* Center the text */
+    line-height: 1.5; /* Improve readability */
+    margin: 0; /* Remove default margin */
+    font-style: italic; /* Add italics for a more elegant look */
+    padding: 0 5px; /* Add slight padding to ensure text doesn't touch edges */
+}
+
+
+/* Bottom section styling */
+.bottom-quote-maker {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.quote-intro-list h2, .quote-list h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #daa520;
+    margin-bottom: 10px;
+}
+
+.quote-intro-list ul, .quote-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Adjust based on your layout needs */
+    gap: 10px; /* Space between list items */
+    margin-top: 10px;
+    
+}
+
+.quote-intro-list ul li, .quote-list ul li {
+    background: linear-gradient(135deg, #00c6ff, #0072ff); /* Gradient background for list items */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    width: 100px;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quote-intro-list ul li:hover, .quote-list ul li:hover {
+    background: linear-gradient(135deg, #9500ff, #ffae00);
+}
+
+.quote-intro-list ul li.active{
+    background: linear-gradient(135deg, #9500ff, #ffae00);
+}
+
+.quote-list ul li.active{
+    background: linear-gradient(135deg, #5eff00, #ff6f00);
+}
+
+/* Button styling for more actions */
+.more-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.more-actions button {
+    background-color: #ff9966;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.more-actions button:hover {
+    background-color: #ff5e62;
+}
+
+.more-actions button.active {
+    background-color: #7d039f;
+}
+
+.more-actions button:disabled {
+    background-color: #cccccc;
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.quote-maker-notice {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    font-size: 1.2rem;
+    z-index: 9999;
+    animation: fade-out 5s forwards;
+    display: none;
+}
+
+/* Ensure the content is responsive */
+@media screen and (max-width: 800px) {
+    .download-video{
+        position: absolute;
+        top: 50px;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    /* General styling for the overlay */
+    .quote-maker-verlay {
+        width: 100%;
+        height: 100vh;
+        padding: 10px;
+    }
+
+    /* Close button styling */
+    .quote-maker-close {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+        top:50px;
+        right: 20px;
+    }
+
+    /* Content container */
+    .quote-maker-content {
+        width: 100%;
+        height: 85vh;
+        padding: 10px;
+    }
+
+    .quote-maker-content h1{
+        color:#470454;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+
+    /* Styling for the .quote-intro-preview and .quote-maker-preview containers */
+    .quote-intro-preview, .quote-maker-preview {
+        width: 100%;
+        height: 120px;
+        font-size: 14px;
+        margin: 5px;
+    }
+
+    .quote-intro-preview p, .quote-maker-preview p{
+        font-size: 14px;
+    }
+
+    /* Adjust bottom section */
+    .bottom-quote-maker {
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .quote-intro-list ul, .quote-list ul {
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+        gap: 5px; /* Keep space between list items */
+    }
+
+    .more-actions{
+        width: 100%;
+        overflow: hidden;
+        flex-direction: column;
+        height: auto;
+        
+    }
+
+    /* Adjust buttons */
+    .more-actions button {
+        margin: 10px;
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .quote-maker-notice {
+        font-size: 1rem;
+        padding: 15px;
+    }
+}
+
+
+/*******************************************************************************************************************************/
+.download-video{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 50px;
+    background-color: #0056b3;
+    color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.download-video:hover{
+    background-color: #00e5ff;
+}
+
+.download-video:hover button{
+    color: #790499;
+}
+
+.download-video button{
+    background-color: transparent;
+    color: #f4f4f4;
+    border: none;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/***********************************************************************************************************************************************/
+/* Modal styles */
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 9999;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #fd03f0, #650288); /* Beautiful gradient background */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    animation: slideIn 0.5s ease-out; /* Smooth slide-in effect */
+}
+
+.modal-header, .modal-footer {
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+
+.modal-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.modal-body {
+    text-align: center;
+    color: #fff;
+}
+
+.modal-footer {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.modal-footer button {
+    background: #330260;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.modal-footer button:hover {
+    background: #ff477e;
+}
+
+.modal-footer button:disabled{
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #ff2020;
+}
+
+/* Fancy Input styles */
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.fancy-input {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.fancy-input:focus {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    /* Modal styles */
+    .modal-content {
+        width: 95%; /* Make it take almost full width */
+        max-width: none; /* Remove the max-width constraint */
+        padding: 15px; /* Reduce padding for smaller screens */
+        border-radius: 8px; /* Slightly reduce the corner radius */
+    }
+
+    .modal-header {
+        font-size: 1.2rem; /* Reduce font size */
+        margin-bottom: 15px; /* Adjust bottom margin */
+    }
+
+    .modal-body {
+        font-size: 0.9rem; /* Adjust text size */
+    }
+
+    .modal-footer {
+        flex-direction: column; /* Stack the buttons vertically */
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+
+    .modal-footer button {
+        width: 100%; /* Make buttons full width */
+        margin: 5px 0; /* Add margin between buttons */
+        padding: 8px 15px; /* Adjust padding */
+    }
+
+    /* Fancy Input */
+    .fancy-input {
+        font-size: 0.9rem; /* Adjust font size for inputs */
+        padding: 8px 15px; /* Adjust padding */
+    }
+}
+
+/********************************************************************************************************************************************************/
+
+/* Container styles */
+.quote-image-upload {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 9999;
+    background: linear-gradient(135deg, #6e8efb, #a777e3); /* Gradient background */
+    padding: 20px;
+}
+
+/* Content styles */
+.upload-content {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 80%;
+    height: 80vh;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Upload arena styles */
+.upload-arena {
+    margin: 10px;
+    width: 100%;
+}
+
+.upload-arena label {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #470454;
+    cursor: pointer;
+    padding: 10px;
+    border: 2px solid #470454;
+    background: linear-gradient(135deg,transparent, #0072ff, transparent); /* Vibrant gradient */
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: background 0.3s ease;
+}
+
+.upload-arena label:hover {
+    background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+    opacity: 0.9;
+}
+
+.upload-arena input[type="file"] {
+    display: none; /* Hidden input field */
+}
+
+.close-upload {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 50px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: #fc5c7d;
+}
+
+.close-upload span:hover {
+    color: #ff4757; /* Slight color change on hover */
+}
+
+/* Preview styles */
+.upload-preview {
+    margin-bottom: 10px;
+    display: flex;
+    width: 60%;
+    height: 60vh;
+   border: 5px dotted #470454;
+}
+
+.upload-preview img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.actions-upload {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+}
+
+/* Action buttons */
+.actions-upload button {
+    background: linear-gradient(135deg,#470454, #0072ff);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 10px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.actions-upload button:hover {
+    background: #6e8efb;
+    transform: translateY(-2px);
+}
+
+.actions-upload button:disabled {
+    background: #cccc;
+   cursor: not-allowed;
+   color: #ff2020;
+}
+
+@media screen and (max-width: 800px) {
+    /* Adjust container styles */
+    .quote-image-upload {
+        padding: 10px;
+    }
+
+    /* Content styles */
+    .upload-content {
+        width: 95%; /* Make it wider to fit smaller screens */
+        height: 80vh; /* Reduce height for smaller screens */
+        padding: 15px; /* Adjust padding */
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
+
+    .upload-content::-webkit-scrollbar{
+        display: none;
+    }
+
+    /* Upload arena styles */
+    .upload-arena {
+        margin: 5px;
+        width: 100%;
+    }
+
+    /* Adjust preview styles */
+    .upload-preview {
+        width: 100%; /* Full width for smaller screens */
+        height: 50vh; /* Reduce height */
+        border: 3px dotted #470454; /* Slightly thinner border */
+    }
+
+    /* Action buttons */
+    .actions-upload {
+        width: 100%; /* Full width */
+        margin: 10px 0; /* Adjust margin */
+        flex-direction: column; /* Stack buttons vertically */
+    }
+
+    .actions-upload button {
+        width: 100%; /* Full width buttons */
+        margin: 5px 0; /* Reduce margin */
+        padding: 8px 15px; /* Adjust padding */
+        font-size: 0.9rem; /* Slightly smaller font */
+    }
+
+    /* Close button adjustment */
+    .close-upload {
+        font-size: 40px; /* Reduce size for smaller screens */
+        top: 5px;
+        right: 5px;
+        color: #00f260;
+    }
+}
+
+/*******************************************************************************************************************************//* Overlay styles */
+/* Overlay styles */
+.test-preview-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    z-index: 9999;
+}
+
+/* Close button styles */
+.test-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 50px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.test-close span:hover {
+    color: #ff4757; /* Slight color change on hover */
+}
+
+/* Content styles */
+.test-content {
+    position: relative;
+    width: 60%;
+    height: 80vh;
+    background: url('logo.jpg') no-repeat center center; /* Background image */
+    background-size: cover; /* Make sure the image covers the whole container */
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Quote overlay styles */
+.test-quote-overlay {
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+    font-family: 'Cursive', sans-serif; /* Fancy font for quotes */
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.test-quote-overlay p{
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 2;
+    background: linear-gradient(to right, #4fe305, #03ffd5, #03f7db);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.controls-test{
+    width: 100%;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.controls-test button {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #f4f4f4;
+    border: 2px solid #f4f4f4;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.controls-test button:hover{
+    background-color: #00c6ff;
+    color: #470454;
+}
