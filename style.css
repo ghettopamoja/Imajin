@@ -2400,6 +2400,47 @@ button i {
         font-size: 14px; /* Smaller button text */
     }
 }
+/************************************************************************************************************************************************/
+
+.story-icon {
+    position: fixed;
+    z-index: 9999; /* Ensure the icon stays on top of other content */
+    position: fixed;
+    top: 170px;
+    left: 10px;
+    font-size: 24px;
+    background: #ff69b4; /* Pink background */
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 50px;  /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+}
+
+.story-icon img {
+    width: 100%;  /* Adjust size as needed */
+    height: 100%; /* Adjust size as needed */
+    border-radius: 50%;
+    cursor: pointer; /* Makes it clickable */
+}
+
+@media (max-width: 800px) {
+    .story-icon {
+        top: 170px; /* Adjusted top position for mobile layout */
+        left: 0; /* Reduced left padding for smaller screens */
+        font-size: 20px; /* Slightly smaller font size */
+        width: 40px;  /* Reduced size */
+        height: 40px;
+        padding: 4px; /* Adjust padding to maintain proportions */
+    }
+
+    .story-icon img {
+        width: 100%; /* Keeps the image responsive within the icon */
+        height: 100%;
+    }
+}
 
 
 /************************************************************************************************************************************************/
@@ -3555,4 +3596,442 @@ button i {
 .controls-test button:hover{
     background-color: #00c6ff;
     color: #470454;
+}
+
+/**************************************************************************************************************************/
+.stories-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    z-index: 9999;
+}
+
+.stories-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.stories-close span:hover {
+    color: #ff4757; /* Slight color change on hover */
+}
+
+.stories-content {
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: rolll 2s ease 0s 1 normal forwards;
+    background: linear-gradient(135deg, #730ace, #11c81d); /* Beautiful gradient background */
+}
+
+@keyframes rolll {
+	0% {
+		opacity: 0;
+		transform: translateY(-250px) rotate(-200deg);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0) rotate(0deg);
+	}
+}
+
+.story {
+    display: none; /* Hide all stories by default */
+    flex-direction: column;
+    align-items: center;
+    transition: transform 4s ease, opacity 4s ease ;
+    transform: translateX(-100%);
+    opacity: 0;
+    color: #00f260;
+}
+
+.story.active {
+    display: flex; /* Show only the active story */
+    opacity: 1;
+}
+
+.story-slide-left {
+    animation: slideL 2.5s ease 0s 1 normal forwards;
+}
+
+@keyframes slideL {
+	0% {
+		opacity: 0;
+		transform: translateX(-250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+
+.story-slide-right {
+    animation: slideR 2.5s ease 0s 1 normal forwards;
+}
+
+@keyframes slideR {
+	0% {
+		opacity: 0;
+		transform: translateX(250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.story-slide-in {
+    transform: translateX(0);
+    animation: ssw 2s ease 0s 1 normal forwards;
+    transition: transform 1s ease, opacity 4s ease ;
+    opacity: 1;
+}
+
+.story-slide-out{
+    animation: sswL 2s ease 0s 1 normal forwards;
+}
+
+@keyframes ssw {
+	0% {
+		opacity: 0;
+		transform: rotateY(70deg);
+		transform-origin: right;
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotateY(0);
+		transform-origin: right;
+	}
+}
+
+@keyframes sswL {
+	0% {
+		opacity: 0;
+		transform: rotateY(-70deg);
+		transform-origin: left;
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotateY(0);
+		transform-origin: left;
+	}
+}
+
+.story-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.story-text h2 {
+    font-size: 1.5rem;
+    color: #ebe005;
+    margin-bottom: 10px;
+}
+
+.story-text p {
+    font-size: 1rem;
+    color: #08f5f1;
+    line-height: 1.5;
+}
+
+.fairy-tale {
+    display: none; /* Initially hidden */
+}
+
+.read-story {
+    margin-top: 20px;
+}
+
+.read-story-btn {
+    background: linear-gradient(135deg, #fc03ec, #6c01be);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.read-story-btn:hover {
+    background: #79ec05;
+}
+
+.story-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.story-navigation button {
+    background: #7f04f2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.story-navigation button:hover {
+    background: #f87503;
+}
+
+/* Small screen adjustments */
+@media (max-width: 800px) {
+    .stories-overlay {
+        padding: 10px; /* Add padding to avoid edge issues */
+    }
+
+    .stories-close {
+        font-size: 2.4rem; /* Adjust font size */
+        top: 15px;
+        right: 15px;
+    }
+
+    .stories-content {
+        width: 95%; /* Maximize width for small screens */
+        padding: 15px;
+        border-radius: 8px; /* Slightly reduce border-radius */
+        height: 60vh;
+    }
+
+    .story-avatar img {
+        width: 150px; /* Reduce avatar size */
+        height: 150px;
+        margin-bottom: 15px;
+    }
+
+    .story-text h2 {
+        font-size: 1.25rem; /* Adjust heading size */
+        margin-bottom: 8px;
+    }
+
+    .story-text p {
+        font-size: 0.9rem; /* Adjust paragraph text size */
+        line-height: 1.4;
+    }
+
+    .read-story-btn {
+        padding: 8px 16px; /* Adjust button padding */
+        font-size: 0.9rem;
+    }
+
+    .story-navigation {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px; /* Add spacing between buttons */
+    }
+
+    .story-navigation button {
+        padding: 8px 16px; /* Adjust padding for smaller buttons */
+        font-size: 0.9rem;
+    }
+}
+
+
+/*************************************************************************************************************************************************/
+
+/* Overall Overlay Styling */
+.narration-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+}
+
+.narration-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.narration-content {
+    width: 80%;
+    height: 80vh;
+    position: relative;
+    top: 50px;
+    padding: 20px;
+    background-image: url('logo.jpg'); /* Replace with the actual path to your background image */
+    background-size: cover; /* Adjusts image to cover the entire content area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Ensures the image doesn’t repeat */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.narration-content > * {
+    position: relative; /* Ensure that child elements are above the overlay */
+    z-index: 2; /* Ensures child elements appear above the black overlay */
+}
+
+/* Ensures the overlay resizes with the content */
+.narration-content > ::before {
+    height: 100%; /* Adjusts to the height of the content */
+}
+
+
+.narration-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* Header text styling */
+.header-text h2 {
+    text-align: center;
+    font-family: 'Garamond', serif;
+    font-size: 36px;
+    color: #00f260;
+    margin-bottom: 20px;
+}
+
+/* Narration area */
+.narration {
+    display: flex;
+    align-items: flex-start; /* Align image and text at the top */
+    gap: 20px; /* Space between the image and text */
+    padding: 10px;
+    background:rgba(0, 0, 0, 0.2);
+}
+
+.narration::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Keeps it the same height as the content */
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay */
+    z-index: 1; /* Keeps the overlay below the content */
+}
+
+/* Image styling */
+.narration img {
+    width: 150px;  /* Adjust size for the top-left avatar */
+    height: 150px;
+    border-radius: 10px; /* Rounded corners to give a soft, storybook-like feel */
+    object-fit: cover; /* Ensure the image fits within the given dimensions */
+}
+
+/* Narration text */
+.narration-text {
+    flex: 1; /* Make text take up the remaining space */
+    font-family: 'Garamond', serif; /* Classic font for a storybook feel */
+    font-size: 18px;
+    line-height: 1.6;
+    font-size: 24px;
+    color: #00f260;
+    text-align: justify; /* Make it look like a book page */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.narration-text p {
+    margin-bottom: 20px;
+    z-index: 2;
+    font-family: 'Merriweather', serif; /* Use a serif font for storytelling */
+    line-height: 1.6; /* Improves readability */
+}
+
+.narration-text p::first-letter{
+    color: #eeff00;
+}
+
+.narration-text p:first-of-type::first-line {
+    color: #03ffd5; /* Change the color of the first line */
+    font-weight: bold; /* Optional: make it bold */
+    font-size: 1.2em; /* Optional: increase font size */
+}
+
+@media (max-width: 800px) {
+    /* Overall Overlay Styling */
+    .narration-overlay {
+        padding: 10px; /* Avoids overlay edges cutting off content */
+    }
+
+    .narration-close {
+        font-size: 40px; /* Smaller close icon */
+        top: 15px;
+        right: 15px;
+        font-weight: bold;
+    }
+
+    .narration-content {
+        width: 99%; /* Uses more screen width on mobile */
+        height: 95vh; /* Slightly shorter for better fit */
+        padding: 15px;
+        background-size: contain; /* Ensures background image fits without over-stretching */
+        overflow-y: auto;
+    }
+
+    .header-text h2 {
+        font-size: 28px; /* Smaller header for mobile readability */
+        margin-bottom: 15px;
+    }
+
+    /* Narration Area */
+    .narration {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: center;
+        padding: 8px;
+        gap: 10px; /* Reduced gap for tighter layout */
+        
+    }
+
+    .narration img {
+        width: 200px; /* Smaller avatar image */
+        height: 200px;
+        margin-bottom: 10px;
+    }
+
+    /* Narration Text */
+    .narration-text {
+        font-size: 16px; /* Reduce font size for mobile */
+        line-height: 1.5;
+        padding: 8px;
+        width: 100%;
+    }
+
+    .narration-text p {
+        margin-bottom: 15px;
+        font-size: 16px; /* Smaller font in paragraphs */
+        line-height: 1.5;
+    }
 }
