@@ -2404,7 +2404,7 @@ button i {
 
 .story-icon {
     position: fixed;
-    z-index: 9999; /* Ensure the icon stays on top of other content */
+    z-index: 2; /* Ensure the icon stays on top of other content */
     position: fixed;
     top: 170px;
     left: 10px;
