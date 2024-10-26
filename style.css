@@ -2084,7 +2084,7 @@ button i {
     justify-content: flex-start;
     align-items: center;
     transition: opacity 0.3s ease; /* Smooth transition */
-    font-family: 'Cursive', sans-serif; /* Cursive font for signature style */
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Cursive font for signature style */
     font-size: 1.5em; /* Font size */
     text-align: left; /* Center the text */
     padding: 20px; /* Increased padding for better spacing */
@@ -2141,7 +2141,7 @@ button i {
 }
 
 .friend-name h2 {
-    font-family: 'Cursive', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 2rem;
     color: #ff477e; /* Vibrant, fancy color for the name */
     margin-bottom: 15px;
