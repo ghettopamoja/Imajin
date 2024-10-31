@@ -87,14 +87,14 @@ header {
 .right-header ul li {
     font-size: 24px;
     font-weight: bold;
-    background: linear-gradient(to right, #0077be, #00bfff, #00e5ff);
+    background: linear-gradient(to right, #01a0fc, #00bfff, #00e5ff);
     -webkit-background-clip: text;
     color: transparent;
     cursor: pointer;
 }
 
 .right-header ul li:hover{
-    background: linear-gradient(to right, #790499, #9c03fb, #88ff00);
+    background: linear-gradient(90deg,  #69f803,#01f891, #3bf403);
     -webkit-background-clip: text;
     color: transparent;
 }
@@ -152,7 +152,7 @@ header {
 }
 
 .song-menu ul li:hover{
-    background: linear-gradient(90deg,  #6c01be,#790499, #7c05e3);
+    background: linear-gradient(90deg,  #9e03f8,#c003f5, #01fcef);
 }
 
 .song-menu.active{
@@ -202,6 +202,8 @@ header {
 
     .right-header ul li {
         font-size: 20px;
+        justify-content: center;
+       
     }
 
     /* Adjust song menu size */
@@ -742,6 +744,11 @@ button i {
 
 .vote-gratitude li::-webkit-scrollbar{
     display: none;
+}
+
+.vote-gratitude li:hover{
+    color:yellow;
+    background-color: rgba(255, 255, 255, 0.09);
 }
 
 .vote-gratitude button {
@@ -2223,7 +2230,7 @@ button i {
 /* Style for the quote icon at the top-left corner */
 .quote-icon {
     position: fixed;
-    top: 100px;
+    top: 90px;
     left: 10px;
     font-size: 24px;
     background: #ff69b4; /* Pink background */
@@ -2406,7 +2413,7 @@ button i {
     position: fixed;
     z-index: 2; /* Ensure the icon stays on top of other content */
     position: fixed;
-    top: 170px;
+    top: 150px;
     left: 10px;
     font-size: 24px;
     background: #ff69b4; /* Pink background */
@@ -3816,7 +3823,7 @@ button i {
         width: 95%; /* Maximize width for small screens */
         padding: 15px;
         border-radius: 8px; /* Slightly reduce border-radius */
-        height: 60vh;
+        height: auto;
     }
 
     .story-avatar img {
@@ -4033,5 +4040,281 @@ button i {
         margin-bottom: 15px;
         font-size: 16px; /* Smaller font in paragraphs */
         line-height: 1.5;
+    }
+}
+
+/****************************************************************************************************************************************************************/
+.story-preview {
+    width: 50%;
+    height: 50vh;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(13deg, #00bfff, #330260);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: absolute; /* Use absolute positioning */
+    top: 50%; /* Move down 50% of the viewport height */
+    left: 50%; /* Move right 50% of the viewport width */
+    transform: translate(-50%, -50%); /* Center the element */
+    font-family: Arial, sans-serif;
+    z-index: 999;
+    display: none; /* Hidden by default */
+    flex-direction: column; /* Use flexbox for children */
+    align-items: center; /* Center child items horizontally */
+    justify-content: center; /* Center child items vertically */
+}
+
+.close-dialog {
+    position: absolute; /* Position relative to the .story-preview */
+    top: 10px; /* 10px from the top */
+    right: 10px; /* 10px from the right */
+    cursor: pointer; /* Change cursor to pointer */
+    font-size: 1.5em; /* Larger font size */
+    color: #ff2020; /* Color for the close icon */
+}
+
+.close-dialog:hover {
+    color: #ff6347; /* Color change on hover */
+}
+
+.story-preview ul {
+    list-style: none; /* Remove default list style */
+    padding: 0; /* Remove padding */
+    margin: 20px 0 0 0; /* Margin for spacing */
+}
+
+.story-preview ul li {
+    margin: 10px 0; /* Spacing between list items */
+    padding: 10px; /* Inner padding */
+    background: linear-gradient(135deg, #f4f4f4, #10e83b); /* Background gradient */
+    height: 10vh; /* Set height */
+    width: 100px; /* Set width */
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    color: #e106bd; /* Text color */
+    cursor: pointer; /* Change cursor to pointer */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+ul li:hover {
+    background-color: #e9e9e9; /* Change background on hover */
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 800px) {
+    .story-preview {
+        margin-top: 50px;
+        width: 80%; /* Adjust width for smaller screens */
+        height: 30vh; /* Adjust height for smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    ul li {
+        width: 80%; /* Adjust width of list items */
+        height: auto; /* Adjust height for better fit */
+    }
+}
+
+/*********************************************************************************************************************************************/
+
+    .characters-preview-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+        z-index: 9999;
+        flex-direction: column;
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
+
+    .characters-preview-overlay::-webkit-scrollbar{
+        display: none;
+    }
+
+    .character-close{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        font-size: 40px;
+        color: #fff;
+        font-weight: bolder;
+    }
+
+    .character-close- span:hover {
+        color: #ff6347;
+    }
+
+    .character-preview-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 60%;
+        height: 80vh;
+    }
+
+    .left-character,
+    .right-character {
+        width: 300px;
+        height: 100%;
+        background: linear-gradient(135deg, #c803f4, #fa9702, #45f803);
+        background: url('logo2.jpg') center/cover no-repeat;
+        margin: 0 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-image 1s ease-in-out;
+
+    }
+
+    @keyframes myA {
+        0% {
+            opacity: 0;
+        }
+    
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .right-character{
+        background: url('logo.jpg') center/cover no-repeat;
+    
+    }
+    .dark-in{
+        filter: grayscale(100%);
+    }
+    .versus {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .versus h2 {
+        font-weight: bold;
+        background: linear-gradient(90deg, #c803f4, #fa9702, #45f803);
+        -webkit-background-clip: text;
+        color: transparent;
+        font-size: 4rem;
+    }
+
+    .song-picker{
+        background: transparent;
+        display: block;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 60%;
+        height: 20vh;
+    }
+    .song-picker ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+    }
+
+    .song-picker ul li {
+        margin: 10px; /* Spacing between list items */
+        padding: 10px; /* Inner padding */
+        background: linear-gradient(135deg, #f4f4f4, #10e83b); /* Background gradient */
+        height: 50px; /* Set height */
+        width: 50px; /* Set width */
+        display: flex; /* Use flexbox */
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+        color: #e106bd; /* Text color */
+        cursor: pointer; /* Change cursor to pointer */
+        border-radius: 5px; /* Rounded corners */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    }
+
+    .song-picker ul li:hover{
+        background-color: #330260;
+    }
+
+/* Media Query for Small Screens */
+@media (max-width: 800px) {
+    .character-close {
+        font-size: 40px; /* Smaller close button */
+        top: 10px;
+        right: 10px;
+        z-index: 9999;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 5px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .character-preview-content {
+        margin-top: 400px;
+        flex-direction: column; /* Stack elements vertically */
+        width: 100%; /* Increase width on small screens */
+        height: auto; /* Allow height to adjust based on content */
+        padding: 10px; /* Reduce padding */
+    }
+
+    .left-character,
+    .right-character {
+        width: 100%; /* Full width on small screens */
+        margin: 10px 0; /* Adjust margin */
+        height: 400px; /* Fixed height for better layout */
+    }
+
+    .versus h2 {
+        font-size: 1rem; /* Smaller font size for headings */
+        background: linear-gradient(135deg, #f4f4f4, #10e83b);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .song-picker {
+        width: 90%; /* Increase width on small screens */
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .song-picker ul {
+        flex-wrap: wrap; /* Allow items to wrap */
+    }
+
+    .song-picker ul li {
+        width: 40px; /* Smaller size for song picker items */
+        height: 40px; /* Smaller size for song picker items */
+    }
+}
+
+/*********************************************************************************************************************************************************/
+
+.rotate {
+    display: inline-block; /* Needed for transform to work */
+    animation: rotation 1s infinite linear; /* Animation properties */
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }
