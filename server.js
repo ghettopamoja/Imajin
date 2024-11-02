@@ -7,8 +7,9 @@ const app = express();
 
 // Configure CORS to allow requests from http://127.0.0.1:5501
 app.use(cors({
-    origin: 'http://127.0.0.1:5501',
+    origin: 'https://ghettopamoja.github.io',
 }));
+
 
 app.use(express.json({ limit: '250mb' }));
 
