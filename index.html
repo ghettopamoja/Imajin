@@ -204,6 +204,11 @@
         <div class="loading-message"></div>
     </div>
 
+    <div class="characters-view-overlay">
+        <div class="close-characters-view"><span>&times;</span></div>
+        <div class="content-character-view"></div>
+    </div>
+
     <div class="quote-maker-verlay">
         <div class="quote-maker-close"><span>&times;</span></div>
         <div class="quote-maker-content">
@@ -246,6 +251,7 @@
         <ul>
             <li>Stories</li>
             <li>Characters</li>
+            <li>Briefing</li>
         </ul>
     </dialog>
 
@@ -276,7 +282,98 @@
         </div>
     </div>
 
-    
+    <div class="recommendation-overlay">
+        <div class="close-recomendation"><span>&times;</span></div>
+        <div class="recommendation-content">
+            <div class="header-content">
+                <h2>What song do you recommend to <span id="character-names">Lorem Imajin</span></h2>
+            </div>
+            <div class="recommendation-image-preview">
+                <div class="left-preview-recommendation">
+                    <img src="logo2.jpg" alt="Characters_img">
+                </div>
+                <div class="right-preview-recommendation">
+                    <img src="logo.jpg" alt="Characters_img">
+                </div>
+            </div>
+            <div class="recommendation-control">
+                <div class="audio-recommendation">
+                    <label for="audioFileRecommendation">Click me to add</label>
+                    <input type="file" id="audioFileRecommendation" accept="audio/*">
+                </div>
+                <div class="buttons-actions">
+                    <button disabled>&#x2191;</button>
+                    <button disabled>&#10003;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="share-recomendation-overlay">
+        <div class="close-share-recomendation"><span>&times;</span></div>
+        <div class="share-content-recomendation">
+            <div class="header-share-preview">
+                <div class="user-profile">
+                    <img src="logo.jpg" alt="user">
+                </div>
+                <div class="name-of-person">
+                    <h2>Add your name</h2>
+                    <p id="statement">Recommends:</p>
+                </div>
+            </div>
+
+            <div class="share-image-preview">
+                <div class="leftside-preview">
+                    <img src="logo.jpg" alt="friends">
+                </div>
+
+                <div class="rightside-preview">
+                    <img src="logo2.jpg" alt="friend_image">
+                </div>
+            </div>
+
+            <div class="preffered-audio">
+                <div class="audio-name">
+                    <h3>O Mio Babbino Caro</h3>
+                </div>
+                <div class="audio-preview">
+                    <div class="icon">
+                        <button>&#9654;</button>
+                    </div>
+
+                    <div class="progress-track-preview">
+                        <div class="progress-bar-preview"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions-share-controls">
+                <button>Add Info</button>
+                <button disabled>Post</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="user-form-overlay">
+        <div class="close-user-form-overlay"><span>&times;</span></div>
+        <div class="user-form-content">
+            <h2>Enter your details here</h2>
+            <div class="name-input-user">
+                <input type="text" placeholder="Enter your name">
+            </div>
+            <div class="image-input">
+                <label for="imageFileInput">Click me to add Photo</label>
+                <input id="imageFileInput" type="file" accept="image/*">
+            </div>
+            <div class="image-user-preview">
+                <img src="logo.jpg" alt="user_image">
+            </div>
+
+            <div class="controls-user-form">
+                <button disabled>Done</button>
+                <button>Cancel</button>
+            </div>
+        </div>
+    </div>
 
     <div class="stories-overlay">
         <div class="stories-close"><span>&times;</span></div>
@@ -953,41 +1050,6 @@
                 </div>
             </div>
 
-            <div class="story" data-story="story19.mp3">
-                <div class="story-avatar">
-                    <img src="misting-avator.jpg" alt="Friend's Avatar">
-                </div>
-                <div class="story-text">
-                    <h2>Misting Enable Mreggae (Anansi)</h2>
-                    <p>Once upon a time in a magical land...</p>
-                    <div class="fairy-tale">
-                        <p>In the vibrant and sun-kissed realm of the Caribbean, where the turquoise waters dance to the rhythm of calypso and the air is perfumed with the scent of tropical blooms, there emerged a fairy of unparalleled beauty and wisdom named Anansi.</p>
-
-                        <p>Anansi was born on a night when the moon shone brightly, casting a silver glow over the lush rainforests and sandy shores. Her presence was as captivating as the shimmering ocean under the midday sun, her laughter like the sweet melodies of the steelpan. Anansi was not only beautiful but also possessed a heart as warm as the Caribbean breeze and as vast as the sea.</p>
-
-                        <p>She was the guardian of the islands, her magic interwoven with the culture and traditions of her people. Every morning, she would glide over the waves, her wings creating a symphony of colors that painted the sky. Her touch could make the flowers bloom in vibrant hues, and her voice could calm the fiercest storms, bringing serenity to the land.</p>
-
-                        <p>One fateful day, a great shadow loomed over the Caribbean. A malevolent spirit, envious of the joy and harmony that Anansi brought to the islands, sought to plunge the realm into darkness. This spirit, known as Jumbie, cast a spell that threatened to wither the lush landscapes and silence the songs of the people.</p>
-
-                        <p>Determined to protect her beloved home, Anansi set off on a quest to break the spell. She journeyed through the dense rainforests and across the sparkling waters, seeking the wisdom of the ancient spirits. Along her journey, she encountered mystical creatures and wise elders who shared their knowledge and strength with her.</p>
-
-                        <p>With the courage of a lionfish and the grace of a hummingbird, Anansi faced the challenges before her. She gathered the elements of nature—the strength of the mountains, the purity of the rivers, the vibrancy of the flora—and wove them into a powerful talisman.</p>
-
-                        <p>Armed with this talisman, Anansi confronted Jumbie in a climactic battle. Her spirit shone as brightly as the Caribbean sun, her resolve unyielding. Through the power of love and unity, she managed to break the spell, banishing Jumbie to the depths of the sea.</p>
-
-                        <p>The islands rejoiced as the darkness lifted, their beauty restored. Anansi's legend grew, her name becoming synonymous with hope and resilience. The people of the Caribbean celebrated their fairy guardian with festivals filled with music, dance, and vibrant colors. Her tale was passed down through generations, a timeless story of courage, love, and the magic that lies within every heart.</p>
-
-                        <p>And so, in the heart of the Caribbean, the story of Anansi, the shining fairy who enriched the way of life, lived on. Her spirit continued to inspire, a reminder of the beauty and strength of the Caribbean soul.</p>
-
-                        <p>The end.</p>
-
-                    </div>
-                </div>
-                <div class="read-story">
-                    <button class="read-story-btn">Read Story</button>
-                </div>
-            </div>
-
             <div class="story" data-story="story20.mp3">
                 <div class="story-avatar">
                     <img src="vulence-avator.jpg" alt="Friend's Avatar">
@@ -1025,6 +1087,42 @@
                 </div>
             </div>
 
+
+            <div class="story" data-story="story19.mp3">
+                <div class="story-avatar">
+                    <img src="misting-avator.jpg" alt="Friend's Avatar">
+                </div>
+                <div class="story-text">
+                    <h2>Misting Enable Mreggae (Anansi)</h2>
+                    <p>Once upon a time in a magical land...</p>
+                    <div class="fairy-tale">
+                        <p>In the vibrant and sun-kissed realm of the Caribbean, where the turquoise waters dance to the rhythm of calypso and the air is perfumed with the scent of tropical blooms, there emerged a fairy of unparalleled beauty and wisdom named Anansi.</p>
+
+                        <p>Anansi was born on a night when the moon shone brightly, casting a silver glow over the lush rainforests and sandy shores. Her presence was as captivating as the shimmering ocean under the midday sun, her laughter like the sweet melodies of the steelpan. Anansi was not only beautiful but also possessed a heart as warm as the Caribbean breeze and as vast as the sea.</p>
+
+                        <p>She was the guardian of the islands, her magic interwoven with the culture and traditions of her people. Every morning, she would glide over the waves, her wings creating a symphony of colors that painted the sky. Her touch could make the flowers bloom in vibrant hues, and her voice could calm the fiercest storms, bringing serenity to the land.</p>
+
+                        <p>One fateful day, a great shadow loomed over the Caribbean. A malevolent spirit, envious of the joy and harmony that Anansi brought to the islands, sought to plunge the realm into darkness. This spirit, known as Jumbie, cast a spell that threatened to wither the lush landscapes and silence the songs of the people.</p>
+
+                        <p>Determined to protect her beloved home, Anansi set off on a quest to break the spell. She journeyed through the dense rainforests and across the sparkling waters, seeking the wisdom of the ancient spirits. Along her journey, she encountered mystical creatures and wise elders who shared their knowledge and strength with her.</p>
+
+                        <p>With the courage of a lionfish and the grace of a hummingbird, Anansi faced the challenges before her. She gathered the elements of nature—the strength of the mountains, the purity of the rivers, the vibrancy of the flora—and wove them into a powerful talisman.</p>
+
+                        <p>Armed with this talisman, Anansi confronted Jumbie in a climactic battle. Her spirit shone as brightly as the Caribbean sun, her resolve unyielding. Through the power of love and unity, she managed to break the spell, banishing Jumbie to the depths of the sea.</p>
+
+                        <p>The islands rejoiced as the darkness lifted, their beauty restored. Anansi's legend grew, her name becoming synonymous with hope and resilience. The people of the Caribbean celebrated their fairy guardian with festivals filled with music, dance, and vibrant colors. Her tale was passed down through generations, a timeless story of courage, love, and the magic that lies within every heart.</p>
+
+                        <p>And so, in the heart of the Caribbean, the story of Anansi, the shining fairy who enriched the way of life, lived on. Her spirit continued to inspire, a reminder of the beauty and strength of the Caribbean soul.</p>
+
+                        <p>The end.</p>
+
+                    </div>
+                </div>
+                <div class="read-story">
+                    <button class="read-story-btn">Read Story</button>
+                </div>
+            </div>
+
             <div class="story-navigation">
                 <button class="prev-story">Previous</button>
                 <button class="next-story">Next</button>
@@ -1047,6 +1145,13 @@
     </div>
 </div>
 
+<div class="feed-overlay">
+    <div class="feed-close"><span>&times;</span></div>
+    <div class="feed-section" id="#feedSection">
+        <div class="spinner" id="loadingSpinner"></div>
+        <ul></ul>
+    </div>
+</div>
 
     <header>
         <div class="left-header">
@@ -1063,6 +1168,7 @@
                 <li><i class="fas fa-music"></i></li>
                 <li><i class="fas fa-heart"></i></li>
                 <li><i class="fas fa-list"></i></li>
+                <li><i class="fas fa-newspaper"></i></li>
             </ul>
         </div>
         <div class="song-menu">
