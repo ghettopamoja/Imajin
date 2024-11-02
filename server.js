@@ -5,13 +5,23 @@ const cors = require('cors'); // Import CORS
 
 const app = express();
 
-// Configure CORS to allow requests from http://127.0.0.1:5501
+const allowedOrigins = ['https://ghettopamoja.github.io', 'http://127.0.0.1:5501'];
+
 app.use(cors({
-    origin: 'https://ghettopamoja.github.io',
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
 }));
 
 
-app.use(express.json({ limit: '250mb' }));
+
+app.use(express.json({ limit: '500mb' }));
 
 // Path to your JSON file
 const postsFilePath = path.join(__dirname, 'postFeed.json');
