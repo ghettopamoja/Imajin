@@ -1,1 +1,3571 @@
-document.addEventListener("DOMContentLoaded",(function(){let e=null,t=null,o=null,n=null,r=null,a=null,i=null,s=null,l=null,c=null,u=null,d=null,m=null,h=null,p=null,y=null,f=null,g=null,q=null;const v="theme.mp3",w="good life.mp3",S="trailer.mp3",L="notice1.mp3",b="notice2.mp3";let T=!1,k=!1,A=!1,E=!1,M=!1;const I=[];let x,R=[],H=new Object,C=new Object;document.designMode="off",setInterval((()=>{"off"!==document.designMode&&(document.designMode="off")}),1e3);const j=[{startAt:2,text:"Imajin Haven of Friendship!"},{startAt:3,text:"I paint my friends with hues of love and admiration"},{startAt:7,text:"Each friend is a masterpiece"},{startAt:9,text:"A unique stroke on the canvas of life"},{startAt:15,text:"I celebrate the beautiful tapestry of my friends’ lives."},{startAt:18,text:"Their stories and insights add depth and richness to this artful tapestry."},{startAt:21,text:"As you wander through this gallery of cherished connections,"},{startAt:28,text:"Inspired by vibrant expressions of friendship and the profound beauty within each story."},{startAt:32,text:"Let the colors of camaraderie brighten your day"},{startAt:35,text:"Artful narratives warm your heart"},{startAt:38,text:"Together, we create a symphony of friendship that transcends time"}];function $(e){e&&"function"==typeof e.pause&&e.pause()}!function(){const e=new Audio("intro.mp3"),t=(new Date).getTime(),o="lastVisit",n=localStorage.getItem(o);if(!n||t-n>2592e5){localStorage.setItem(o,t),e.play().catch((e=>{console.error("Audio failed to play:",e),document.querySelector(".loading-animation").style.display="none"}));const n=()=>{const t=Math.floor(e.currentTime);j.forEach((e=>{t===e.startAt&&(document.querySelector(".loading-message").textContent=e.text)}))};e.addEventListener("timeupdate",n),e.addEventListener("ended",(()=>{document.querySelector(".loading-animation").style.display="none"}))}else document.querySelector(".loading-animation").style.display="none"}();const F=[{imgsrc:"logo.jpg",start:0,end:7,names:"Friends of imajin"},{imgsrc:"liz.jpg",start:8,end:16,names:"Bruz Liz"},{imgsrc:"lily.jpg",start:17,end:24,names:"bruz Lily"},{imgsrc:"mss.jpg",start:25,end:32,names:"Mi$$ Bad Mind"},{imgsrc:"gyala.jpg",start:33,end:41,names:"Gyala Barbie"},{imgsrc:"dorian.jpg",start:42,end:50,names:"Dorian Gray"},{imgsrc:"mickey.jpg",start:51,end:58,names:"Mickey"},{imgsrc:"ben.jpg",start:59,end:66,names:"111 Doctor B"},{imgsrc:"maargie.jpg",start:67,end:76,names:"Princess Margie"},{imgsrc:"kinara.jpg",start:77,end:83,names:"Kinara Fao"},{imgsrc:"fay.jpg",start:84,end:98,names:"Pretty Fay"},{imgsrc:"amaya.jpg",start:99,end:107,names:"Amaya Salvada"},{imgsrc:"tabeh.jpg",start:108,end:116,names:"tabeh tron"},{imgsrc:"lilpretty.jpg",start:117,end:124,names:"lilpretty nigga"},{imgsrc:"mishy.jpg",start:125,end:133,names:"quinnshitt mishy"},{imgsrc:"bexy.jpg",start:134,end:139,names:"Bexy Dexy"},{imgsrc:"milly.jpg",start:140,end:148,names:"milly mungats"},{imgsrc:"uphreasia.jpg",start:149,end:157,names:"uphreasia migose"},{imgsrc:"naya.jpg",start:158,end:166,names:"Naya Milae"},{imgsrc:"misting.jpg",start:167,end:175,names:"misting Enable Mreggae"},{imgsrc:"vulence.jpg",start:176,end:178,names:"vulence  dali"}],O=document.querySelectorAll(".right-header ul li")[0],N=document.querySelectorAll(".right-header ul li")[1],W=document.querySelectorAll(".right-header ul li")[2],U=document.querySelectorAll(".right-header ul li")[3],D=document.querySelectorAll(".right-header ul li")[4];let B=0,V=0,_=0,P=0;const z=document.querySelectorAll(".carousel-item"),Y=document.querySelector(".carousel-prev"),X=document.querySelector(".carousel-next");function G(e){e.style.opacity="0",e.style.pointerEvents="none"}function J(e){e.style.opacity="1",e.style.pointerEvents="auto"}function Q(e){z.forEach(((t,o)=>{t.classList.remove("active"),o===e?(t.style.transform="translateX(0)",t.classList.add("active"),t.scrollIntoView({behavior:"smooth",block:"center"})):t.style.transform=o<e?"translateX(-100%)":"translateX(100%)"}))}Y.addEventListener("click",(()=>{B=0===B?z.length-1:B-1,Q(B),re(!0)})),X.addEventListener("click",(()=>{B=B===z.length-1?0:B+1,Q(B),re(!0)})),Q(B),document.querySelector(".left-header").onclick=()=>{document.querySelector(".about-imajin").classList.remove("visible"),document.querySelector(".welcome-div").classList.remove("hidden"),document.querySelector(".friends-section").style.display="none"};document.querySelectorAll(".right-header ul li").forEach((e=>{e.style.opacity="0",e.style.pointerEvents="none"}));N.addEventListener("click",(()=>{T=!T,document.querySelector(".song-menu").classList.toggle("active",T)})),document.addEventListener("click",(e=>{const t=document.querySelector(".song-menu");!t.contains(e.target)&&T&&(T=!1,t.classList.remove("active"))}),!0);const K=document.querySelectorAll(".controls button")[0],Z=document.querySelectorAll(".controls button")[1],ee=document.querySelectorAll(".controls button")[2],te=document.querySelectorAll(".controls button")[3];let oe=null;function ne(e){oe!==e?(oe=e,n=new Audio(e),n.play(),A=!0):n&&!n.paused?(n.pause(),A=!1):n&&(n.play(),A=!0),n.addEventListener("timeupdate",(()=>{const e=n.currentTime/n.duration*100;document.querySelector(".progress-bar").style.width=`${e}%`}))}function re(e){const t=document.querySelectorAll(".carousel-item video");a=t[B];const o=document.querySelectorAll(".carousel-item .video-overlay")[B];document.querySelectorAll(".video-intro video").forEach((e=>e.pause())),document.querySelectorAll("video-overlay video").forEach((e=>{e.addEventListener("contextmenu",(e=>{e.preventDefault(),o.classList.add("active"),G(Y),G(X)})),e.addEventListener("stalled",(()=>{o.classList.add("active"),G(Y),G(X)}))})),a.addEventListener("loadstart",(()=>{o.classList.add("active"),G(Y),G(X)})),a.addEventListener("stalled",(()=>{o.classList.add("active"),G(Y),G(X)})),a.addEventListener("contextmenu",(e=>{e.preventDefault(),o.classList.add("active"),G(Y),G(X)})),a.addEventListener("canplay",(()=>{o.classList.remove("active"),J(Y),J(X)})),a.addEventListener("playing",(()=>{o.classList.remove("active"),G(Y),G(X),Z.innerHTML='<span><i class="fas fa-pause"></i>Pause</span>',k=!0})),a.addEventListener("pause",(()=>{Z.innerHTML='<span><i class="fas fa-play"></i>Play</span>',J(Y),J(X),k=!1})),a.addEventListener("ended",(()=>{o.classList.remove("active"),J(Y),J(X),Z.innerHTML='<span><i class="fas fa-play"></i> Video</span>',k=!1})),e?(a.play(),a.scrollIntoView({behavior:"smooth",block:"center"}),k=!0):(a.pause(),k=!1),a.addEventListener("timeupdate",(()=>{if(!isFinite(a.duration)||isNaN(a.duration)||0===a.duration)return a.pause(),B=(B+1)%document.querySelectorAll(".carousel-item").length,Q(B),void re();const e=a.currentTime/a.duration*100;document.querySelectorAll(".carousel-item .video-intro .progress-video-bar")[B].style.width=`${e}%`}))}Z.addEventListener("click",(()=>{k=!k,re(k)})),document.querySelector(".download-video").onclick=function(){const e=document.createElement("a");e.href=a.src,e.download="Imajin_video.mp4",document.body.appendChild(e),e.click(),document.body.removeChild(e)},te.addEventListener("click",(()=>{document.querySelector(".about-imajin").classList.add("visible"),document.querySelector(".welcome-div").classList.add("hidden"),Ze()})),ee.addEventListener("click",(()=>{document.querySelector(".motivational-overlay").classList.add("active"),o=new Audio("motivational.mp3"),o.play(),document.querySelector(".video-intro").style.opacity="0",ae(),o.addEventListener("ended",(()=>{document.querySelector(".motivational-overlay").classList.remove("active"),o&&(o.pause(),o.currenTime=0),document.querySelectorAll(".motivational-content p").forEach((e=>{e.classList.remove("active")})),document.querySelector(".video-intro").style.opacity="1"})),Ze(),a&&(a.pause(),k=!0)}));const ae=()=>{const e=document.querySelectorAll(".motivational-content p");let t=0;e.forEach((e=>e.classList.remove("active"))),R.forEach((e=>clearTimeout(e))),R=[],e.forEach((e=>{const o=parseInt(e.getAttribute("data-time")),n=setTimeout((()=>{e.classList.add("active"),e.scrollIntoView({behavior:"smooth",block:"center"});const t=setTimeout((()=>{e.classList.remove("active")}),1e3*o);R.push(t)}),1e3*t);R.push(n),t+=o}))};document.querySelector(".close-motivational").addEventListener("click",(()=>{document.querySelector(".motivational-overlay").classList.remove("active"),o&&(o.pause(),o.currenTime=0),document.querySelectorAll(".motivational-content p").forEach((e=>{e.classList.remove("active")})),document.querySelector(".video-intro").style.opacity="1"})),K.addEventListener("click",(()=>{document.querySelectorAll(".right-header ul li").forEach((e=>{e.style.opacity="1",e.style.pointerEvents="auto"})),me(),Ze()}));const ie=document.querySelector(".back-home button"),se=document.querySelectorAll(".vote-gratitude ul li button")[0],le=document.querySelectorAll(".vote-gratitude ul li button")[1],ce=document.querySelectorAll(".vote-gratitude ul li button")[2],ue=document.querySelectorAll(".vote-gratitude ul li button")[3],de=document.querySelector(".big-thanks");ie.addEventListener("click",(()=>{document.querySelector(".about-imajin").classList.remove("visible"),document.querySelector(".welcome-div").classList.remove("hidden"),Ze(),$(e),$(t),$(o)}));const me=()=>{document.querySelector(".trailer-overlay").style.display="flex",ne(S),n.addEventListener("timeupdate",(()=>{pe()})),n.addEventListener("ended",he),document.querySelector(".play-control").innerHTML=A?'<span><i class="fas fa-pause"></i></span>':'<span><i class="fas fa-play"></i></span>',a&&a.pause(),e&&e.pause()};function he(){const e=document.querySelector(".number"),t=document.querySelector(".trailer-preview"),o=document.querySelector(".names-display");document.querySelector(".trailer-overlay").style.display="none",n&&!n.paused&&(n.pause(),n.currentTime=0,A=!1),V=0,o.innerHTML="<h2>Friends of Imajin</h2>",t.style.backgroundImage='url("logo.jpg")',e.innerHTML=""}function pe(){const e=document.querySelector(".number"),t=document.querySelector(".trailer-preview"),o=document.querySelector(".names-display"),r=n.duration,a=F.length,i=r/a;V=Math.floor(n.currentTime/i),V>=a?V=a-1:V<0&&(V=0);const s=F[V],l=s.names,c=s.imgsrc;e.innerHTML=`<h2>${V<1?"":V}</h2>`,t.style.backgroundImage=`url(${c})`,o.innerHTML=`<h2>${l}</h2>`,n.addEventListener("seeked",pe)}document.querySelector(".play-control").onclick=function(){A?(this.innerHTML='<span><i class="fas fa-play"></i></span>',ne(S)):(this.innerHTML='<span><i class="fas fa-pause"></i></span>',ne(S))},document.querySelector(".trailer-close").onclick=()=>{he()},document.querySelector(".progress-truck").onclick=function(e){const t=this.clientWidth,o=e.offsetX,r=n.duration;n.currentTime=o/t*r,pe()};const ye=document.querySelectorAll(".voice-overs button")[0],fe=document.querySelectorAll(".voice-overs button")[1],ge=document.querySelectorAll(".voice-overs button")[2],qe=document.querySelectorAll(".voice-overs button")[4],ve=document.querySelectorAll(".voice-overs button")[3],we=document.querySelectorAll(".voice-overs button"),Se=document.querySelectorAll(".description p"),Le=Array.from(Se).map((e=>e.textContent));function be(n,r){Se.forEach((e=>{e.classList.remove("active")})),t&&t!==n&&t.pause(),t=new Audio(n),t.play(),I.forEach((e=>clearTimeout(e))),I.length=0,function(){let e=0;Se.forEach((t=>{const o=parseInt(t.getAttribute("data-time")),n=setTimeout((()=>{t.classList.add("active"),t.scrollIntoView({behavior:"smooth",block:"center"});const e=setTimeout((()=>{t.classList.remove("active")}),1e3*o);I.push(e)}),1e3*e);I.push(n),e+=o}))}(),we.forEach((e=>{r===e?e.classList.add("active"):e.classList.remove("active")})),t.addEventListener("ended",(()=>{we.forEach((e=>{e.classList.remove("active")}))})),r===ve?function(){const e=document.querySelectorAll(".description p");e.forEach((e=>{const t=e.getAttribute("data-swahili");e.textContent=t}))}():Se.forEach(((e,t)=>{e.textContent=Le[t]})),Ze(),$(a),$(e),$(o)}function Te(o,n,r,a){e&&e!==o&&e.pause(),t&&(t.pause(),I.forEach((e=>clearTimeout(e))),I.length=0,Se.forEach((e=>{e.classList.remove("active")})),we.forEach((e=>{e.classList.remove("active")}))),e=new Audio(o),e.currentTime=n,e.play(),e.addEventListener("timeupdate",(()=>{e.currentTime>=r&&(e.pause(),e.currentTime=0,a&&a())}))}function ke(e){if(de.style.display="flex","love"===e){de.innerHTML='<div class="thank-content"><h2>You\'re Welcome</h2></div>';for(let e=0;e<50;e++){const e=document.createElement("div");e.classList.add("love-div"),e.innerHTML='<span><i class="fas fa-heart"></i></span>',e.classList.add("jello"),e.style.left=100*Math.random()+"%",e.style.top=100*Math.random()+"%",de.appendChild(e),setInterval((function(){de.removeChild(e),setTimeout((function(){de.appendChild(e)}),500)}),2500)}}if("icognito"===e){const e=document.createElement("div");e.classList.add("love-div"),e.innerHTML='<span><i class="fas fa-user-secret"></i></span>',e.classList.add("icognito"),de.appendChild(e)}}ye.onclick=()=>{be("read3.mp3",ye)},fe.onclick=()=>{be("read.mp3",fe)},ge.onclick=()=>{be("read4.mp3",ge)},qe.onclick=()=>{be("read2.mp3",qe)},ve.onclick=()=>{be("read5.mp3",ve)},se.addEventListener("click",(()=>{Te("dream.mp3",139,165,(()=>{document.querySelector(".dream-lyrics-overly").style.display="none";document.querySelector(".dream-content").innerHTML=""})),function(){document.querySelector(".dream-lyrics-overly").style.display="flex";const t=document.querySelector(".dream-content"),o=[{text:"I've got a dream! (She's got a dream!)",begin:139,stop:140},{text:"I've got a dream! (She's got a dream!)",begin:141,stop:142},{text:"I just wanna see the floating lanterns gleam!",begin:143,stop:145},{text:"And with every passing hour",begin:146,stop:147},{text:"I'm so glad I left my tower",begin:148,stop:149},{text:"Like all you lovely folks I've got a dream!",begin:150,stop:152},{text:"She's got a dream! (She's got a dream!)",begin:153,stop:154},{text:"They've got a dream! (We've got a dream!)",begin:155,stop:156},{text:"So our differences ain't really that extreme!",begin:157,stop:159},{text:"We're one big team!",begin:160,stop:165}];let n=0;e.addEventListener("timeupdate",(()=>{const r=e.currentTime,a=o[n];if(a&&r>=a.begin&&r<=a.stop){const e=n%2==0?"even":"odd";t.innerHTML=`<p class="${e}">${a.text}</p>`,t.style.backgroundImage="none"}a&&r>a.stop&&n++,n>=o.length&&e.removeEventListener("timeupdate",this)}))}(),Ze()})),ce.addEventListener("click",(()=>{Te("thanks.mp3",43,57,(()=>{de.style.display="none",de.innerHTML="",document.querySelector(".show-yourself").style.display="none"})),ke("love"),Ze()})),document.querySelector(".dream-close").addEventListener("click",(()=>{document.querySelector(".dream-lyrics-overly").style.display="none";document.querySelector(".dream-content").innerHTML="",e.pause(),e.currenTime=0})),le.addEventListener("click",(()=>{Te(w,89,102,(()=>{document.querySelector(".dream-lyrics-overly").style.display="none";document.querySelector(".dream-content").innerHTML="",window.open("https://www.facebook.com/mimisi.dameyako","_blank")})),function(){document.querySelector(".dream-lyrics-overly").style.display="flex";const t=document.querySelector(".dream-content"),o=[{text:"We put the good in the good in the good life",begin:90,stop:92},{text:"We put the good in the good in the good life",begin:93,stop:95},{text:"We put the bad in the past, now we alright",begin:96,stop:99},{text:"We alright Ayy, ayy, ayy, ayy",begin:100,stop:102}];let n=0;e.addEventListener("timeupdate",(()=>{const r=e.currentTime,a=o[n];if(a&&r>=a.begin&&r<=a.stop){const e=n%2==0?"even":"odd";t.innerHTML=`<p class="${e}">${a.text}</p>`,t.style.backgroundImage="none"}a&&r>a.stop&&n++,n>=o.length&&e.removeEventListener("timeupdate",this)}))}(),Ze()})),W.addEventListener("click",(()=>{Te("love.mp3",45,86,(()=>{document.querySelector(".dream-lyrics-overly").style.display="none";document.querySelector(".dream-content").innerHTML=""})),Ae(),Ze()}));const Ae=()=>{document.querySelector(".dream-lyrics-overly").style.display="flex";const e=document.querySelector(".dream-content");e.innerHTML='<p>I need Somebody to love</p> <p><span><i class="fas fa-heart"></i></span><span><i class="fas fa-heart"></i></span><span><i class="fas fa-heart"></i></p>',e.style.backgroundImage='url("love.jpg")'};O.addEventListener("click",(()=>{document.querySelector(".about-imajin").classList.remove("visible"),document.querySelector(".welcome-div").classList.add("hidden"),document.querySelector(".friends-section").style.display="flex"})),ue.addEventListener("click",(()=>{Te("show yourself.mp3",0,60,(()=>{document.querySelector(".show-yourself").style.display="none",de.style.display="none",de.innerHTML=""})),Ee(),ke("icognito"),function(){const t=[{text:"Show yourself",start:0,end:2},{text:"I'm no longer trembling",start:3,end:5},{text:"Here I am",start:6,end:8},{text:"I've come so far",start:9,end:11},{text:"You are the answer I've waited for",start:12,end:14},{text:"All of my life",start:15,end:17},{text:"Oh, show yourself",start:18,end:20},{text:"Let me see who you are",start:21,end:26},{text:"Come to me now",start:27,end:30},{text:"Open your door",start:31,end:33},{text:"Don't make me wait",start:34,end:37},{text:"One moment more",start:38,end:41},{text:"Oh, come to me now",start:42,end:46},{text:"Open your door",start:47,end:49},{text:"Don't make me wait",start:50,end:53},{text:"One moment more",start:54,end:59}],o=document.createElement("div");o.classList.add("lyrics-self"),de.appendChild(o);let n=0,r=null;e.addEventListener("timeupdate",(()=>{const a=e.currentTime,i=t[n];if(i&&a>=i.start&&a<=i.end&&r!==i.text){const e=document.createElement("p");e.classList.add("anim"),e.textContent=i.text,o.innerHTML="",o.appendChild(e),setTimeout((()=>{e.classList.remove("anim")}),2e3),r=i.text}a>i.end&&(n++,r=null)}))}()}));const Ee=()=>{document.querySelector(".show-yourself").style.display="flex",de.style.display="none",de.innerHTML="",Ze()};document.querySelector(".good-bye-video button").onclick=function(){document.querySelector(".good-bye-overlay").style.display="none",document.querySelector(".good-bye-message").style.display="none"},document.querySelector(".good-bye-audio").onclick=function(){document.querySelector(".good-bye-message").style.display="flex",document.querySelector(".good-bye-video button").style.display="none",function(){const e="As we part ways for now, I, Imajin, wish to leave you with a heart full of warmth and gratitude. Our journey together, though brief, has been filled with wonder and connection. You are always welcome in the space we’ve created together.  Whenever you find yourself longing for a moment of inspiration or a touch of creativity, know that my virtual door is always open. Visit this place, for I will be waiting, a place where love lingers and memories live. I will cherish the moments we shared until time, in its infinite grace, finds a way to bring us together once more.  I will hold our memories close. With enduring love, Imajin.",t=document.querySelector(".good-bye-message"),o=e.split("\n\n"),n=50;let r=0,a=0,i=null;function s(){r<o.length&&(i||(i=document.createElement("p"),t.appendChild(i)),a<o[r].length?(i.innerHTML+=o[r].charAt(a),a++,setTimeout(s,n)):(r++,a=0,i=null,setTimeout(s,n)))}t.innerHTML="",s()}(),Me(),this.querySelector("button").style.display="none"};const Me=()=>{const e=new Audio("read6.mp3");e.play(),e.addEventListener("ended",(()=>{window.close(),document.querySelector(".good-bye-message").style.display="none"}))};const Ie=document.querySelector(".friends-section"),xe=document.querySelectorAll(".friends-section li");function Re(){let e=null,t=Number.POSITIVE_INFINITY;xe.forEach((o=>{const n=o.getBoundingClientRect(),r=Math.abs(n.top+n.height/2-window.innerHeight/2);r<t&&(t=r,e=o)})),e&&e.scrollIntoView({behavior:"smooth",block:"center"})}Ie.addEventListener("scroll",(()=>{setTimeout(Re,100)})),xe.forEach((e=>{const t=e.querySelector(".friend");t.querySelector("fieldset button").addEventListener("click",(()=>{He(t)}))}));const He=e=>{const t=e.querySelector(".friend-image img").src,o=e.querySelector("fieldset legend").textContent.trim(),n=e.getAttribute("data-description"),a=e.getAttribute("data-voice"),i=document.querySelector(".friend-preview-overlay"),s=document.querySelector(".friend-image"),l=document.querySelector(".friend-name"),c=document.querySelectorAll(".friend-button-controls button")[0],u=document.querySelectorAll(".friend-button-controls button")[1],d=document.querySelectorAll(".friend-button-controls button")[2];i.style.display="flex",s.innerHTML="",l.innerHTML="",s.innerHTML=`<img src='${t}' alt='${o}'>`,l.innerHTML=`<h3>${o}</h3>`,u.onclick=()=>{const e=new Audio(a);r=e,function(e,t,o,n){const a=document.createElement("div");function i(e,t,o=50){let n=0;function r(){n<e.length&&(t.innerHTML+=e.charAt(n),n++,setTimeout(r,o))}r()}if(a.classList.add("friend-image-overlay"),""!==t){const e=document.createElement("p");a.appendChild(e),o.appendChild(a),r.play(),i(t,e)}e.addEventListener("ended",(()=>{setTimeout((()=>{o.removeChild(a),n.disabled=!1}),2e3)}))}(e,n,s,d)},c.addEventListener("click",(function(){const e=n+" - "+o;navigator.clipboard.writeText(e).then((()=>{c.innerHTML='<i class="fas fa-check"></i>Copied',setTimeout((function(){c.innerHTML='<i class="fas fa-clipboard"></i>Copy text'}),2e3)})).catch((e=>{console.error("Failed to copy text: ",e),c.innerHTML='<i class="fas fa-exclamation-triangle"></i>Error',setTimeout((function(){c.innerHTML='<i class="fas fa-clipboard"></i>Copy text'}),2e3)}))})),d.addEventListener("click",(e=>{if(e.target.disabled=!0,a){d.innerHTML='<i class="fas fa-arrow-down"></i>Downloading...';const t=document.createElement("a");t.href=a,t.download=`${o}.mp3`,setTimeout((()=>{document.body.appendChild(t),t.click(),document.body.removeChild(t),d.innerHTML='<i class="fas fa-check"></i>Downloaded',setTimeout((()=>{d.innerHTML='<i class="fas fa-arrow-down"></i>Download Audio',e.target.disabled=!1}),2e3)}),1e3)}}))};document.querySelector(".friend-close").onclick=function(){document.querySelector(".friend-preview-overlay").style.display="none",r&&r.pause()};const Ce=[{start:8,eng:"How does a moment last forever",end:12},{start:13,eng:"How can a story never die",end:15},{start:16,eng:"It is love we must hold onto",end:20},{start:21,eng:"Never easy, but we try",end:25},{start:26,eng:"Sometimes our happiness is captured",end:29},{start:30,eng:"Somehow, our time and place stand still",end:33},{start:34,eng:"Love lives on inside our hearts and always will",end:42},{start:43,eng:"Minutes turn to hours",end:47},{start:48,eng:"Days to years and gone",end:52},{start:53,eng:"But when all else has been forgotten",end:56},{start:57,eng:"Still our song lives on",end:63},{start:64,eng:"Maybe some moments weren't so perfect",end:68},{start:69,eng:"Maybe some memories not so sweet",end:72},{start:73,eng:"But we have to know some bad times or our lives are incomplete",end:80},{start:81,eng:"Then when the shadows overtake us",end:85},{start:86,eng:"Just when we feel all hope is gone",end:89},{start:90,eng:"We'll hear our song and know once more",end:93},{start:94,eng:"Our love lives on",end:99},{start:105,eng:"Ooooo, Ooooo, Oooo",end:117},{start:121,eng:"How does a moment last forever",end:124},{start:125,eng:"How does our happiness endure",end:128},{start:129,eng:"Through the darkest of our troubles",end:132},{start:133,eng:"Love is beauty, love is pure",end:136},{start:137,eng:"Love pays no mind to desolation",end:140},{start:141,eng:"It flows like a river to the soul",end:144},{start:145,eng:"Protects, perceives and perseveres",end:148},{start:149,eng:"And makes us whole",end:153},{start:154,eng:"Minutes turn to hours",end:157},{start:158,eng:"Days to years then gone",end:164},{start:165,eng:"But when all else has been forgotten",end:169},{start:170,eng:"Still our song lives on",end:177},{start:178,eng:"How does a moment last forever",end:182},{start:183,eng:"When our song lives on",end:194},{start:195,eng:"Imajin Memories",end:222}],je=document.querySelectorAll(".song-menu ul li")[0],$e=document.querySelectorAll(".song-menu ul li")[1],Fe=document.querySelectorAll(".song-menu ul li")[2],Oe=document.querySelectorAll(".song-menu ul li")[3],Ne=document.querySelectorAll(".song-menu ul li")[4],We=document.querySelectorAll(".song-menu ul li")[5];function Ue(e,t){document.querySelector(".song-menu").classList.remove("active"),ne(e),T=!1,function(e){document.querySelector(".magical-slideshow-overlay").style.display="flex";const t=document.querySelector(".image-slide-view"),o=document.querySelector(".right-carousel-slideshow"),r=document.querySelector(".left-carousel-slideshow");let a=1;function i(){const e=a%2==1?"grayscale(100%)":"none";t.innerHTML=`<img src='${F[V].imgsrc}' alt='friend_image' style='filter: ${e};'>`;const o=F[V].names,n=document.querySelector(".name-ping");n.innerText=o,n.style.animation="none",setTimeout((()=>{n.style.animation=""}),100)}t.innerHTML="",i(),_e=setInterval((()=>{V=(V+1)%F.length,0===V&&a++,i()}),e),n.onloadedmetadata=()=>{const e=n.duration;n.addEventListener("timeupdate",(()=>{n.currentTime>=e-10&&(clearInterval(_e),V=0,a=1)})),n.addEventListener("ended",(()=>{Pe()}))},o.addEventListener("click",(()=>{V=(V+1)%F.length,0===V&&a++,i()})),r.addEventListener("click",(()=>{V=(V-1+F.length)%F.length,V===F.length-1&&a++,i()}))}(t)}function De(){document.querySelector(".slideshow-overlay").style.display="none",n&&!n.paused&&(n.pause(),n.currentTime=0,A=!1)}$e.onclick=()=>Ue("slide.mp3",1e4),Fe.onclick=()=>Ue("slide2.mp3",2e3),Oe.onclick=()=>Ue("audio2.mp3",6e3),Ne.onclick=()=>Ue("audio.mp3",6e3),We.onclick=()=>Ue(w,4e3),je.addEventListener("click",(()=>{document.querySelector(".slideshow-overlay").style.display="flex",document.querySelector(".song-menu").classList.remove("active"),T=!1,function(){const e=document.querySelector(".name-title"),t=document.querySelector(".image-preview"),o=document.querySelector(".lyrics-display");ne(v),n&&n.addEventListener("timeupdate",(()=>{if(_<Ce.length){const r=n.currentTime,a=Ce[_];r>=a.start&&r<=a.end?(o.innerHTML=`<p>${a.eng}</p>`,V<F.length&&(e.innerHTML=`<h2>${F[V].names}</h2>`,t.innerHTML=`<img src='${F[V].imgsrc}' alt='${F[V].names}'>`)):r>a.end&&(_++,o.innerHTML="",V=(V+1)%F.length)}}));n.addEventListener("ended",(()=>{De()}))}()})),document.querySelector(".slideshow-close").onclick=()=>{De()};const Be=F.map((e=>e.names)),Ve=F.map((e=>e.imgsrc));let _e;function Pe(){document.querySelector(".magical-slideshow-overlay").style.display="none",n.pause(),n.currentTime=0,clearInterval(_e),V=0,document.querySelector(".image-slide-view").innerHTML=""}document.querySelector(".magical-slideshow-close").onclick=Pe;const ze=["In the eloquent words of author,","In the wisdom of author,","A wise soul named author once said,","As author beautifully expressed,","In the poetic musings of author, we hear,","As the insightful author once declared,","In the profound reflections of author, we find,","A sage by the name of author remarked,","Let us consider the words of author that ","In the heartwarming words of author,","As author so eloquently put it","In the thoughtful insights of author, we discover","Echoing the sentiments of author, we say,","In the heartfelt expressions of author, we find","As author wisely observed in their timeless words","A brilliant mind, author, once mused that,","From the heart of author, comes this wisdom:","According to the timeless words of author,","Echoing the profound thoughts of author,","From the enlightened mind of author, we learn","In the graceful narrative of author, lies this truth:","With a touch of grace, author once remarked,","As author tenderly articulated,","In the philosophical reflections of author, shines this thought:","Drawing from the depths of author 's soul, we find that,","In the symphony of words from author","Through the cosmic lens of author, shines this insight:","From the canvas of author ’s mind, a masterpiece unfolds that","As the universe whispers through author, we hear,","In the timeless dance of thoughts by author, arises this truth:","In the realm of imagination, author once said,","With profound insight, author reminds us that,","As the stars align, author expresses,","In the gentle wisdom of author, we learn,","author 's voice echoes through time with this thought:","From the depths of experience, author shares,","In the tapestry of life, author weaves,","As the journey unfolds, author beautifully states,","In the delicate balance of existence, author finds,","In the quiet moments, author reveals,","Through the lens of experience, author enlightens us with,","In the visionary mind of author, shines this truth:","From the lyrical wisdom of author","In the serene thoughts of author, we uncover,","In the gentle wisdom shared by author","With clarity and grace, author teaches,","As author once reflected,","In the brilliance of author ’s words, we find,","author guides us with this wisdom:","As author once thoughtfully shared,","In the heart of author ’s teachings, we uncover,","With a keen insight, author unveils,","author ’s words ring true as they state,","From the depths of author ’s reflections, comes,","As author masterfully articulated,","In the resounding wisdom of author,","With eloquence, author imparts this:","In the timeless insight of author, we learn,","As the wise author once wrote,","In the peaceful reflections of author, we find,"],Ye=["introReader1.mp3","introReader2.mp3","introReader3.mp3","introReader4.mp3","introReader5.mp3","introReader6.mp3","introReader7.mp3","introReader8.mp3","introReader9.mp3","introReader10.mp3","introReader11.mp3","introReader12.mp3","introReader13.mp3","introReader14.mp3","introReader15.mp3","introReader16.mp3","introReader17.mp3","introReader18.mp3","introReader19.mp3","introReader20.mp3","introReader21.mp3","introReader22.mp3","introReader23.mp3","introReader24.mp3","introReader25.mp3","introReader26.mp3","introReader27.mp3","introReader28.mp3","introReader29.mp3","introReader30.mp3","introReader31.mp3","introReader32.mp3","introReader33.mp3","introReader34.mp3","introReader35.mp3","introReader36.mp3","introReader37.mp3","introReader38.mp3","introReader39.mp3","introReader40.mp3","introReader41.mp3","introReader42.mp3","introReader43.mp3","introReader44.mp3","introReader45.mp3","introReader46.mp3","introReader47.mp3","introReader48.mp3","introReader49.mp3","introReader50.mp3","introReader51.mp3","introReader52.mp3","introReader53.mp3","introReader54.mp3","introReader55.mp3","introReader56.mp3","introReader57.mp3","introReader58.mp3","introReader59.mp3","introReader60.mp3"],Xe=["quoteReader1.mp3","quoteReader2.mp3","quoteReader3.mp3","quoteReader4.mp3","quoteReader5.mp3","quoteReader6.mp3","quoteReader7.mp3","quoteReader8.mp3","quoteReader9.mp3","quoteReader10.mp3","quoteReader11.mp3","quoteReader12.mp3","quoteReader13.mp3","quoteReader14.mp3","quoteReader15.mp3","quoteReader16.mp3","quoteReader17.mp3","quoteReader18.mp3","quoteReader19.mp3","quoteReader20.mp3","quoteReader21.mp3","quoteReader22.mp3","quoteReader23.mp3","quoteReader24.mp3","quoteReader25.mp3","quoteReader26.mp3","quoteReader27.mp3","quoteReader28.mp3","quoteReader29.mp3","quoteReader30.mp3","quoteReader31.mp3","quoteReader32.mp3","quoteReader33.mp3","quoteReader34.mp3","quoteReader35.mp3","quoteReader36.mp3","quoteReader37.mp3","quoteReader38.mp3","quoteReader39.mp3","quoteReader40.mp3","quoteReader41.mp3","quoteReader42.mp3","quoteReader43.mp3","quoteReader44.mp3","quoteReader45.mp3","quoteReader46.mp3","quoteReader47.mp3","quoteReader48.mp3","quoteReader49.mp3","quoteReader50.mp3","quoteReader51.mp3","quoteReader52.mp3","quoteReader53.mp3","quoteReader54.mp3","quoteReader55.mp3","quoteReader56.mp3","quoteReader57.mp3","quoteReader58.mp3","quoteReader59.mp3","quoteReader60.mp3"],Ge=[{quote:"Life is the art of drawing without an eraser, embracing every mark as part of the masterpiece.",author:Be[0],reader:"quote1.mp3",intro:ze[0]},{quote:"Life isn't measured by the breaths we take, but by the whispers of the heart that ignite our souls.",author:Be[18],intro:ze[20],reader:"quote2.mp3"},{quote:"Love is the art of seeing the infinite beauty in someone else's imperfection.",author:Be[3],intro:ze[4],reader:"quote3.mp3"},{quote:"A true friend is the one who plays the melody of your heart, even when you forget the tune.",author:Be[9],intro:ze[15],reader:"quote4.mp3"},{quote:"Art is the language of the soul, translating feelings that words cannot capture.",author:Be[7],intro:ze[17],reader:"quote5.mp3"},{quote:"Life dances on, not in the steps we perfect, but in the stumbles we rise from with grace.",author:Be[2],intro:ze[13],reader:"quote6.mp3"},{quote:"Love is not found in grand gestures but in the quiet moments where two hearts beat as one.",author:Be[12],intro:ze[4],reader:"quote7.mp3"},{quote:"Friendship is the canvas where we paint our shared dreams, creating colors that will never fade.",author:Be[0],intro:ze[9],reader:"quote8.mp3"},{quote:"Music is not heard with the ears, but felt with the spirit; it is the sound of the universe singing.",author:Be[4],intro:ze[2],reader:"quote9.mp3"},{quote:"The journey of life is not about where you're going, but who walks beside you when the roads are unknown.",author:Be[5],intro:ze[18],reader:"quote10.mp3"},{quote:"True art isn't what you see; it's what you feel long after the moment has passed.",author:Be[19],intro:ze[6],reader:"quote11.mp3"},{quote:"Love is the silent conversation between two souls, where words fall away and only the truth remains.",author:Be[10],intro:ze[9],reader:"quote12.mp3"},{quote:"Friendship is the quiet miracle that grows in the garden of time, nourished by trust and laughter.",author:Be[0],intro:ze[22],reader:"quote13.mp3"},{quote:"Music is the heartbeat of the universe, connecting us all in a symphony only the soul can hear.",author:Be[6],intro:ze[22],reader:"quote14.mp3"},{quote:"Life’s beauty is not in perfection but in the courage to live boldly, with all its mess and magic.",author:Be[20],intro:ze[21],reader:"quote15.mp3"},{quote:"Love is the art of writing poetry on the canvas of time, with ink made of shared moments and memories.",author:Be[0],intro:ze[4],reader:"quote16.mp3"},{quote:"A friend is the echo of your laughter, the mirror to your tears, and the hand that holds yours through it all.",author:Be[0],intro:ze[15],reader:"quote17.mp3"},{quote:"Art is where the heart meets the hands, crafting stories that words alone could never tell.",author:Be[1],intro:ze[12],reader:"quote18.mp3"},{quote:"Love isn't just a feeling; it's a choice to keep painting the same picture, no matter how many times it rains.",author:Be[17],intro:ze[13],reader:"quote19.mp3"},{quote:"Friendship is not in the years we share but in the moments that stay with us long after time moves on.",author:Be[0],intro:ze[5],reader:"quote20.mp3"},{quote:"Life is a canvas, and love is the brush that paints our existence with vibrant hues.",author:Be[11],intro:ze[16],reader:"quote22.mp3"},{quote:"True friendship is a symphony of shared moments, each note a testament to mutual trust and respect.",author:Be[13],intro:ze[24],reader:"quote21.mp3"},{quote:"Art is the soul's whisper, a gentle reminder that beauty exists in every breath we take.",author:Be[16],intro:ze[19],reader:"quote23.mp3"},{quote:"Love is the spark that ignites the flame of creativity, illuminating even the darkest of paths.",author:Be[15],intro:ze[10],reader:"quote24.mp3"},{quote:"In the dance of life, every step we take is choreographed by the rhythm of our hearts.",author:Be[14],intro:ze[21],reader:"quote25.mp3"},{quote:"Music is the universal language that bridges the gaps between our souls and the infinite cosmos.",author:Be[9],intro:ze[4],reader:"quote26.mp3"},{quote:"Friendship is a garden where each seed of kindness blooms into a lifelong bond.",author:Be[0],intro:ze[8],reader:"quote27.mp3"},{quote:"Life's greatest masterpiece is created in the moments we share with those we love.",author:Be[8],intro:ze[20],reader:"quote28.mp3"},{quote:"The essence of art is found in the silent dialogue between the creator and the observer.",author:Be[3],intro:ze[2],reader:"quote29.mp3"},{quote:"Love is the melody that harmonizes the symphony of our existence.",author:Be[2],intro:ze[28],reader:"quote30.mp3"},{quote:"In every brushstroke, there is a story waiting to be told and a heart waiting to be touched.",author:Be[6],intro:ze[16],reader:"quote31.mp3"},{quote:"True friends are the stars that guide us through life's darkest nights, their light unwavering.",author:Be[14],intro:ze[11],reader:"quote32.mp3"},{quote:"Music is the heartbeat of the universe, a constant reminder that we are all connected.",author:Be[7],intro:ze[29],reader:"quote33.mp3"},{quote:"Life is a fleeting moment, but the love we share echoes through eternity.",author:Be[12],intro:ze[16],reader:"quote34.mp3"},{quote:"Friendship is the foundation upon which the castle of happiness is built.",author:Be[0],intro:ze[23],reader:"quote35.mp3"},{quote:"Art is the silent scream of the soul, an expression of the inexpressible.",author:Be[15],intro:ze[20],reader:"quote36.mp3"},{quote:"Love is the thread that weaves our lives into a tapestry of joy and sorrow, beauty and pain.",author:Be[11],intro:ze[25],reader:"quote37.mp3"},{quote:"In the melody of life, every note we play contributes to the symphony of our journey.",author:Be[19],intro:ze[14],reader:"quote38.mp3"},{quote:"True beauty lies not in the eyes, but in the heart that perceives it.",author:Be[4],intro:ze[19],reader:"quote39.mp3"},{quote:"Life is a dance, and the partners we choose determine the steps we take and the memories we make.",author:Be[1],intro:ze[9],reader:"quote40.mp3"},{quote:"The stars above and the dreams within are connected by the light of hope.",author:Be[5],intro:ze[25],reader:"quote41.mp3"},{quote:"Friendship is the invisible bridge that connects hearts across oceans and time.",author:Be[0],intro:ze[41],reader:"quote42.mp3"},{quote:"With every breath, life paints a new stroke on the canvas of our existence.",author:Be[13],intro:ze[44],reader:"quote43.mp3"},{quote:"Love is the light that flickers even in the darkest corners of the heart.",author:Be[1],intro:ze[32],reader:"quote44.mp3"},{quote:"Courage is the quiet voice that whispers 'I will try again tomorrow.",author:Be[17],intro:ze[35],reader:"quote45.mp3"},{quote:"In the embrace of nature, we rediscover the beauty of simplicity and the power of peace.",author:Be[8],intro:ze[38],reader:"quote46.mp3"},{quote:"Happiness is not found in what we possess, but in how deeply we cherish the present moment.",author:Be[18],intro:ze[34],reader:"quote47.mp3"},{quote:"In every heartbeat, there’s a story waiting to be told, an adventure waiting to be lived.",author:Be[20],intro:ze[37],reader:"quote48.mp3"},{quote:"Hope is the lighthouse guiding us through the storms of doubt and fear.",author:Be[10],intro:ze[44],reader:"quote49.mp3"},{quote:"Wisdom grows not from knowing the answers, but from embracing the questions.",author:Be[16],intro:ze[40],reader:"quote50.mp3"},{quote:"The beauty of life lies in its imperfections, which paint the canvas of our existence with vibrant hues.",author:Be[3],intro:ze[36],reader:"quote51.mp3"},{quote:"Love is the melody that plays in the background, even when silence fills the air.",author:Be[5],intro:ze[39],reader:"quote52.mp3"},{quote:"Friendship is the golden thread that weaves through the fabric of our lives, binding hearts together.",author:Be[6],intro:ze[31],reader:"quote53.mp3"},{quote:"In every sunset, there’s a promise of a new dawn, a chance to begin again.",author:Be[19],intro:ze[38],reader:"quote54.mp3"},{quote:"Love is the gentle whisper that tells us we are not alone, that we are cherished.",author:Be[7],intro:ze[27],reader:"quote55.mp3"},{quote:"Life is a journey, and the moments we share with loved ones are the treasures we collect along the way.",author:Be[12],intro:ze[0],reader:"quote56.mp3"},{quote:"True friendship is like a lighthouse, guiding us through the storms of life and leading us to safe harbors.",author:Be[2],intro:ze[30],reader:"quote57.mp3"},{quote:"In the tapestry of existence, love is the thread that holds everything together.",author:Be[4],intro:ze[22],reader:"quote58.mp3"},{quote:"Life is a dance of shadows and light, and love is the rhythm that moves us all.",author:Be[1],intro:ze[16],reader:"quote59.mp3"},{quote:"With every heartbeat, we write a new chapter in the story of our lives, filled with love and wonder.",author:Be[20],intro:ze[9],reader:"quote60.mp3"}],Je=document.querySelector(".quote-icon"),Qe=document.querySelector(".quote-side-div"),Ke=document.querySelector(".quote-close");function Ze(){Qe.classList.remove("open"),i&&i.pause()}function et(e){return{"Friends of imajin":"Imajin","Mi$$ Bad Mind":"Winnie","Naya Milae":"Naya","Kinara Fao":"Pagees JB","lilpretty nigga":"Lilpretty","milly mungats":"Milly","bruz Lily":"Lily Wangari","misting Enable Mreggae":"Enable Mreggae",Mickey:"Rihanna Mickey","Bruz Liz":"Elizabeth","Milly Mungats":"Milly"}[e]||e}function tt(e){const t=Be.indexOf(e);return-1!==t?Ve[t]:null}function ot(e){const t=Ge[e],o=document.querySelector(".quote-text"),n=document.querySelector(".quote-author"),r=document.querySelector(".quote-side-div");let s=et(t.author);o.innerHTML=`<strong>${t.intro.replace("author",s)}</strong> <p>${t.quote}</p>`,n.textContent=s;const l=tt(t.author);r.style.backgroundImage=l?`url(${l})`:"url('logo.jpg')";const c=new Audio(t.reader);i&&!i.paused&&(i.pause(),i.currentTime=0),i=c,i.play(),a&&(a.pause(),k=!1),i.addEventListener("ended",(()=>{st(!1)})),i.addEventListener("playing",(()=>{st(!0)}))}Je.addEventListener("click",(()=>{Qe.classList.add("open"),P>=Ge.length&&(P=0),ot(P),$(a),$(e),$(t),$(o)})),Ke.addEventListener("click",(()=>{Ze()})),document.addEventListener("click",(e=>{const t=document.querySelector(".quote-side-div");!t.contains(e.target)&&t.classList.contains("open")&&i.paused&&Ze()}),!0);const nt=document.querySelectorAll(".quote-controls-buttons button")[0],rt=document.querySelectorAll(".quote-controls-buttons button")[1],at=document.querySelectorAll(".quote-controls-buttons button")[2],it=document.querySelectorAll(".quote-controls-buttons button")[3];function st(e){at.disabled=e,rt.disabled=e,it.disabled=e}at.onclick=function(){P=(P+1)%Ge.length,ot(P),st(!0)},rt.onclick=function(){P>0?P--:P=Ge.length-1,ot(P),st(!0)},nt.onclick=function(){const e=Ge[P],t=et(e.author),o=e.intro.replace("author",t)+" "+e.quote+"  – Authored by "+t;navigator.clipboard.writeText(o).then((()=>{nt.innerHTML='<i class="fas fa-check"></i> Copied',setTimeout((function(){nt.innerHTML='<i class="fas fa-clipboard"></i> Copy'}),3e3)})).catch((e=>{console.error("failed tp copy error",e),nt.innerHTML='<i class="fas fa-xmark"></i> Failed',setTimeout((function(){nt.innerHTML='<i class="fas fa-clipboard"></i> Copy'}),3e3)}))},it.addEventListener("click",(function(){Ze(),document.querySelector(".quote-preview-overlay").style.display="flex",lt(P)}));const lt=function(e){const t=document.querySelector(".quote-preview-text"),o=document.querySelector(".quote-preview-image .image-arena"),n=document.querySelector(".quote-preview-audio"),r=Ge[e].quote,a=tt(Ge[e].author),s=Ge[e].reader,l=et(Ge[e].author),c=Ge[e].intro.replace("author",l)+" "+r+"  – Authored by "+l;t.innerHTML=`<p> ${c}</p>`,o.innerHTML=`<img src='${a}'>`,n.innerHTML=`<audio src='${s}'>`,document.querySelector(".quote-preview-image .text-arena").innerHTML=`<p> ${c}</p>`,i.play()},ct=document.querySelectorAll(".quote-preview-actions button")[0],ut=document.querySelectorAll(".quote-preview-actions button")[1];function dt(e,t,o){const n=document.createElement("canvas"),r=n.getContext("2d"),a=new Image;a.src=e,a.onload=function(){n.width=a.width,n.height=a.height,r.drawImage(a,0,0),r.fillStyle="rgba(0, 0, 0, 0.7)",r.fillRect(0,0,n.width,n.height);const e=r.createLinearGradient(0,0,n.width,0);function i(e,t,o,n){let a=o;do{r.font=`bold ${a}px Arial`;if(r.measureText(e).width<=t)return a;a-=1}while(a>=n);return a}e.addColorStop(0,"#4fe305"),e.addColorStop(.5,"#03ffd5"),e.addColorStop(1,"#03f7db"),r.textAlign="center",r.textBaseline="middle",r.fillStyle=e;const s=n.width-40,l=n.height/15,c=n.height/30,u=i(t,s,l,c),d=t.split(" ");let m="";const h=1.2*u,p=n.width/2;let y=n.height/2-d.length/s*h/2;for(let e=0;e<d.length;e++){const t=m+d[e]+" ";r.measureText(t).width>s&&e>0?(r.fillText(m,p,y),m=d[e]+" ",y+=h):m=t}r.fillText(m,p,y);const f=i(o,s,.8*u,.8*c);r.font=`bold ${f}px Arial`,r.fillStyle="gold",r.fillText(o,n.width/2,y+h+20);const g=document.createElement("a");g.download=`${o}.jpg`,g.href=n.toDataURL(),g.click()}}document.querySelectorAll(".quote-preview-actions button")[2].onclick=()=>{document.querySelector(".quote-preview-overlay").style.display="none",i.pause()},ut.onclick=function(){i.pause(),ut.innerHTML='<i class="fas fa-spinner"></i> Downloading',setTimeout((function(){const e=Ge[P].reader,t=et(Ge[P].author),o=document.createElement("a");o.href=e,o.download=`${t}.mp3`,document.body.appendChild(o),o.click(),document.body.removeChild(o),ut.innerHTML='<i class="fas fa-volume-up"></i> Download Audio'}),2e3)},ct.onclick=function(){i.pause();const e=tt(Ge[P].author),t=Ge[P].quote,o=et(Ge[P].author);dt(e,Ge[P].intro.replace("author",o)+" "+t,o)};const mt=Ge.map((e=>e.quote)),ht=document.querySelectorAll(".more-actions button")[0],pt=document.querySelectorAll(".more-actions button")[1],yt=document.querySelectorAll(".more-actions button")[2],ft=document.querySelectorAll(".more-actions button")[3],gt=document.querySelectorAll(".more-actions button")[4],qt=document.querySelectorAll(".more-actions button")[5],vt=document.querySelectorAll(".more-actions button")[6],wt=function(e,t){e.disabled=t};function St(){H.intro&&H.name&&H.image&&H.quote?wt(yt,!1):wt(yt,!0)}mt.forEach(((e,t)=>{const o=document.createElement("li");o.textContent=t+1,document.querySelector(".quote-list ul").appendChild(o),o.addEventListener("click",(function(){document.querySelectorAll(".quote-list ul li").forEach((e=>e.classList.remove("active"))),function(e,t){const o=document.querySelector(".quote-maker-preview");Tt(o,e),kt(Xe[t]),o.scrollIntoView({behavior:"smooth",block:"center"}),wt(qt,!1)}(e,t),d=o,d.classList.add("active"),H.quote=e,wt(gt,!1),St()}))})),ze.forEach(((e,t)=>{const o=document.createElement("li");o.textContent=t+1,document.querySelector(".quote-intro-list ul").appendChild(o),o.addEventListener("click",(()=>{document.querySelectorAll(".quote-intro-list ul li").forEach((e=>e.classList.remove("active"))),function(e,t){const o=document.querySelector(".quote-intro-preview"),n=e.includes("author")?e.replace("author","Imajin"):e;Tt(o,n),o.scrollIntoView({behavior:"smooth",block:"center"}),function(e){const t=document.querySelector(".quote-maker-notice");s&&s!==e&&s.pause();l&&l.pause();const o=new Audio(e);s=o,s.play(),s.onended=()=>{t.style.display="none"}}(Ye[t])}(e,t),u=o,u.classList.add("active"),H.intro=e,wt(ft,!1),St()}))}));let Lt=0;U.addEventListener("click",(function(){const o=document.querySelector(".quote-maker-verlay"),i=document.querySelector(".quote-intro-preview"),s=document.querySelector(".quote-maker-preview");o.style.display="flex",i.innerHTML="",s.innerHTML="",Lt<1&&function(){const o=document.querySelector(".quote-intro-preview"),i=document.querySelector(".quote-maker-preview"),s=document.querySelector(".quote-maker-notice"),l=Math.floor(Math.random()*ze.length),m=Math.floor(Math.random()*mt.length);s.style.display="block";const h=document.querySelectorAll(".quote-intro-list ul li");h.forEach((e=>e.classList.remove("active"))),u=h[l],document.querySelectorAll(".quote-list ul li").forEach((e=>e.classList.remove("active"))),d=document.querySelectorAll(".quote-list ul li")[m],o.parentElement.scrollIntoView({behavior:"smooth",block:"center"});const p=window.innerWidth<800?new Audio(b):new Audio(L);c=p,$(n),$(a),$(r),$(e),$(t),c.play(),c.onended=()=>{document.querySelectorAll(".more-actions button").forEach((e=>e.classList.remove("active"))),s.style.display="none",vt.disabled=!0,yt.disabled=!0,ft.disabled=!0,gt.disabled=!0,qt.disabled=!0,document.querySelectorAll(".quote-intro-list ul li").forEach((e=>e.classList.remove("active"))),document.querySelectorAll(".quote-list ul li").forEach((e=>e.classList.remove("active"))),document.querySelectorAll(".more-actions button").forEach((e=>e.classList.remove("active")));const e=document.querySelector(".quote-maker-preview"),t=document.querySelector(".quote-intro-preview");e.innerHTML="",t.innerHTML=""},c.ontimeupdate=()=>{let e=c.currentTime;const t=Math.max(0,1e3*(4-e)),n=Math.max(0,1e3*(9-e)),r=Math.max(0,1e3*(14-e)),a=Math.max(0,1e3*(19-e)),s=Math.max(0,1e3*(23-e));setTimeout((function(){u.classList.add("active"),o.innerHTML=`<p>${ze[l].replace("author","Imajin")}</p>`}),t),setTimeout((function(){d.classList.add("active"),i.innerHTML=`<p>${mt[m]}</p>`}),n),setTimeout((function(){ht.scrollIntoView({behavior:"smooth",block:"center"}),document.querySelectorAll(".more-actions button").forEach((e=>e.classList.remove("active"))),ht.classList.add("active")}),r),setTimeout((function(){yt.scrollIntoView({behavior:"smooth",block:"center"}),document.querySelectorAll(".more-actions button").forEach((e=>e.classList.remove("active"))),yt.classList.add("active")}),a),setTimeout((function(){vt.scrollIntoView({behavior:"smooth",block:"center"}),document.querySelectorAll(".more-actions button").forEach((e=>e.classList.remove("active"))),vt.classList.add("active")}),s)}}(),Lt++})),document.querySelector(".quote-maker-close").addEventListener("click",(function(){document.querySelector(".quote-maker-verlay").style.display="none",document.querySelectorAll(".quote-intro-list ul li").forEach((e=>e.classList.remove("active"))),document.querySelectorAll(".quote-list ul li").forEach((e=>e.classList.remove("active"))),document.querySelectorAll(".more-actions button").forEach((e=>e.classList.remove("active")));const e=document.querySelector(".quote-maker-preview"),t=document.querySelector(".quote-intro-preview");e.innerHTML="",t.innerHTML="",vt.disabled=!0,yt.disabled=!0,ft.disabled=!0,gt.disabled=!0,qt.disabled=!0,H.image=null,H.name=null,H.quote=null}));let bt=!1;function Tt(e,t){document.querySelector(".quote-maker-notice").style.display="flex",bt&&(clearTimeout(typingTimeout),bt=!1);let o=0;e.innerHTML="<p></p>",bt=!0,function n(){o<t.length?(e.querySelector("p").innerHTML+=t.charAt(o),o++,typingTimeout=setTimeout(n,50)):bt=!1}()}const kt=e=>{const t=document.querySelector(".quote-maker-notice");l&&l!==e&&l.pause(),s&&!s.paused&&s.pause();const o=new Audio(e);l=o,l.play(),l.addEventListener("ended",(()=>{qt.disabled=!1,t.style.display="none"}))};qt.onclick=e=>{e.target.disabled=!0;const t=Array.from(document.querySelectorAll(".quote-list ul li")).indexOf(d);let o=mt[t].replace(/[\/\?<>\\:\*\|"]/g,"");o=o.substring(0,50);const n=document.createElement("a");n.href=Xe[t],n.download=`Imajin Quotes_${o}.mp3`,document.body.appendChild(n),n.click(),document.body.removeChild(n)},ft.addEventListener("click",(()=>{let e=H.intro.replace(/author|Imajin/g,H.name||"").trim();navigator.clipboard.writeText(e).then((()=>{ft.innerHTML='<i class="fas fa-check"></i> Copied',setTimeout((function(){ft.innerHTML='<i class="fas fa-copy"></i> Copy Intro'}),3e3)})).catch((e=>{console.error("Failed to copy",e),ft.innerHTML='<i class="fas fa-xmark"></i> Failed',setTimeout((function(){ft.innerHTML='<i class="fas fa-copy"></i> Copy Intro'}),3e3)}))})),gt.addEventListener("click",(()=>{const e=H.quote;navigator.clipboard.writeText(e).then((()=>{gt.innerHTML='<i class="fas fa-check"></i> Copied',setTimeout((function(){gt.innerHTML='<i class="fas fa-copy"></i>Copy Quote'}),3e3)})).catch((e=>{console.error("Failed to copy",e),gt.innerHTML='<i class="fas fa-xmark"></i> Failed',setTimeout((function(){gt.innerHTML='<i class="fas fa-copy"></i> Copy Quote'}),3e3)}))})),pt.addEventListener("click",(()=>{!function(){const e=document.createElement("div");e.className="modal";const t=document.createElement("div");t.className="modal-content";const o=document.createElement("div");o.className="modal-header",o.innerText="Welcome";const n=document.createElement("div");n.className="modal-body",n.innerHTML='\n            <p>Please enter your name:</p>\n            <div class="input-container">\n                <input type="text" id="nameInputs" placeholder="Your Name" class="fancy-input">\n            </div>\n        ';const r=document.createElement("div");r.className="modal-footer";const a=document.createElement("button");a.innerText="Done",a.disabled=!0,a.addEventListener("click",(()=>{const t=document.getElementById("nameInputs").value.trim();if(t)H.name=t,document.body.removeChild(e);else{document.getElementById("nameInputs").placeholder="Please enter a valid name."}}));const i=document.createElement("button");i.innerText="Close",i.addEventListener("click",(()=>{document.body.removeChild(e)})),n.querySelector("#nameInputs").oninput=function(){a.disabled=""===this.value.trim()},r.appendChild(a),r.appendChild(i),t.appendChild(o),t.appendChild(n),t.appendChild(r),e.appendChild(t),document.body.appendChild(e)}(),St()})),ht.addEventListener("click",(()=>{document.querySelector(".quote-image-upload").style.display="flex"})),document.querySelector(".close-upload").onclick=()=>{document.querySelector(".quote-image-upload").style.display="none"},document.querySelectorAll(".actions-upload button")[1].onclick=()=>{document.querySelector(".quote-image-upload").style.display="none",H.image=null},document.querySelectorAll(".actions-upload button")[0].disabled=!0,document.querySelector("#imgFile").onchange=e=>{const t=e.target.files[0];if(t){const e=URL.createObjectURL(t);document.querySelector(".upload-preview").innerHTML=`<img src='${e}' alt='${t.name}'>`,H.image=e,St(),document.querySelectorAll(".actions-upload button")[0].disabled=!1}},document.querySelectorAll(".actions-upload button")[0].onclick=()=>{document.querySelector(".quote-image-upload").style.display="none",document.querySelector(".upload-preview").innerHTML="",document.querySelectorAll(".actions-upload button")[0].disabled=!0};const At=document.querySelectorAll(".controls-test button")[0],Et=document.querySelectorAll(".controls-test button")[1];yt.onclick=function(){document.querySelector(".test-quote-overlay").innerHTML="",document.querySelector(".test-content").style.backgroundImage="url(logo.jpg)",document.querySelector(".test-preview-overlay").style.display="flex";const e=H.intro.replace(/author|Imajin/g,H.name||"").trim()+" "+(H.quote||"(Choose Your quote)")+" - Authored by "+(H.name||"(Choose a name)");document.querySelector(".test-quote-overlay").innerHTML=`<p>${e}</p>`,document.querySelector(".test-content").style.backgroundImage=`url(${H.image})`;const t=mt.indexOf(H.quote);kt(Xe[t])},document.querySelector(".test-close").onclick=function(){document.querySelector(".test-preview-overlay").style.display="none"},Et.onclick=function(){document.querySelector(".test-preview-overlay").style.display="none"},At.onclick=function(){document.querySelector(".test-preview-overlay").style.display="none",wt(vt,!1)},vt.onclick=function(){const e=H.intro.replace(/author|Imajin/g,H.name||"Imajin").trim()+H.quote;dt(H.image,e,H.name),wt(yt,!0),wt(vt,!0)};let Mt=0;const It=document.querySelector(".story-icon"),xt=document.querySelectorAll(".story");function Rt(e,t="in"){xt.forEach(((o,n)=>{o.classList.remove("story-slide-left","story-slide-right","story-slide-in","active"),n===e&&o.classList.add("active",`story-slide-${t}`)}))}document.querySelector(".prev-story").addEventListener("click",(()=>{const e=Mt;Mt=0===Mt?xt.length-1:Mt-1,Rt(e,"right"),setTimeout((()=>Rt(Mt,"in")),100)})),document.querySelector(".next-story").addEventListener("click",(()=>{const e=Mt;Mt=Mt===xt.length-1?0:Mt+1,Rt(e,"left"),setTimeout((()=>Rt(Mt,"in")),100)})),Rt(Mt),It.addEventListener("click",(()=>{document.querySelector(".story-preview").style.display="flex",$(a),$(e),$(t),$(o)})),document.querySelector(".stories-close").onclick=function(){document.querySelector(".stories-overlay").style.display="none"},document.querySelector(".close-dialog").onclick=function(){document.querySelector(".story-preview").style.display="none"},document.addEventListener("click",(e=>{const t=document.querySelector(".story-preview");t.contains(e.target)||"flex"!==getComputedStyle(t).display||(t.style.display="none")}),!0);const Ht=document.querySelectorAll(".story-preview ul li")[0],Ct=document.querySelectorAll(".story-preview ul li")[1],jt=document.querySelectorAll(".story-preview ul li")[2];Ht.onclick=()=>{document.querySelector(".story-preview").style.display="none",document.querySelector(".stories-overlay").style.display="flex"},Ct.onclick=()=>{document.querySelector(".characters-preview-overlay").style.display="flex",document.querySelector(".story-preview").style.display="none"},jt.onclick=function(){document.querySelector(".characters-view-overlay").style.display="flex",function(){document.querySelector(".content-character-view").innerHTML="";const e=[...document.querySelectorAll(".stories-content .story .story-avatar img")],t=F.map((e=>e.imgsrc)).slice(1),o=F.map((e=>e.names)).slice(1),n=[...document.querySelectorAll(".friends-section ul li .friend")];e.forEach(((e,a)=>{const i=document.createElement("div");i.classList.add("card"),i.style.backgroundImage=`url(${e.src})`;const s=new Audio(n[a].getAttribute("data-voice"));document.querySelector(".content-character-view").appendChild(i);let l=0;setTimeout((function(){setInterval((function(){i.style.backgroundImage=`url(${t[a]})`,l=a}),2e3*a)}),3e3),i.onclick=()=>{var n,i,l;!function(e){r&&r!==e&&r.pause();r=e,r.currentTime=0,r.play()}(s),n=t[a],i=e.src,l=o[a],document.querySelector(".left-preview-recommendation").innerHTML=`<img src="${n}" alt="Characters_img">`,document.querySelector(".right-preview-recommendation").innerHTML=`<img src="${i}" alt="Characters_img">`,document.querySelector("#character-names").textContent=l,Dt.innerHTML="&#x2191;",document.querySelector(".recommendation-overlay").style.display="flex",C.leftImg=n,C.rightImg=i,C.ImajinFriendname=l}}))}()};const $t=document.querySelectorAll(".song-picker ul li")[0],Ft=document.querySelectorAll(".song-picker ul li")[1];$t.onclick=()=>{Ot("character.mp3",$t,9e3)},Ft.onclick=()=>{Ot("character1.mp3",Ft,8e3)};const Ot=(e,t,o)=>{p&&p!==e&&(p.pause(),p.currentTime=0),p&&p===e&&!p.paused&&(p.pause(),Wt(t,!1)),p=new Audio(e),p.play(),Wt(t,!0),function(e){clearInterval(x);const t=[...document.querySelectorAll(".stories-content .story .story-avatar img")],o=F.map((e=>e.imgsrc)).slice(1);if(0===t.length||0===o.length)return;const n=document.querySelector(".left-character"),r=document.querySelector(".right-character");let a=0;n.style.backgroundImage=`url(${t[a].src})`,r.style.backgroundImage=`url(${o[a]})`,x=setInterval((function(){a=(a+1)%Math.min(t.length,o.length),n.classList.remove("fade-in"),r.classList.remove("fade-in"),n.classList.add("dark-in"),r.classList.add("dark-in"),setTimeout((()=>{n.style.backgroundImage=`url(${t[a].src})`,r.style.backgroundImage=`url(${o[a]})`,setTimeout((()=>{n.classList.add("fade-in"),r.classList.add("fade-in")}),50)}),1e3),setTimeout((()=>{n.classList.remove("dark-in"),r.classList.remove("dark-in")}),2e3)}),e),p.onended=()=>{clearInterval(x),Nt()}}(o)};function Nt(){$t.innerHTML='<i class="fas fa-play"></i>',Ft.innerHTML='<i class="fas fa-play"></i>'}function Wt(e,t){Nt(),e.innerHTML=t?'<i class="fas fa-redo rotate"></i>':'<i class="fas fa-play"></i>'}document.querySelector(".character-close").onclick=()=>{Nt(),p&&(p.pause(),p.currentTime=0),clearInterval(x);const e=document.querySelector(".left-character"),t=document.querySelector(".right-character");e.style.backgroundImage="url(logo2.jpg)",t.style.backgroundImage="url(logo.jpg)",document.querySelector(".characters-preview-overlay").style.display="none"},xt.forEach(((e,t)=>{const o=e.querySelector("h2").innerText,n=e.querySelector(".story-avatar img").src,r=Array.from(e.querySelectorAll(".fairy-tale p")).map((e=>e.innerText));e.querySelector(".read-story button").onclick=()=>{m={name:o,avatar:n,paragraphs:r,narrator:e.getAttribute("data-story")},Ut(m)}}));const Ut=function(e){h&&(h.pause(),h.currentTime=0),document.querySelector(".header-text").innerHTML=`<h2>${e.name}</h2>`,document.querySelector(".narration img").src=e.avatar,document.querySelector(".narration-text").innerHTML=e.paragraphs.map((e=>`<p>${e}</p>`)).join(""),document.querySelector(".narration-content").style.backgroundImage=`url(${e.avatar})`,h=new Audio(e.narrator),document.querySelector(".narration-overlay").style.display="flex",h.play()};document.querySelector(".narration-close").onclick=()=>{document.querySelector(".header-text").innerHTML="",document.querySelector(".narration img").src="",document.querySelector(".narration-text").innerHTML="",h.pause(),h.currentTime=0,document.querySelector(".narration-overlay").style.display="none"},document.querySelector(".close-characters-view").onclick=function(){document.querySelector(".characters-view-overlay").style.display="none",r.paused||r.pause()};const Dt=document.querySelectorAll(".buttons-actions button")[0],Bt=document.querySelectorAll(".buttons-actions button")[1];function Vt(){document.querySelector(".recommendation-overlay").style.display="none",document.querySelector(".left-preview-recommendation").innerHTML="",document.querySelector(".right-preview-recommendation").innerHTML="",document.querySelector("#character-names").textContent="",r.paused||r.pause(),$(y),wt(Dt,!0),wt(Bt,!0),E=!1}document.querySelector(".close-recomendation").onclick=function(){Vt()},document.querySelector("#audioFileRecommendation").addEventListener("change",(function(){r.paused||r.pause();const e=this.files[0];if(e){const t=1024*10*1024;if(e.size>t)return void alert("The audio file size must not exceed 10 MB.");wt(Dt,!1),wt(Bt,!1),y&&($(y),E=!1),Dt.innerHTML="&#9654;";const o=URL.createObjectURL(e),n=new Audio(o);y=n,C.songAudio=e,C.songTitle=e.name.replace(".mp3",""),Dt.onclick=()=>{E=!E,E?(y.play(),Dt.innerHTML="&#10074;&#10074;"):(n.pause(),Dt.innerHTML="&#9654;"),y.onended=()=>{Dt.innerHTML="&#9654;",E=!1}}}})),Bt.onclick=()=>{Vt(),function(){r.paused||(r.pause(),y.currentTime=0,E=!1,Dt.innerHTML="&#9654;");C.leftImg&&C.rightImg&&C.ImajinFriendname&&C.songAudio&&C.songTitle&&(document.querySelector(".progress-bar-preview").style.width="",document.querySelector(".leftside-preview").innerHTML=`<img src="${C.leftImg}" alt="Characters_img">`,document.querySelector(".rightside-preview").innerHTML=`<img src="${C.rightImg}" alt="Characters_img">`,document.querySelector(".audio-name").innerHTML=` <h3>${C.songTitle}</h3>`,document.querySelector("#statement").textContent=""+(C.ImajinFriendname?`This song is recommended to ${C.ImajinFriendname}`:"recommends this song for a friend"),document.querySelector(".share-recomendation-overlay").style.display="flex",document.querySelector(".audio-preview .icon button").onclick=function(){E=!E,E?y.paused?(y.play(),this.innerHTML="&#10074;&#10074;"):(y=C.songAudio,y.currentTime=0,y.play(),this.innerHTML="&#10074;&#10074;"):(y.pause(),this.innerHTML="&#9654;"),y.ontimeupdate=()=>{const e=y.currentTime/y.duration*100;document.querySelector(".progress-bar-preview").style.width=`${e}%`},y.onended=()=>{this.innerHTML="&#9654;",E=!1}})}()};const _t=document.querySelectorAll(".actions-share-controls button")[0],Pt=document.querySelectorAll(".actions-share-controls button")[1];function zt(){document.querySelector(".share-recomendation-overlay").style.display="none",document.querySelector(".leftside-preview").innerHTML="",document.querySelector(".rightside-preview").innerHTML="",document.querySelector(".audio-name").innerHTML="",document.querySelector("#statement").textContent="Has a recommendation for Imajin this song",document.querySelector(".audio-preview .icon button").innerHTML="&#9654;",document.querySelector(".progress-bar-preview").style.width="",y.pause(),document.querySelector(".image-user-preview").innerHTML='<img src="logo.jpg" alt="user_image">',document.querySelector(".name-input-user input").value="",document.querySelector(".name-of-person h2").textContent="Add your name",document.querySelector(".user-profile").innerHTML='<img src="logo2.jpg" alt="user">',E=!1,Pt.disabled=!0}function Yt(e){document.querySelector(".user-form-overlay").style.display="none",C.leftImg&&C.rightImg&&C.ImajinFriendname&&C.songAudio&&C.songTitle&&C.userImage&&C.UserName?wt(Pt,!1):wt(Pt,!0),y.paused||y.pause(),e&&(document.querySelector(".image-user-preview").innerHTML='<img src="logo.jpg" alt="user_image">',document.querySelector(".name-input-user input").value="",document.querySelector(".name-of-person h2").textContent="Add your name",document.querySelector(".user-profile").innerHTML='<img src="logo2.jpg" alt="user">')}function Xt(){const e=document.querySelector(".name-input-user input").value.trim();document.querySelectorAll(".controls-user-form button")[0].disabled=!(C.userImage&&e)}function Gt(e,t,o,n,r,a,i,s){const l=document.createElement("li"),c=document.createElement("div");c.classList.add("post-header"),l.appendChild(c);const u=document.createElement("div");u.classList.add("post-number"),u.innerHTML=`<h1>${e}</h1>`,c.appendChild(u);const d=document.createElement("div");d.classList.add("post-title"),c.appendChild(d);const m=document.createElement("div");m.classList.add("user-icon"),m.innerHTML=`<img src="${t}" alt="user_icon">`,d.appendChild(m);const h=document.createElement("div");h.classList.add("userName-holder"),h.innerHTML=`<h3>${o} has a recommendation for ${n}: this song.</h3><p>${r}</p>`,d.appendChild(h);const p=document.createElement("div");p.classList.add("post-body"),p.innerHTML=`<div class="imajin-friend-image">\n                                <img src="${a}" alt="friend_image">\n                            </div>\n\n                            <div class="imajin-friend-avator">\n                                <img src="${i}" alt="friend_image">\n                            </div>`,l.appendChild(p);const y=document.createElement("div");y.classList.add("post-footer");const v=document.createElement("button");v.innerHTML="&#9654;",y.appendChild(v);const w=document.createElement("div");w.classList.add("progress-track-audio");const S=document.createElement("div");S.classList.add("progress-bar-audio"),w.appendChild(S),y.appendChild(w),l.appendChild(y),document.querySelector(".feed-section ul").appendChild(l),v.onclick=()=>{f&&!f.paused&&(f.pause(),v.innerHTML="&#9654;",S.style.width="0%"),function(e,t,o){const n=e.split(",")[1],r=atob(n),a=new Uint8Array(r.length);for(let e=0;e<r.length;e++)a[e]=r.charCodeAt(e);const i=new Blob([a],{type:"audio/mpeg"}),s=URL.createObjectURL(i);f=new Audio(s),f.play(),t.innerHTML="<span>&#10074;&#10074;</span>",q=o,M=!0,f.addEventListener("timeupdate",(()=>{if(f.duration){const e=f.currentTime/f.duration*100;o.style.width=`${e}%`}})),f.onended=()=>{t.innerHTML="&#9654;",M=!1,o.style.width="0%",URL.revokeObjectURL(s),f=null,g=null,q=null}}(s,v,S)}}function Jt(){const e=document.getElementById("loadingSpinner");e.style.display="block",fetch("https://imajin-backend.onrender.com/posts").then((e=>{if(!e.ok)throw new Error("Network response was not ok");return e.json()})).then((e=>{document.querySelector(".feed-section ul").innerHTML="",e.forEach(((e,t)=>{Gt(t+1,e.userImage,e.UserName,e.ImajinFriendname,e.songTitle,e.leftImg,e.rightImg,e.songAudio)}))})).catch((e=>console.error("Error loading posts:",e))).finally((()=>{e.style.display="none"}))}document.querySelector(".close-share-recomendation").onclick=function(){zt()},_t.onclick=function(){document.querySelector(".user-form-overlay").style.display="flex",y.pause(),document.querySelector(".audio-preview .icon button").innerHTML="&#9654;",E=!1},Pt.onclick=async function(){function e(e){return new Promise(((t,o)=>{const n=new FileReader;n.readAsDataURL(e),n.onload=()=>t(n.result),n.onerror=e=>o(e)}))}Pt.disabled=!0;const t={leftImg:C.leftImg,rightImg:C.rightImg,ImajinFriendname:C.ImajinFriendname,songAudio:C.songAudio instanceof File?await e(C.songAudio):C.songAudio,songTitle:C.songTitle,userImage:C.userImage instanceof File?await e(C.userImage):C.userImage,UserName:C.UserName};fetch("https://imajin-backend.onrender.com/posts",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(t)}).then((e=>{if(!e.ok)throw new Error("Network response was not ok");return e.json()})).then((e=>{console.log("Post added:",e),Jt()})).catch((e=>console.error("Error:",e))).finally((()=>{Pt.disabled=!1})),zt()},document.querySelector(".close-user-form-overlay").onclick=function(){Yt(!0)},document.querySelectorAll(".controls-user-form button")[1].onclick=function(){Yt(!1)},document.querySelector("#imageFileInput").addEventListener("change",(function(){const e=this.files[0];document.querySelector(".image-user-preview").innerHTML="",e&&(C.userImage=e,document.querySelector(".image-user-preview").innerHTML=`<img src="${URL.createObjectURL(C.userImage)}" alt="user_image">`,Xt())})),document.querySelector(".name-input-user input").addEventListener("input",(function(){Xt()})),document.querySelectorAll(".controls-user-form button")[0].onclick=function(){this.disabled=!0,C.UserName=document.querySelector(".name-input-user input").value,document.querySelector(".name-of-person h2").textContent=`${C.UserName}`,document.querySelector(".user-profile").innerHTML=`<img src="${URL.createObjectURL(C.userImage)}" alt="user">`,Yt(!1)},D.onclick=()=>{document.querySelector(".feed-overlay").style.display="flex",Jt()},document.querySelector(".feed-close").onclick=function(){document.querySelector(".feed-overlay").style.display="none",f&&f.pause()},document.querySelector(".feed-overlay").addEventListener("click",Jt)}));
+document.addEventListener('DOMContentLoaded', function () {
+
+    let currentSong = null;
+    let currentVoice = null;
+    let narrator = null;
+    let currentAudio = null;
+    let  currentAudioDescrption = null;
+    let currentVideo = null;
+    let currentReader = null;
+    let currentIntroMaker = null;
+    let currentquotemaker = null;
+    let  currentNotice = null;
+    let  currentIntroElement = null;
+    let  currentQuoteMakerElement = null;
+    let currentStory = null;
+    let narratorAudio = null; // Declare the audio variable outside the loop
+    let currentThemeSong = null;
+    let currentRecommendedSong = null;
+    let currentSongAudio = null;
+    let currentPlayingButton = null; // To track the button currently controlling the audio
+    let currentProgressBar = null; // To track the progress bar for the current audio
+
+
+
+    
+
+    const song = 'theme.mp3';
+    const song2 = 'audio2.mp3';
+    const song3 = 'audio.mp3';
+    const song4 = 'love.mp3';
+    const song5 = 'slide.mp3';
+    const song6 = 'slide2.mp3';
+    const song7 = 'thanks.mp3';
+    const song8 = 'dream.mp3';
+    const song9 = 'read.mp3';
+    const song10 = 'read2.mp3';
+    const song11 = 'read3.mp3';
+    const song12 = 'read4.mp3';
+    const song13 = 'read5.mp3';
+    const song14 = 'motivational.mp3';
+    const song15 = 'good life.mp3';
+    const song16 = 'show yourself.mp3';
+    const song17 = 'trailer.mp3';
+    const song18 = 'read6.mp3';
+    const song19 = 'intro.mp3';
+    const notice1 = 'notice1.mp3';
+    const notice2 = 'notice2.mp3';
+    const characterSong0 = "character.mp3";
+    const characterSong1 = "character1.mp3";
+
+
+    let isMenu = false;
+    let isPlaying = false;
+    let isPlayingTrailer = false;
+    let playSelected = false;
+    let isSongAudioPlaying = false;
+
+    const timeouts = []; // Array to hold timeouts
+    let timeoutIds = []; // Store timeout IDs globally
+    let userQuote = new Object();
+    let shareItem = new Object();
+
+
+    let timeout;
+
+    document.designMode = 'off';
+
+    setInterval(() => {
+        if (document.designMode !== 'off') {
+            document.designMode = 'off';
+        }
+    }, 1000);  // Check every second
+    
+
+    const Awesomewords = [
+        {startAt: 2, text: "Imajin Haven of Friendship!"},
+        {startAt: 3, text: "I paint my friends with hues of love and admiration"},
+        {startAt: 7, text: "Each friend is a masterpiece"},
+        {startAt: 9, text: "A unique stroke on the canvas of life"},
+        {startAt: 15, text: "I celebrate the beautiful tapestry of my friends’ lives."},
+        {startAt: 18, text: "Their stories and insights add depth and richness to this artful tapestry."},
+         {startAt: 21, text: "As you wander through this gallery of cherished connections,"},
+        {startAt: 28, text: "Inspired by vibrant expressions of friendship and the profound beauty within each story."},
+        {startAt: 32, text: "Let the colors of camaraderie brighten your day"},
+        {startAt: 35, text: "Artful narratives warm your heart"},
+        {startAt: 38, text: "Together, we create a symphony of friendship that transcends time"}
+    ];
+    
+    (function() {
+        const loadingAudio = new Audio(song19); // Assuming 'song19' is a valid audio URL.
+        const currentTime = new Date().getTime(); // Current timestamp
+        const lastVisitKey = 'lastVisit';
+        const threeDaysInMilliseconds = 3 * 24 * 60 * 60 * 1000; // 3 days
+    
+        // Check if the user is new or hasn't visited in over 3 days
+        const lastVisit = localStorage.getItem(lastVisitKey);
+        
+        if (!lastVisit || (currentTime - lastVisit) > threeDaysInMilliseconds) {
+            // Update the last visit timestamp
+            localStorage.setItem(lastVisitKey, currentTime);
+    
+            // Play the audio
+            loadingAudio.play().catch((error) => {
+                console.error("Audio failed to play:", error);
+                document.querySelector('.loading-animation').style.display = "none"; // Hide if audio fails
+            });
+    
+            // Function to update the loading message
+            const updateLoadingMessage = () => {
+                const currentTime = Math.floor(loadingAudio.currentTime);
+                
+                Awesomewords.forEach(word => {
+                    if (currentTime === word.startAt) {
+                        document.querySelector('.loading-message').textContent = word.text;
+                    }
+                });
+            };
+    
+            // Listen for time updates in the audio to display Awesomewords text
+            loadingAudio.addEventListener('timeupdate', updateLoadingMessage);
+    
+            // Hide the loading animation and message once the audio ends
+            loadingAudio.addEventListener('ended', () => {
+                document.querySelector('.loading-animation').style.display = "none";
+            });
+        }
+        else{
+
+            document.querySelector('.loading-animation').style.display = "none";
+        }
+    })();
+  
+    
+
+    function pauseMedia(media) {
+        if (media && typeof media.pause === 'function') {
+            media.pause();
+        }
+    }
+
+
+
+    const images = [
+        {imgsrc:"logo.jpg", start:0, end: 7, names:"Friends of imajin"}, 
+        {imgsrc:"liz.jpg", start:8, end: 16, names:"Bruz Liz"}, 
+        {imgsrc:"lily.jpg", start:17, end: 24, names:"bruz Lily"}, 
+        {imgsrc:"mss.jpg", start:25, end: 32, names:"Mi$$ Bad Mind"}, 
+        {imgsrc:"gyala.jpg", start:33, end: 41, names:"Gyala Barbie"}, 
+        {imgsrc:"dorian.jpg", start:42, end: 50, names:"Dorian Gray"}, 
+        {imgsrc:"mickey.jpg", start:51, end: 58, names: "Mickey"}, 
+        {imgsrc:"ben.jpg", start:59, end: 66, names:"111 Doctor B"}, 
+        {imgsrc:"maargie.jpg", start:67, end: 76, names:"Princess Margie"}, 
+        {imgsrc:"kinara.jpg", start:77, end: 83, names:"Kinara Fao"}, 
+        {imgsrc:"fay.jpg", start:84, end: 98, names:"Pretty Fay"}, 
+        {imgsrc:"amaya.jpg", start:99, end: 107, names:"Amaya Salvada"}, 
+        {imgsrc:"tabeh.jpg", start:108, end: 116, names:"tabeh tron"}, 
+        {imgsrc:"lilpretty.jpg", start:117, end: 124, names:"lilpretty nigga"}, 
+        {imgsrc:"mishy.jpg", start:125, end: 133, names:"quinnshitt mishy"},
+        {imgsrc:"bexy.jpg", start:134, end:139, names:"Bexy Dexy"},
+        {imgsrc:"milly.jpg", start:140, end: 148, names:"milly mungats"}, 
+        {imgsrc:"uphreasia.jpg", start:149, end: 157, names:"uphreasia migose"}, 
+        {imgsrc: "naya.jpg", start:158, end: 166, names:"Naya Milae"},
+        {imgsrc:"misting.jpg", start:167, end:175, names: "misting Enable Mreggae"},
+        {imgsrc:"vulence.jpg", start:176, end: 178, names:"vulence  dali"},
+    ]
+    
+    // Select the play icon (first <li> element)
+    const listIcon = document.querySelectorAll('.right-header ul li')[0];
+    const musicIcon = document.querySelectorAll('.right-header ul li')[1];
+    const heartIcon = document.querySelectorAll('.right-header ul li')[2];
+    const quotemakerIcon = document.querySelectorAll('.right-header ul li')[3];
+    const postFeedIcon =  document.querySelectorAll('.right-header ul li')[4];
+
+
+    let currentSlide = 0;
+    let currentImageIndex = 0; // Declare outside the function
+    let currentLyricsIndex = 0;
+    let currentQuoteIndex = 0;
+    
+
+    const slides = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+
+
+    function hideSlideBtn(element) {
+       element.style.opacity = '0';
+       element.style.pointerEvents = 'none'
+    }
+
+    function ShowSlideBtn(element) {
+        element.style.opacity = '1';
+        element.style.pointerEvents = 'auto'
+    }
+    
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            // Remove the 'active' class from all slides
+            slide.classList.remove('active');
+    
+            // Set the transform for the slide based on its index
+            if (i === index) {
+                slide.style.transform = 'translateX(0)';
+                slide.classList.add('active');  // Add the 'active' class to the current slide
+                slide.scrollIntoView({behavior: "smooth", block: "center"});
+            } else if (i < index) {
+                slide.style.transform = 'translateX(-100%)';
+            } else {
+                slide.style.transform = 'translateX(100%)';
+            }
+        });
+    }
+    
+    // Event listener for the previous button
+    prevBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide === 0) ? slides.length - 1 : currentSlide - 1;
+        showSlide(currentSlide);
+       playCurrentVideo(true);
+    });
+    
+    // Event listener for the next button
+    nextBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1;
+        showSlide(currentSlide);
+        playCurrentVideo(true);
+    });
+    
+    // Initialize the first slide
+    showSlide(currentSlide);
+    
+
+    document.querySelector('.left-header').onclick = () => {
+        document.querySelector('.about-imajin').classList.remove('visible');
+        document.querySelector('.welcome-div').classList.remove('hidden');
+        document.querySelector('.friends-section').style.display= 'none';
+    }
+
+   const  hideAllIcons = () => {
+        const allHeaderIcons = document.querySelectorAll('.right-header ul li');
+        allHeaderIcons.forEach(icon => {
+            icon.style.opacity = '0';
+            icon.style.pointerEvents =  'none';
+        });
+   }
+
+    hideAllIcons();
+
+   const  showAllIcons = () => {
+        const allHeaderIcons = document.querySelectorAll('.right-header ul li');
+        allHeaderIcons.forEach(icon => {
+            icon.style.opacity = '1';
+            icon.style.pointerEvents =  'auto';
+        });
+    }
+
+
+    // Add event listener for the music icon click
+    musicIcon.addEventListener('click', () => {
+        isMenu = !isMenu; // Toggle the state of the menu
+        document.querySelector('.song-menu').classList.toggle('active', isMenu); // Toggle the active class
+    });
+
+    // Add event listener for document click
+    document.addEventListener('click', (event) => {
+        const songMenu = document.querySelector('.song-menu');
+        
+        // Check if the click is outside the song menu and if the menu is active
+        if (!songMenu.contains(event.target) && isMenu) {
+            isMenu = false; // Set the menu state to inactive
+            songMenu.classList.remove('active'); // Remove the active class
+        }
+    }, true); // Use capture phase to ensure this runs before other click events
+
+    
+
+
+    const proceedBtn = document.querySelectorAll('.controls button')[0];
+    const playVideo = document.querySelectorAll('.controls button')[1];
+    const motivbtn = document.querySelectorAll('.controls button')[2];
+    const aboutBtn = document.querySelectorAll('.controls button')[3];
+
+
+
+    let audiosrc = null; // Keep audiosrc outside the function to persist the value across calls
+
+    function playCurrentAudio(song) {
+        // Check if the song is different from the current one playing
+        if (audiosrc !== song) {
+            audiosrc = song; // Update audiosrc to the new song
+            currentAudio = new Audio(song); // Create a new Audio object for the new song
+            currentAudio.play(); // Play the new song
+            isPlayingTrailer = true;
+        } else {
+            // If the same song is playing, toggle between play and pause
+            if (currentAudio && !currentAudio.paused) {
+                currentAudio.pause(); // Pause the current audio
+                isPlayingTrailer = false;
+            } else if (currentAudio) {
+                currentAudio.play(); // Resume the current audio
+                isPlayingTrailer = true;
+            }
+        }
+
+        // Update the progress bar as the audio plays
+        currentAudio.addEventListener('timeupdate', () => {
+            const percent = (currentAudio.currentTime / currentAudio.duration) * 100;
+            document.querySelector('.progress-bar').style.width = `${percent}%`;
+        });
+    }
+
+   
+    function playCurrentVideo(state) {
+        const carouselItems = document.querySelectorAll('.carousel-item video');
+        currentVideo = carouselItems[currentSlide];
+        const overlay = document.querySelectorAll('.carousel-item .video-overlay')[currentSlide];
+    
+        // Pause all videos before playing the current one
+        document.querySelectorAll('.video-intro video').forEach(vid => vid.pause());
+        document.querySelectorAll('video-overlay video').forEach(vid =>{
+            vid.addEventListener('contextmenu', (e) => { // Corrected event name
+                e.preventDefault();
+                overlay.classList.add('active');
+                hideSlideBtn(prevBtn);
+                hideSlideBtn(nextBtn);
+            });
+
+            vid.addEventListener('stalled', () => {
+                overlay.classList.add('active');
+                hideSlideBtn(prevBtn);
+                hideSlideBtn(nextBtn);
+            });
+        });
+        
+    
+        // Add event listeners to manage the loading overlay and play/pause logic
+        currentVideo.addEventListener('loadstart', () => {
+            overlay.classList.add('active');
+            hideSlideBtn(prevBtn);
+            hideSlideBtn(nextBtn);
+        });
+    
+        currentVideo.addEventListener('stalled', () => {
+            overlay.classList.add('active');
+            hideSlideBtn(prevBtn);
+            hideSlideBtn(nextBtn);
+        });
+    
+        currentVideo.addEventListener('contextmenu', (e) => { // Corrected event name
+            e.preventDefault();
+            overlay.classList.add('active');
+            hideSlideBtn(prevBtn);
+            hideSlideBtn(nextBtn);
+        });
+    
+        currentVideo.addEventListener('canplay', () => {
+            overlay.classList.remove('active');
+            ShowSlideBtn(prevBtn);
+            ShowSlideBtn(nextBtn);
+        });
+    
+        currentVideo.addEventListener('playing', () => {
+            overlay.classList.remove('active');
+            hideSlideBtn(prevBtn);
+            hideSlideBtn(nextBtn);
+            playVideo.innerHTML = '<span><i class="fas fa-pause"></i>Pause</span>';
+            isPlaying = true;
+        });
+    
+        currentVideo.addEventListener('pause', () => {
+            playVideo.innerHTML = '<span><i class="fas fa-play"></i>Play</span>';
+            ShowSlideBtn(prevBtn);
+            ShowSlideBtn(nextBtn);
+            isPlaying = false;
+        });
+    
+        currentVideo.addEventListener('ended', () => {
+            overlay.classList.remove('active');
+            ShowSlideBtn(prevBtn);
+            ShowSlideBtn(nextBtn);
+            playVideo.innerHTML = '<span><i class="fas fa-play"></i> Video</span>';
+            isPlaying = false;
+        });
+    
+         // Control video based on state argument (play or pause)
+        if (state) {
+            currentVideo.play();
+            currentVideo.scrollIntoView({ behavior: "smooth", block: "center" });
+            isPlaying = true;
+        } else {
+            currentVideo.pause();
+            isPlaying = false;
+        }
+
+    
+        // Time update for the progress bar
+        currentVideo.addEventListener('timeupdate', () => {
+            if (!isFinite(currentVideo.duration) || isNaN(currentVideo.duration) || currentVideo.duration === 0) {
+                currentVideo.pause();
+                currentSlide = (currentSlide + 1) % document.querySelectorAll('.carousel-item').length; // Go to next slide
+                showSlide(currentSlide);
+                playCurrentVideo(); // Start playing the next video
+                return; // Skip updating if duration is invalid
+            }
+    
+            const percent = (currentVideo.currentTime / currentVideo.duration) * 100;
+            document.querySelectorAll('.carousel-item .video-intro .progress-video-bar')[currentSlide].style.width = `${percent}%`;
+        });
+    }
+    
+    
+    // Play/pause button handler
+    playVideo.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        playCurrentVideo(isPlaying);
+    });
+    
+    
+    document.querySelector('.download-video').onclick = function () {
+        const  link = document.createElement('a');
+        link.href = currentVideo.src;
+        link.download = "Imajin_video.mp4";
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+    }
+    
+
+    aboutBtn.addEventListener('click', () => {
+        document.querySelector('.about-imajin').classList.add('visible');
+        document.querySelector('.welcome-div').classList.add('hidden');
+
+        closeQuoteRader();
+    });
+
+    motivbtn.addEventListener('click', () => {
+        document.querySelector('.motivational-overlay').classList.add('active');
+        narrator = new Audio(song14);
+        narrator.play();
+        document.querySelector('.video-intro').style.opacity = '0';
+        showMotivationalSpeech();
+
+        narrator.addEventListener('ended', () => {
+            document.querySelector('.motivational-overlay').classList.remove('active');
+
+            if(narrator) {
+                narrator.pause();
+                narrator.currenTime = 0;
+    
+            }
+            document.querySelectorAll('.motivational-content p').forEach(t => {t.classList.remove('active')});
+
+            document.querySelector('.video-intro').style.opacity = '1';
+        });
+
+        closeQuoteRader();
+
+        if(currentVideo) {
+            currentVideo.pause();
+            isPlaying = true;
+        }
+    });
+
+    const showMotivationalSpeech = () => {
+        const allText = document.querySelectorAll('.motivational-content p');
+        let accumulated = 0;
+    
+        // Remove active class from all paragraphs initially
+        allText.forEach(t => t.classList.remove('active'));
+    
+        // Clear any previous timeouts in case this function was called again
+        timeoutIds.forEach(timeoutId => clearTimeout(timeoutId));
+        timeoutIds = []; // Reset the timeout ID array
+    
+        // Set up the timing for each paragraph
+        allText.forEach(p => {
+            const duration = parseInt(p.getAttribute('data-time'));
+    
+            const addActiveTimeout = setTimeout(() => {
+                p.classList.add('active');
+                p.scrollIntoView({behavior: "smooth", block:"center"});
+    
+                // Remove the active class after the duration
+                const removeActiveTimeout = setTimeout(() => {
+                    p.classList.remove('active');
+                }, duration * 1000);
+    
+                // Store the removal timeout
+                timeoutIds.push(removeActiveTimeout);
+            }, accumulated * 1000);
+    
+            // Store the timeout for adding the active class
+            timeoutIds.push(addActiveTimeout);
+    
+            accumulated += duration; // Update accumulated time for the next paragraph
+        });
+    };
+
+    document.querySelector('.close-motivational').addEventListener('click', () => {
+        document.querySelector('.motivational-overlay').classList.remove('active');
+
+        if(narrator) {
+            narrator.pause();
+            narrator.currenTime = 0;
+
+        }
+        document.querySelectorAll('.motivational-content p').forEach(t => {t.classList.remove('active')});
+
+        document.querySelector('.video-intro').style.opacity = '1';
+    });
+
+    proceedBtn.addEventListener('click', () => {
+        showAllIcons();
+        playTrailer();
+        closeQuoteRader();
+    })
+
+    const backBtn = document.querySelector('.back-home button');
+    const dreamBtn = document.querySelectorAll('.vote-gratitude ul li button')[0];
+    const linkBtn = document.querySelectorAll('.vote-gratitude ul li button')[1];
+    const thankBtn = document.querySelectorAll('.vote-gratitude ul li button')[2];
+    const moreBtn = document.querySelectorAll('.vote-gratitude ul li button')[3];
+
+    const overlayContainer = document.querySelector('.big-thanks');
+
+
+    backBtn.addEventListener('click', () => {
+        document.querySelector('.about-imajin').classList.remove('visible');
+        document.querySelector('.welcome-div').classList.remove('hidden');
+
+
+        closeQuoteRader();
+
+        pauseMedia(currentSong);
+        pauseMedia(currentVoice);
+        pauseMedia(narrator);
+    });
+
+    
+
+    const playTrailer = () => {
+        const trailerOverlay = document.querySelector('.trailer-overlay');
+        trailerOverlay.style.display = 'flex'; // Show trailer overlay
+        
+        // Play the audio by passing 'play' as the state
+        playCurrentAudio(song17);
+       
+        currentAudio.addEventListener('timeupdate', () => {
+            slidesimages();
+        });
+
+        // Handle when the audio ends
+        currentAudio.addEventListener('ended', closeTrailer);
+    
+        // Update the play control button icon based on the audio state
+        if (isPlayingTrailer) {
+            document.querySelector('.play-control').innerHTML = '<span><i class="fas fa-pause"></i></span>';
+        } else {
+            document.querySelector('.play-control').innerHTML = '<span><i class="fas fa-play"></i></span>';
+        }
+
+        if(currentVideo) {
+            currentVideo.pause();
+        }
+
+        if(currentSong) {
+            currentSong.pause();
+        }       
+    };
+
+    /* setTimeout(function () {
+        playTrailer();
+    },4000); */
+    
+    // Play/pause button handler
+    document.querySelector('.play-control').onclick = function () {
+        // Toggle play/pause state and icon based on current audio state
+        if (isPlayingTrailer) {
+            this.innerHTML = '<span><i class="fas fa-play"></i></span>';
+            playCurrentAudio(song17); // Pause the audio
+        } else {
+            this.innerHTML = '<span><i class="fas fa-pause"></i></span>';
+            playCurrentAudio(song17); // Play the audio
+        }
+    };
+    
+   
+    document.querySelector('.trailer-close').onclick = () => {
+       closeTrailer();
+    };
+    
+    function closeTrailer () {
+        const numberDisplay = document.querySelector('.number');
+        const preview = document.querySelector('.trailer-preview');
+        const namedisplay = document.querySelector('.names-display');
+
+        document.querySelector('.trailer-overlay').style.display = 'none';
+            
+        if (currentAudio && !currentAudio.paused) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0; // Reset the audio to the beginning
+            isPlayingTrailer = false;
+        }
+
+        currentImageIndex = 0;
+
+        namedisplay.innerHTML = '<h2>Friends of Imajin</h2>';
+        preview.style.backgroundImage = 'url("logo.jpg")';
+        numberDisplay.innerHTML = '';
+    }
+
+    function slidesimages() {
+        const numberDisplay = document.querySelector('.number');
+        const preview = document.querySelector('.trailer-preview');
+        const namedisplay = document.querySelector('.names-display');
+        const songDuration = currentAudio.duration; // Total duration of the audio
+        const totalImages = images.length; // Total number of images
+        const durationPerImage = songDuration / totalImages; // Duration each image should be displayed
+    
+        // Calculate the current image index based on the current time
+        currentImageIndex = Math.floor(currentAudio.currentTime / durationPerImage);
+    
+        // Ensure currentImageIndex is within bounds
+        if (currentImageIndex >= totalImages) {
+            currentImageIndex = totalImages - 1;
+        } else if (currentImageIndex < 0) {
+            currentImageIndex = 0;
+        }
+    
+        const currentImage = images[currentImageIndex];
+        const currentName = currentImage.names;
+        const currentPhoto = currentImage.imgsrc;
+    
+        // Update the display
+        numberDisplay.innerHTML = `<h2>${currentImageIndex < 1 ? '': currentImageIndex}</h2>`;
+        preview.style.backgroundImage = `url(${currentPhoto})`;
+        namedisplay.innerHTML = `<h2>${currentName}</h2>`;
+    
+        // Listen for seek events to update images accordingly
+        currentAudio.addEventListener('seeked', slidesimages);
+    }
+    
+    // Handle click events on the progress bar
+    document.querySelector('.progress-truck').onclick = function (e) {
+        const width = this.clientWidth;
+        const clicked = e.offsetX;
+        const duration = currentAudio.duration;
+        currentAudio.currentTime = (clicked / width) * duration;
+        slidesimages();
+    }
+    
+
+
+   // Assigning event listeners to the buttons
+    const alexVoice = document.querySelectorAll('.voice-overs button')[0];
+    const anastasiaVoice = document.querySelectorAll('.voice-overs button')[1];
+    const collinsVoice = document.querySelectorAll('.voice-overs button')[2];
+    const vivianVoice = document.querySelectorAll('.voice-overs button')[4];
+    const hawavoice = document.querySelectorAll('.voice-overs button')[3];
+
+    const allbuttons= document.querySelectorAll('.voice-overs button');
+    const allPs = document.querySelectorAll('.description p');
+    const allTexts = Array.from(allPs).map(p => p.textContent);  // Store original text
+
+    alexVoice.onclick = () => { readAloud(song11, alexVoice); };
+    anastasiaVoice.onclick = () => { readAloud(song9, anastasiaVoice); };
+    collinsVoice.onclick = () => { readAloud(song12, collinsVoice); };
+    vivianVoice.onclick = () => { readAloud(song10, vivianVoice); };
+    hawavoice.onclick = () => { readAloud(song13, hawavoice); };
+    
+    
+    function readAloud(voices, element) {
+    
+        allPs.forEach(p => {p.classList.remove('active')});
+        if( currentVoice && currentVoice !== voices){
+            currentVoice.pause();
+        }
+
+        currentVoice = new Audio(voices);
+        currentVoice.play();
+
+         // Clear any existing timeouts
+        timeouts.forEach(timeout => clearTimeout(timeout));
+        timeouts.length = 0; // Reset the timeouts array
+
+        showActiveP();
+
+       
+
+        allbuttons.forEach(btn => {
+            if(element === btn) {
+                btn.classList.add('active');
+            }
+
+            else{
+                btn.classList.remove('active');
+            }
+        });
+
+        currentVoice.addEventListener('ended', () => {
+            allbuttons.forEach(btn => {btn.classList.remove('active')});
+        });
+
+        if (element === hawavoice) {
+            translateText();
+        } else {
+            revertText();
+        }
+
+            closeQuoteRader();
+            pauseMedia(currentVideo);
+            pauseMedia(currentSong);
+            pauseMedia(narrator);
+    }
+
+    function showActiveP() {
+        let accumulatedTime = 0;
+
+        allPs.forEach((p) => {
+            const duration = parseInt(p.getAttribute('data-time'));
+
+            const timeoutId = setTimeout(() => {
+                p.classList.add('active');
+                p.scrollIntoView({behavior: "smooth", block: "center"})
+
+                // Remove class after 'duration' time
+                const removeTimeoutId = setTimeout(() => {
+                    p.classList.remove('active');
+                }, duration * 1000);
+
+                timeouts.push(removeTimeoutId); // Store the timeout for removing the active class
+            }, accumulatedTime * 1000); // Add 'active' class after accumulated time
+
+            timeouts.push(timeoutId); // Store the timeout for adding the active class
+
+            accumulatedTime += duration; // Update accumulated time for the next paragraph
+        });
+    }
+    
+    function translateText() {
+        const allPs = document.querySelectorAll('.description p');
+
+        allPs.forEach(text => {
+            const swahiliText = text.getAttribute('data-swahili');
+            text.textContent = swahiliText;
+        })
+    }
+    
+    // Revert the text content of paragraphs to the original text
+    function revertText() {
+        allPs.forEach((p, index) => {
+            p.textContent = allTexts[index];  // Set text content back to original
+        });
+    }
+
+    function playAboutSong(song, start, end, callback) {
+
+        if(currentSong && currentSong !== song) {
+            currentSong.pause();
+        }
+        
+        if (currentVoice) {
+            currentVoice.pause();
+            timeouts.forEach(timeout => clearTimeout(timeout));
+            timeouts.length = 0; // Reset the timeouts array
+            allPs.forEach(a => {a.classList.remove('active')});
+            allbuttons.forEach(f => {f.classList.remove('active')});
+        }
+
+        currentSong = new Audio(song);
+    
+        currentSong.currentTime = start;
+        currentSong.play();
+    
+        currentSong.addEventListener('timeupdate', () => {
+            if (currentSong.currentTime >= end) {
+                currentSong.pause();
+                currentSong.currentTime = 0;
+    
+                if (callback) {
+                    callback();  // Call the callback when the song ends
+                }
+            }
+        });
+    }
+
+    dreamBtn.addEventListener('click', () => {
+    
+        playAboutSong(song8, 139, 165, () =>{
+            document.querySelector('.dream-lyrics-overly').style.display = 'none';
+            const dreamContent = document.querySelector('.dream-content');
+            dreamContent.innerHTML = '';
+        });
+        showDreamLyrics();
+        closeQuoteRader();
+    });
+
+    thankBtn.addEventListener('click', () => {
+        playAboutSong(song7, 43, 57, () => {
+            overlayContainer.style.display = 'none';
+            overlayContainer.innerHTML = '';
+            document.querySelector('.show-yourself').style.display = 'none';
+            
+        });
+
+    
+        createLoveEmoji("love");  // Show the overlay and emojis when the song starts
+
+        closeQuoteRader();
+       
+    });
+
+    function createLoveEmoji(element) {
+        // Clear previous love-div elements
+       
+        overlayContainer.style.display = 'flex'; // Display the overlay container
+        
+        if (element === "love") {
+            overlayContainer.innerHTML = '<div class="thank-content"><h2>You\'re Welcome</h2></div>';
+
+            for (let i = 0; i < 50; i++) {
+              
+                const loveDiv = document.createElement('div');
+                loveDiv.classList.add('love-div'); // Add common class to all love divs
+        
+                loveDiv.innerHTML = '<span><i class="fas fa-heart"></i></span>';
+                loveDiv.classList.add('jello');
+            
+                // Randomize position within the container
+                loveDiv.style.left = `${Math.random() * 100}%`;
+                loveDiv.style.top = `${Math.random() * 100}%`;
+        
+                // Append the heart or icon to the container
+                overlayContainer.appendChild(loveDiv);
+        
+                // Set up an interval to remove and then re-add each heart
+                setInterval(function () {
+                    // Remove the heart after 2 seconds
+                    overlayContainer.removeChild(loveDiv);
+        
+                    // Re-add the heart after a 500ms delay
+                    setTimeout(function() {
+                        overlayContainer.appendChild(loveDiv);
+                    }, 500);
+        
+                }, 2500); // 2 seconds for removal, then 500ms delay for re-add (total 2.5 seconds)
+            }
+        }
+
+        if (element === "icognito") {
+            const loveDiv = document.createElement('div');
+            loveDiv.classList.add('love-div'); // Add common class to all love divs
+            loveDiv.innerHTML = '<span><i class="fas fa-user-secret"></i></span>';
+            loveDiv.classList.add('icognito');
+
+            // Append the heart or icon to the container
+            overlayContainer.appendChild(loveDiv);
+        }
+    }
+    
+    
+    function showDreamLyrics() {
+        document.querySelector('.dream-lyrics-overly').style.display = 'flex';
+        const dreamContent = document.querySelector('.dream-content');
+    
+        const lyrics = [
+            { text: 'I\'ve got a dream! (She\'s got a dream!)', begin: 139, stop: 140 },
+            { text: 'I\'ve got a dream! (She\'s got a dream!)', begin: 141, stop: 142 },
+            { text: 'I just wanna see the floating lanterns gleam!', begin: 143, stop: 145 },
+            { text: 'And with every passing hour', begin: 146, stop: 147 },
+            { text: 'I\'m so glad I left my tower', begin: 148, stop: 149 },
+            { text: 'Like all you lovely folks I\'ve got a dream!', begin: 150, stop: 152 },
+            { text: 'She\'s got a dream! (She\'s got a dream!)', begin: 153, stop: 154 },
+            { text: 'They\'ve got a dream! (We\'ve got a dream!)', begin: 155, stop: 156 },
+            { text: 'So our differences ain\'t really that extreme!', begin: 157, stop: 159 },
+            { text: 'We\'re one big team!', begin: 160, stop: 165 }
+        ];
+    
+        let currentIndex = 0;
+    
+        currentSong.addEventListener('timeupdate', () => {
+            const currentTime = currentSong.currentTime;
+            const currentLyrics = lyrics[currentIndex];
+    
+            if (currentLyrics && currentTime >= currentLyrics.begin && currentTime <= currentLyrics.stop) {
+                const className = currentIndex % 2 === 0 ? 'even' : 'odd';
+
+                // Set inner HTML with the assigned class for styling
+                dreamContent.innerHTML = `<p class="${className}">${currentLyrics.text}</p>`;
+                dreamContent.style.backgroundImage = 'none';
+            }
+    
+            if (currentLyrics && currentTime > currentLyrics.stop) {
+                currentIndex++;
+            }
+    
+            // Stop updating when all lyrics have been displayed
+            if (currentIndex >= lyrics.length) {
+                currentSong.removeEventListener('timeupdate', this);
+            }
+        });
+    }
+    
+
+    document.querySelector('.dream-close').addEventListener('click', () => {
+        document.querySelector('.dream-lyrics-overly').style.display = 'none';
+        const dreamContent = document.querySelector('.dream-content');
+        dreamContent.innerHTML = '';
+        currentSong.pause();
+        currentSong.currenTime = 0;
+    });
+
+    linkBtn.addEventListener('click', () => {
+        playAboutSong(song15, 89, 102, () => {
+            document.querySelector('.dream-lyrics-overly').style.display = 'none';
+            const dreamContent = document.querySelector('.dream-content');
+            dreamContent.innerHTML = '';
+            window.open("https://www.facebook.com/mimisi.dameyako", "_blank")
+        });
+        showGoodLife();
+        closeQuoteRader();
+    });
+
+    function  showGoodLife() {
+        document.querySelector('.dream-lyrics-overly').style.display = 'flex';
+        const dreamContent = document.querySelector('.dream-content');
+    
+        const lyrics = [
+            { text: 'We put the good in the good in the good life', begin: 90, stop: 92 },
+            { text: 'We put the good in the good in the good life', begin: 93, stop: 95 },
+            { text: 'We put the bad in the past, now we alright', begin: 96, stop: 99 },
+            { text: 'We alright Ayy, ayy, ayy, ayy', begin: 100, stop: 102 },
+
+        ];
+    
+        let currentIndex = 0;
+    
+        currentSong.addEventListener('timeupdate', () => {
+            const currentTime = currentSong.currentTime;
+            const currentLyrics = lyrics[currentIndex];
+    
+            if (currentLyrics && currentTime >= currentLyrics.begin && currentTime <= currentLyrics.stop) {
+                const className = currentIndex % 2 === 0 ? 'even' : 'odd';
+
+                // Set inner HTML with the assigned class for styling
+                dreamContent.innerHTML = `<p class="${className}">${currentLyrics.text}</p>`;
+                dreamContent.style.backgroundImage = 'none';
+            }
+    
+            if (currentLyrics && currentTime > currentLyrics.stop) {
+                currentIndex++;
+            }
+    
+            // Stop updating when all lyrics have been displayed
+            if (currentIndex >= lyrics.length) {
+                currentSong.removeEventListener('timeupdate', this);
+            }
+        });
+    }
+
+    heartIcon.addEventListener('click', () => {
+        playAboutSong(song4, 45, 86, () => {
+            document.querySelector('.dream-lyrics-overly').style.display = 'none';
+            const dreamContent = document.querySelector('.dream-content');
+            dreamContent.innerHTML = '';
+        });
+        showLoveLyrics();
+        closeQuoteRader();
+    });
+
+    const  showLoveLyrics = () => {
+        document.querySelector('.dream-lyrics-overly').style.display = 'flex';
+        const dreamContent = document.querySelector('.dream-content');
+
+        dreamContent.innerHTML = '<p>I need Somebody to love</p> <p><span><i class="fas fa-heart"></i></span><span><i class="fas fa-heart"></i></span><span><i class="fas fa-heart"></i></p>';
+        dreamContent.style.backgroundImage = 'url("love.jpg")';
+    }
+
+    listIcon.addEventListener("click", () =>{
+        document.querySelector('.about-imajin').classList.remove('visible');
+        document.querySelector('.welcome-div').classList.add('hidden');
+        document.querySelector('.friends-section').style.display= 'flex';
+    })
+
+    moreBtn.addEventListener('click', () => {
+        playAboutSong(song16, 0, 60, () => {
+            document.querySelector('.show-yourself').style.display = 'none';
+            overlayContainer.style.display = 'none';
+            overlayContainer.innerHTML = '';
+            
+        });
+
+        showcontentOverlay();
+
+        createLoveEmoji("icognito");
+
+        showLyricsShowyourself();
+    });
+
+    const showcontentOverlay = () => {
+        
+        document.querySelector('.show-yourself').style.display = 'flex';
+        overlayContainer.style.display = 'none';
+        overlayContainer.innerHTML = '';
+        closeQuoteRader();
+    }
+
+    function showLyricsShowyourself() {
+        const lyrics = [
+            { text: 'Show yourself', start: 0, end: 2 },
+            { text: "I'm no longer trembling", start: 3, end: 5 },
+            { text: "Here I am", start: 6, end: 8 },
+            { text: "I've come so far", start: 9, end: 11 },
+            { text: "You are the answer I've waited for", start: 12, end: 14 },
+            { text: "All of my life", start: 15, end: 17 },
+            { text: "Oh, show yourself", start: 18, end: 20 },
+            { text: "Let me see who you are", start: 21, end: 26 },
+            { text: "Come to me now", start: 27, end: 30 },
+            { text: "Open your door", start: 31, end: 33 },
+            { text: "Don't make me wait", start: 34, end: 37 },
+            { text: "One moment more", start: 38, end: 41 },
+            { text: "Oh, come to me now", start: 42, end: 46 },
+            { text: "Open your door", start: 47, end: 49 },
+            { text: "Don't make me wait", start: 50, end: 53 },
+            { text: "One moment more", start: 54, end: 59 },
+        ];
+    
+        const lyricsDiv = document.createElement('div');
+        lyricsDiv.classList.add('lyrics-self');
+        overlayContainer.appendChild(lyricsDiv);
+    
+        let currentIndex = 0;
+        let lastDisplayedLyric = null; // Track the last displayed lyric
+    
+        currentSong.addEventListener('timeupdate', () => {
+            const currentTime = currentSong.currentTime;
+            const currentLyrics = lyrics[currentIndex];
+    
+            // Check if the current lyric should be displayed
+            if (currentLyrics && currentTime >= currentLyrics.start && currentTime <= currentLyrics.end) {
+                // Only display if it's different from the last displayed lyric
+                if (lastDisplayedLyric !== currentLyrics.text) {
+                    // Create a new paragraph element and add the anim class
+                    const p = document.createElement('p');
+                    p.classList.add('anim'); // Add the anim class for animation
+                    p.textContent = currentLyrics.text; // Set the text content
+    
+                    // Clear previous text and append the new paragraph
+                    lyricsDiv.innerHTML = ''; // Clear previous lyrics
+                    lyricsDiv.appendChild(p); // Append new paragraph
+    
+                    // Remove the anim class after the animation duration
+                    setTimeout(() => {
+                        p.classList.remove('anim'); // Remove anim class after animation
+                    }, 2000); // Match this duration to your CSS animation duration
+    
+                    lastDisplayedLyric = currentLyrics.text; // Update the last displayed lyric
+                }
+            }
+    
+            // Move to the next lyric if the current time exceeds the end time
+            if (currentTime > currentLyrics.end) {
+                currentIndex++;
+                lastDisplayedLyric = null; // Reset for the next lyric
+            }
+        });
+    }
+
+    
+    
+    function displayGoodbyemessage() {
+        const goodbyeOverlay = document.querySelector('.good-bye-overlay');
+        const goodbyeVideo = document.querySelector('.good-bye-video video');
+        
+        // Check if the goodbye overlay is already displayed
+        if (goodbyeOverlay.style.display === 'flex') {
+            // If it is already displayed, do not play the video
+            return;
+        }
+        
+        // Otherwise, set the overlay to display flex
+        goodbyeOverlay.style.display = 'flex';
+        
+        // Set the button text
+        document.querySelector('.good-bye-video button').innerHTML = '<i class="fas fa-home"></i> Stay';
+        
+        // Play the goodbye video
+        goodbyeVideo.play();
+    }
+    
+
+   /* let wasHidden = false; // Track if the tab was hidden
+
+     document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'hidden') {
+            wasHidden = true; // Set to true when the tab is hidden
+            if(currentAudio) {
+                currentAudio.pause();
+                document.querySelector('.play-control').innerHTML = '<span><i class="fas fa-play"></i></span>';
+                isPlayingTrailer = false;
+            }
+
+            displayGoodbyemessage(); // Show your goodbye overlay
+            closeQuoteRader();
+            pauseMedia(currentVideo);
+            pauseMedia(currentSong);
+            pauseMedia(currentVoice);
+            pauseMedia(narrator);
+            pauseMedia(currentReader);
+            pauseMedia(currentAudioDescrption);
+            
+        }else {
+            wasHidden = false; // Reset when the tab becomes visible again
+        }
+    });  */
+
+
+
+    document.querySelector('.good-bye-video button').onclick = function () {
+        document.querySelector('.good-bye-overlay').style.display = 'none';
+        document.querySelector('.good-bye-message').style.display = 'none';
+    }
+
+    document.querySelector('.good-bye-audio').onclick = function () {
+        document.querySelector('.good-bye-message').style.display = 'flex';
+        document.querySelector('.good-bye-video button').style.display = 'none';
+    
+        typewritegoodBye();
+
+        readGoodByeMessage();
+
+
+        this.querySelector('button').style.display = 'none';
+
+        
+    }
+
+    const readGoodByeMessage = ()  => {
+        const readAudio = new Audio(song18);
+        readAudio.play();
+
+        readAudio.addEventListener('ended', () => {
+            window.close();
+            document.querySelector('.good-bye-message').style.display = 'none';
+        });
+    }
+
+   
+   
+    function typewritegoodBye() {
+        const text = "As we part ways for now, I, Imajin, wish to leave you with a heart full of warmth and gratitude. Our journey together, though brief, has been filled with wonder and connection. You are always welcome in the space we’ve created together.  Whenever you find yourself longing for a moment of inspiration or a touch of creativity, know that my virtual door is always open. Visit this place, for I will be waiting, a place where love lingers and memories live. I will cherish the moments we shared until time, in its infinite grace, finds a way to bring us together once more.  I will hold our memories close. With enduring love, Imajin.";
+        const textArea = document.querySelector('.good-bye-message');
+        const paragraphs = text.split('\n\n');  // Split the text into paragraphs
+        const speed = 50;
+        let currentParagraph = 0;
+        let currentChar = 0;
+        let pElement = null;
+    
+        textArea.innerHTML = '';
+    
+        function typeWriter() {
+            if (currentParagraph < paragraphs.length) {
+                if (!pElement) {
+                    pElement = document.createElement('p');
+                    textArea.appendChild(pElement);
+                }
+    
+                if (currentChar < paragraphs[currentParagraph].length) {
+                    pElement.innerHTML += paragraphs[currentParagraph].charAt(currentChar);
+                    currentChar++;
+                    setTimeout(typeWriter, speed);
+                } else {
+                    // Move to the next paragraph
+                    currentParagraph++;
+                    currentChar = 0;
+                    pElement = null;  // Reset for the new <p>
+                    setTimeout(typeWriter, speed); // Continue to the next paragraph
+                }
+            }
+        }
+    
+        typeWriter();
+    }
+
+
+    const friendsSection = document.querySelector('.friends-section');
+    const friendItems = document.querySelectorAll('.friends-section li');
+
+    // Function to center the closest `li` in the viewport
+    function centerFriendOnScroll() {
+        let closestFriend = null;
+        let closestDistance = Number.POSITIVE_INFINITY;
+
+        friendItems.forEach(friend => {
+            const rect = friend.getBoundingClientRect();
+            const distance = Math.abs(rect.top + rect.height / 2 - window.innerHeight / 2);
+
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestFriend = friend;
+            }
+        });
+
+        if (closestFriend) {
+            closestFriend.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    }
+
+    // Add scroll event listener
+    friendsSection.addEventListener('scroll', () => {
+        setTimeout(centerFriendOnScroll, 100); // Small delay to prevent frequent centering
+    });
+
+
+
+
+    (function() {
+        friendItems.forEach(friendItem => {
+            const friend = friendItem.querySelector('.friend'); // Find the .friend within each li
+            const seeMoreBtn = friend.querySelector('fieldset button'); // Get the button
+    
+            seeMoreBtn.addEventListener('click', () => {
+                showmoreAboutFriend(friend);
+            });
+        });
+    })();
+    
+    const showmoreAboutFriend = (friend) => {
+        const imgSrc = friend.querySelector('.friend-image img').src;
+        const friendName = friend.querySelector('fieldset legend').textContent.trim();
+        const friendDescription = friend.getAttribute('data-description');
+        const friendVoice = friend.getAttribute('data-voice');
+    
+        const friendsOverlay = document.querySelector('.friend-preview-overlay');
+        const friendImageArea = document.querySelector('.friend-image');
+        const friendNamePreview = document.querySelector('.friend-name');
+        const copyBtn = document.querySelectorAll('.friend-button-controls button')[0];
+        const playvoice = document.querySelectorAll('.friend-button-controls button')[1];
+        const downloadAudioBtn = document.querySelectorAll('.friend-button-controls button')[2];
+    
+        friendsOverlay.style.display = 'flex';
+        
+        // Clear existing content
+        friendImageArea.innerHTML = '';
+        friendNamePreview.innerHTML = '';
+    
+        // Add new content
+        friendImageArea.innerHTML = `<img src='${imgSrc}' alt='${friendName}'>`;
+        friendNamePreview.innerHTML = `<h3>${friendName}</h3>`;
+
+
+        playvoice.onclick = () => {
+            const readAudio = new Audio(friendVoice);
+            currentAudioDescrption = readAudio;
+            playvoiceAndShowDesc(readAudio, friendDescription,friendImageArea, downloadAudioBtn);
+        }
+
+        copyBtn.addEventListener('click', function() {
+            const text = friendDescription + " - " + friendName;
+            navigator.clipboard.writeText(text).then(() => {
+                // Update button to indicate success
+                copyBtn.innerHTML = '<i class="fas fa-check"></i>Copied';
+        
+                // Revert button back to original state after a short delay
+                setTimeout(function () {
+                    copyBtn.innerHTML = '<i class="fas fa-clipboard"></i>Copy text';
+                }, 2000); // Adjust the delay as needed
+            }).catch(err => {
+                // Handle error (e.g., copying to clipboard failed)
+                console.error('Failed to copy text: ', err);
+        
+                // Optionally, provide user feedback on failure
+                copyBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i>Error';
+        
+                // Revert button back after delay
+                setTimeout(function () {
+                    copyBtn.innerHTML = '<i class="fas fa-clipboard"></i>Copy text';
+                }, 2000);
+            });
+        });
+
+        downloadAudioBtn.addEventListener('click', (event) => {
+            event.target.disabled = true;
+            if (friendVoice) {
+                // Update the button text to indicate the start of download
+                downloadAudioBtn.innerHTML = '<i class="fas fa-arrow-down"></i>Downloading...';
+                
+                // Create a temporary download link
+                const link = document.createElement('a');
+                link.href = friendVoice; // Audio file URL
+                link.download = `${friendName}.mp3`; // Name for the downloaded file
+                
+                // Simulate a delay to show "Downloading..." status before completion
+                setTimeout(() => {
+                    // Trigger the actual download
+                    document.body.appendChild(link);
+                    link.click();
+                    
+                    // Remove the link after the download
+                    document.body.removeChild(link);
+                    
+                    // Update the button text to indicate completion
+                    downloadAudioBtn.innerHTML = '<i class="fas fa-check"></i>Downloaded';
+                    
+                    // Revert button back to original state after a short delay
+                    setTimeout(() => {
+                        downloadAudioBtn.innerHTML = '<i class="fas fa-arrow-down"></i>Download Audio';
+                        event.target.disabled = false;
+                    }, 2000); // Adjust the delay as needed (e.g., 2 seconds)
+                }, 1000); // Simulate a 1-second delay to show progress
+            }
+        });
+        
+
+        
+    }
+
+    function playvoiceAndShowDesc(readAudio, friendDescription, friendImageArea, Btn) {
+        const descriptionOverlay = document.createElement('div');
+        descriptionOverlay.classList.add('friend-image-overlay');
+    
+        // Function to add typewriter effect
+        function typeWriter(text, element, speed = 50) {
+            let i = 0;
+    
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed); // Speed of typing
+                }
+            }
+    
+            type();
+        }
+    
+        if (friendDescription !== '') {
+            const paragraph = document.createElement('p');
+            descriptionOverlay.appendChild(paragraph);
+            friendImageArea.appendChild(descriptionOverlay);
+    
+            // Start the audio and typing effect
+            currentAudioDescrption.play();
+            typeWriter(friendDescription, paragraph); // Trigger the typewriter effect
+        }
+    
+        readAudio.addEventListener('ended', () => {
+           setTimeout(() => {
+                friendImageArea.removeChild(descriptionOverlay);
+                Btn.disabled = false;
+           }, 2000);
+        });
+    }
+    
+    
+    document.querySelector('.friend-close').onclick = function () {
+        const friendsOverlay = document.querySelector('.friend-preview-overlay');
+        friendsOverlay.style.display = 'none';
+
+        if( currentAudioDescrption) {
+            currentAudioDescrption.pause();
+        }
+    }
+
+    const lyricsMemories = [
+        {start: 8, eng: 'How does a moment last forever', end: 12},
+        {start: 13, eng: 'How can a story never die', end: 15},
+        {start: 16, eng: 'It is love we must hold onto',  end: 20},
+        {start: 21, eng: 'Never easy, but we try', end: 25},
+        {start: 26, eng: 'Sometimes our happiness is captured', end: 29},
+        {start: 30, eng: 'Somehow, our time and place stand still', end: 33},
+        {start: 34, eng: 'Love lives on inside our hearts and always will', end: 42},
+    
+        {start: 43, eng: 'Minutes turn to hours',  end: 47},
+        {start: 48, eng: 'Days to years and gone',  end: 52},
+        {start: 53, eng: 'But when all else has been forgotten', end: 56},
+        {start: 57, eng: 'Still our song lives on', end: 63},
+    
+        {start: 64, eng: 'Maybe some moments weren\'t so perfect', end: 68},
+        {start: 69, eng: 'Maybe some memories not so sweet', end: 72},
+        {start: 73, eng: 'But we have to know some bad times or our lives are incomplete', end: 80},
+        {start: 81, eng: 'Then when the shadows overtake us', end: 85},
+        {start: 86, eng: 'Just when we feel all hope is gone',  end: 89},
+        {start: 90, eng: 'We\'ll hear our song and know once more', end: 93},
+        {start: 94, eng: 'Our love lives on', end: 99},
+    
+        {start: 105, eng: 'Ooooo, Ooooo, Oooo', end: 117},
+    
+        {start: 121, eng: 'How does a moment last forever', end: 124},
+        {start: 125, eng: 'How does our happiness endure', end: 128},
+        {start: 129, eng: 'Through the darkest of our troubles', end: 132},
+        {start: 133, eng: 'Love is beauty, love is pure', end: 136},
+        {start: 137, eng: 'Love pays no mind to desolation', end: 140},
+        {start: 141, eng: 'It flows like a river to the soul',  end: 144},
+        {start: 145, eng: 'Protects, perceives and perseveres',  end: 148},
+        {start: 149, eng: 'And makes us whole', end: 153},
+    
+        {start: 154, eng: 'Minutes turn to hours', end: 157},
+        {start: 158, eng: 'Days to years then gone', end: 164},
+        {start: 165, eng: 'But when all else has been forgotten', end: 169},
+        {start: 170, eng: 'Still our song lives on', end: 177},
+    
+        {start: 178, eng: 'How does a moment last forever', end: 182},
+        {start: 183, eng: 'When our song lives on', end: 194},
+        {start:195, eng: "Imajin Memories", end: 222}
+    ];
+
+    const themesongBtn = document.querySelectorAll('.song-menu ul li')[0];
+    const slideSong1 = document.querySelectorAll('.song-menu ul li')[1];
+    const slideSong2 = document.querySelectorAll('.song-menu ul li')[2];
+    const slideSong3 = document.querySelectorAll('.song-menu ul li')[3];
+    const slideSong4 = document.querySelectorAll('.song-menu ul li')[4];
+    const slideSong5 = document.querySelectorAll('.song-menu ul li')[5];
+
+    
+    
+
+    function handleSlideClick(song, slideshowTime) {
+        document.querySelector('.song-menu').classList.remove('active');
+        playCurrentAudio(song);
+        isMenu = false;
+        showMagicalSlideshow(slideshowTime);
+    }
+    
+    slideSong1.onclick = () => handleSlideClick(song5, 10000);
+    slideSong2.onclick = () => handleSlideClick(song6, 2000);
+    slideSong3.onclick = () => handleSlideClick(song2, 6000);
+    slideSong4.onclick = () => handleSlideClick(song3, 6000);
+    slideSong5.onclick = () => handleSlideClick(song15, 4000);
+    
+
+    themesongBtn.addEventListener('click', () => {
+        document.querySelector('.slideshow-overlay').style.display = 'flex';
+        document.querySelector('.song-menu').classList.remove('active');
+        isMenu = false;
+
+        showslideshow();
+    });
+
+    function showslideshow() {
+        const friendNametitle = document.querySelector('.name-title');
+        const friendImagPreview = document.querySelector('.image-preview');
+        const LyricsArea = document.querySelector('.lyrics-display');
+    
+        playCurrentAudio(song);
+    
+        if(currentAudio) {
+            currentAudio.addEventListener('timeupdate', () => {
+    
+                if(currentLyricsIndex < lyricsMemories.length) {
+                    const audioCurrentTime = currentAudio.currentTime;
+                    const currentLyrics = lyricsMemories[currentLyricsIndex];
+    
+                    // Check if the current time is within the range of current lyrics
+                    if(audioCurrentTime >= currentLyrics.start && audioCurrentTime <= currentLyrics.end) {
+                        
+                        // Display the current lyric
+                        LyricsArea.innerHTML = `<p>${currentLyrics.eng}</p>`;
+    
+                         // Sync image and name with the current lyric
+                        if (currentImageIndex < images.length) {
+                            friendNametitle.innerHTML = `<h2>${images[currentImageIndex].names}</h2>`;
+                            friendImagPreview.innerHTML = `<img src='${images[currentImageIndex].imgsrc}' alt='${images[currentImageIndex].names}'>`;
+                        }
+                        
+                    } else if (audioCurrentTime > currentLyrics.end) {
+                        // Move to the next lyric once the current lyric time has passed
+                        currentLyricsIndex++;
+                        
+                        // Clear the lyrics (optional)
+                        LyricsArea.innerHTML = '';
+
+                        // Update image index (loop back to the first image when reaching the end)
+                        currentImageIndex = (currentImageIndex + 1) % images.length;
+                    }
+
+                    
+                }
+            });
+        }
+
+        currentAudio.addEventListener('ended',() => {
+            closeSlideshow();
+        });
+    }
+
+    function closeSlideshow() {
+        document.querySelector('.slideshow-overlay').style.display = 'none';
+        if(currentAudio && !currentAudio.paused) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+            isPlayingTrailer = false;
+        }
+    }
+
+    document.querySelector('.slideshow-close').onclick = () => {closeSlideshow()}
+
+    // Extract names into a new list called newAuthors
+    const newAuthors = images.map(image => image.names);
+    const bgPhotos = images.map(image => image.imgsrc);
+
+    let updateImageInterval;
+
+    function showMagicalSlideshow(timeDesire) {
+        // Show the slideshow overlay
+        document.querySelector('.magical-slideshow-overlay').style.display = 'flex';
+        const imgArea = document.querySelector('.image-slide-view');
+        const rtDir = document.querySelector('.right-carousel-slideshow');
+        const lfDir = document.querySelector('.left-carousel-slideshow');
+        let round = 1; // Track the current round
+    
+        imgArea.innerHTML = ''; // Clear the image area
+    
+        function updateImage() {
+            // Determine the CSS filter based on the round
+            const filter = (round % 2 === 1) ? 'grayscale(100%)' : 'none';
+    
+            // Display the image with the appropriate filter
+            imgArea.innerHTML = `<img src='${images[currentImageIndex].imgsrc}' alt='friend_image' style='filter: ${filter};'>`;
+    
+            // Display the name with the pulse effect
+            const currentName = images[currentImageIndex].names;
+            const namePing = document.querySelector('.name-ping');
+            namePing.innerText = currentName;
+    
+            // Trigger the animation
+            namePing.style.animation = 'none'; // Reset animation
+            setTimeout(() => {
+                namePing.style.animation = '';  // Reapply animation
+            }, 100);
+        }
+    
+        updateImage(); // Initial display of the first image
+    
+        // Set an interval to update the image
+        updateImageInterval = setInterval(() => {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            if (currentImageIndex === 0) { // If a new round starts
+                round++;
+            }
+            updateImage();
+        }, timeDesire);
+    
+        // Get the audio duration once metadata is loaded
+        currentAudio.onloadedmetadata = () => {
+            const duration = currentAudio.duration;
+    
+            currentAudio.addEventListener('timeupdate', () => {
+                // Check if the current time is within the last 10 seconds of the audio
+                if (currentAudio.currentTime >= (duration - 10)) {
+                    clearInterval(updateImageInterval); // Stop updating images 10 seconds before audio ends
+                    currentImageIndex = 0; // Reset image index
+                    round = 1; // Reset round
+                }
+            });
+    
+            currentAudio.addEventListener('ended', () => {
+                closeMagicalSlideshow();
+            });
+        };
+    
+        // Attach event listeners for navigation buttons
+        rtDir.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            if (currentImageIndex === 0) { // If a new round starts
+                round++;
+            }
+            updateImage();
+        });
+    
+        lfDir.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            if (currentImageIndex === images.length - 1) { // If moving backwards to start a new round
+                round++;
+            }
+            updateImage();
+        });
+    }
+    
+    
+    function closeMagicalSlideshow() {
+        // Hide the slideshow overlay
+        document.querySelector('.magical-slideshow-overlay').style.display = 'none';
+    
+        // Pause and reset the audio
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    
+        // Clear the image update interval
+        clearInterval(updateImageInterval);
+    
+        // Reset the image index
+        currentImageIndex = 0;
+    
+        // Clear the image area content
+        document.querySelector('.image-slide-view').innerHTML = '';
+    }
+    
+    
+
+    document.querySelector('.magical-slideshow-close').onclick = closeMagicalSlideshow;
+
+
+    const intros = [
+        `In the eloquent words of author,`,               // 0
+        `In the wisdom of author,`,                        // 1
+        `A wise soul named author once said,`,            // 2
+        `As author beautifully expressed,`,                // 3
+        `In the poetic musings of author, we hear,`,      // 4
+        `As the insightful author once declared,`,        // 5
+        `In the profound reflections of author, we find,`, // 6
+        `A sage by the name of author remarked,`,         // 7
+        `Let us consider the words of author that `,           // 8
+        `In the heartwarming words of author,`,           // 9
+        `As author so eloquently put it`,                // 10
+        `In the thoughtful insights of author, we discover`, // 11
+        `Echoing the sentiments of author, we say,`,      // 12
+        `In the heartfelt expressions of author, we find`, // 13
+        `As author wisely observed in their timeless words`, // 14
+        `A brilliant mind, author, once mused that,`,          // 15
+        `From the heart of author, comes this wisdom:`,    // 16
+        `According to the timeless words of author,`,      // 17
+        `Echoing the profound thoughts of author,`,        // 18
+        `From the enlightened mind of author, we learn`,  // 19
+        `In the graceful narrative of author, lies this truth:`, // 20
+        `With a touch of grace, author once remarked,`,    // 21
+        `As author tenderly articulated,`,                 // 22
+        `In the philosophical reflections of author, shines this thought:`, // 23
+        `Drawing from the depths of author 's soul, we find that,` , // 24
+        `In the symphony of words from author`,               // 25
+        `Through the cosmic lens of author, shines this insight:`, // 26
+        `From the canvas of author ’s mind, a masterpiece unfolds that`, // 27
+        `As the universe whispers through author, we hear,`,  // 28
+        `In the timeless dance of thoughts by author, arises this truth:`, // 29
+        `In the realm of imagination, author once said,`,   // 30
+        `With profound insight, author reminds us that,`,   // 31
+        `As the stars align, author expresses,`,           // 32
+        `In the gentle wisdom of author, we learn,`,       // 33
+        `author 's voice echoes through time with this thought:`, // 34
+        `From the depths of experience, author shares,`,    // 35
+        `In the tapestry of life, author weaves,`,         // 36
+        `As the journey unfolds, author beautifully states,`, // 37
+        `In the delicate balance of existence, author finds,`, // 38
+        `In the quiet moments, author reveals,`,           // 39
+        `Through the lens of experience, author enlightens us with,`, // 40
+        `In the visionary mind of author, shines this truth:`, // 41
+        `From the lyrical wisdom of author`, // 42
+        `In the serene thoughts of author, we uncover,`, // 43
+        `In the gentle wisdom shared by author`, // 44
+        `With clarity and grace, author teaches,`, // 45
+        `As author once reflected,`, // 46
+        `In the brilliance of author ’s words, we find,`, // 47
+        `author guides us with this wisdom:`, // 48
+        `As author once thoughtfully shared,`, // 49
+        `In the heart of author ’s teachings, we uncover,`, // 50
+        `With a keen insight, author unveils,`, // 51
+        `author ’s words ring true as they state,`, // 52
+        `From the depths of author ’s reflections, comes,`, // 53
+        `As author masterfully articulated,`, // 54
+        `In the resounding wisdom of author,`, // 55
+        `With eloquence, author imparts this:`, // 56
+        `In the timeless insight of author, we learn,`, // 57
+        `As the wise author once wrote,`, // 58
+        `In the peaceful reflections of author, we find,`, // 59
+    
+    ];
+
+    const introReader = [
+        "introReader1.mp3",   // 0
+        "introReader2.mp3",   // 1
+        "introReader3.mp3",   // 2
+        "introReader4.mp3",   // 3
+        "introReader5.mp3",   // 4
+        "introReader6.mp3",   // 5
+        "introReader7.mp3",   // 6
+        "introReader8.mp3",   // 7
+        "introReader9.mp3",   // 8
+        "introReader10.mp3",  // 9
+        "introReader11.mp3",  // 10
+        "introReader12.mp3",  // 11
+        "introReader13.mp3",  // 12
+        "introReader14.mp3",  // 13
+        "introReader15.mp3",  // 14
+        "introReader16.mp3",  // 15
+        "introReader17.mp3",  // 16
+        "introReader18.mp3",  // 17
+        "introReader19.mp3",  // 18
+        "introReader20.mp3",  // 19
+        "introReader21.mp3",  // 20
+        "introReader22.mp3",  // 21
+        "introReader23.mp3",  // 22
+        "introReader24.mp3",  // 23
+        "introReader25.mp3",  // 24
+        "introReader26.mp3",  // 25
+        "introReader27.mp3",  // 26
+        "introReader28.mp3",  // 27
+        "introReader29.mp3",  // 28
+        "introReader30.mp3",  // 29
+        "introReader31.mp3",  // 30
+        "introReader32.mp3",  // 31
+        "introReader33.mp3",  // 32
+        "introReader34.mp3",  // 33
+        "introReader35.mp3",  // 34
+        "introReader36.mp3",  // 35
+        "introReader37.mp3",  // 36
+        "introReader38.mp3",  // 37
+        "introReader39.mp3",  // 38
+        "introReader40.mp3",  // 39
+        "introReader41.mp3",  // 40
+        "introReader42.mp3",  // 41
+        "introReader43.mp3",  // 42
+        "introReader44.mp3",  // 43
+        "introReader45.mp3",  // 44
+        "introReader46.mp3",  // 45
+        "introReader47.mp3",  // 46
+        "introReader48.mp3",  // 47
+        "introReader49.mp3",  // 48
+        "introReader50.mp3",  // 49
+        "introReader51.mp3",  // 50
+        "introReader52.mp3",  // 51
+        "introReader53.mp3",  // 52
+        "introReader54.mp3",  // 53
+        "introReader55.mp3",  // 54
+        "introReader56.mp3",  // 55
+        "introReader57.mp3",  // 56
+        "introReader58.mp3",  // 57
+        "introReader59.mp3",  // 58
+        "introReader60.mp3"   // 59
+    ];
+
+    const quoteReader = [
+        "quoteReader1.mp3",  // 0
+        "quoteReader2.mp3",  // 1
+        "quoteReader3.mp3",  // 2
+        "quoteReader4.mp3",  // 3
+        "quoteReader5.mp3",  // 4
+        "quoteReader6.mp3",  // 5
+        "quoteReader7.mp3",  // 6
+        "quoteReader8.mp3",  // 7
+        "quoteReader9.mp3",  // 8
+        "quoteReader10.mp3", // 9
+        "quoteReader11.mp3", // 10
+        "quoteReader12.mp3", // 11
+        "quoteReader13.mp3", // 12
+        "quoteReader14.mp3", // 13
+        "quoteReader15.mp3", // 14
+        "quoteReader16.mp3", // 15
+        "quoteReader17.mp3", // 16
+        "quoteReader18.mp3", // 17
+        "quoteReader19.mp3", // 18
+        "quoteReader20.mp3", // 19
+        "quoteReader21.mp3", // 20
+        "quoteReader22.mp3", // 21
+        "quoteReader23.mp3", // 22
+        "quoteReader24.mp3", // 23
+        "quoteReader25.mp3", // 24
+        "quoteReader26.mp3", // 25
+        "quoteReader27.mp3", // 26
+        "quoteReader28.mp3", // 27
+        "quoteReader29.mp3", // 28
+        "quoteReader30.mp3", // 29
+        "quoteReader31.mp3", // 30
+        "quoteReader32.mp3", // 31
+        "quoteReader33.mp3", // 32
+        "quoteReader34.mp3", // 33
+        "quoteReader35.mp3", // 34
+        "quoteReader36.mp3", // 35
+        "quoteReader37.mp3", // 36
+        "quoteReader38.mp3", // 37
+        "quoteReader39.mp3", // 38
+        "quoteReader40.mp3", // 39
+        "quoteReader41.mp3", // 40
+        "quoteReader42.mp3", // 41
+        "quoteReader43.mp3", // 42
+        "quoteReader44.mp3", // 43
+        "quoteReader45.mp3", // 44
+        "quoteReader46.mp3", // 45
+        "quoteReader47.mp3", // 46
+        "quoteReader48.mp3", // 47
+        "quoteReader49.mp3", // 48
+        "quoteReader50.mp3", // 49
+        "quoteReader51.mp3", // 50
+        "quoteReader52.mp3", // 51
+        "quoteReader53.mp3", // 52
+        "quoteReader54.mp3", // 53
+        "quoteReader55.mp3", // 54
+        "quoteReader56.mp3", // 55
+        "quoteReader57.mp3", // 56
+        "quoteReader58.mp3", // 57
+        "quoteReader59.mp3", // 58
+        "quoteReader60.mp3"  // 59
+    ];
+    
+    
+    
+    /*Define the newAuthors array
+    const newAuthor = [
+        "Imajin",           // newAuthors[0] 
+        "Bruz Liz",         // newAuthors[1]
+        "Bruz Lily",        // newAuthors[2]
+        "Mi$$ Bad Mind",    // newAuthors[3] 
+        "Gyala Barbie",     // newAuthors[4] 
+        "Dorian Gray",      // newAuthors[5] 
+        "Mickey",           // newAuthors[6] 
+        "111 Doctor B",     // newAuthors[7] 
+        "Princess Margie",  // newAuthors[8]
+        "Kinara Fao",       // newAuthors[9] 
+        "Pretty Fay",       // newAuthors[10]
+        "Amaya Salvada",    // newAuthors[11] 
+        "Tabeh Tron",       // newAuthors[12] 
+        "Lilpretty Nigga",  // newAuthors[13]
+        "Quinnshitt Mishy", // newAuthors[14] 
+        "Bexy Dexy",        // newAuthors[15] 
+        "Milly Mungats",    // newAuthors[16]
+        "Uphreasia Migose",  // newAuthors[17] 
+        "Naya Milae",       // newAuthors[18] 
+        "Misting Enable Mreggae", // newAuthors[19]
+        "Vulence Dali"      // newAuthors[20] select
+    ];
+
+    */
+    
+
+
+    const imajinQuotes = [
+        { quote: "Life is the art of drawing without an eraser, embracing every mark as part of the masterpiece.", author: newAuthors[0], reader: "quote1.mp3",  intro: intros[0] },
+        { quote: "Life isn't measured by the breaths we take, but by the whispers of the heart that ignite our souls.", author: newAuthors[18], intro:intros[20], reader: "quote2.mp3" },
+        { quote: "Love is the art of seeing the infinite beauty in someone else's imperfection.", author: newAuthors[3],intro: intros[4], reader:"quote3.mp3" },
+        { quote: "A true friend is the one who plays the melody of your heart, even when you forget the tune.", author: newAuthors[9], intro:intros[15], reader: "quote4.mp3" },
+        { quote: "Art is the language of the soul, translating feelings that words cannot capture.", author: newAuthors[7], intro:intros[17], reader: "quote5.mp3" },
+        { quote: "Life dances on, not in the steps we perfect, but in the stumbles we rise from with grace.", author: newAuthors[2], intro:intros[13], reader: "quote6.mp3" },
+        { quote: "Love is not found in grand gestures but in the quiet moments where two hearts beat as one.", author: newAuthors[12], intro:intros[4], reader: "quote7.mp3" },
+        { quote: "Friendship is the canvas where we paint our shared dreams, creating colors that will never fade.", author: newAuthors[0], intro:intros[9], reader: "quote8.mp3" },
+        { quote: "Music is not heard with the ears, but felt with the spirit; it is the sound of the universe singing.", author: newAuthors[4], intro:intros[2], reader: "quote9.mp3" },
+        { quote: "The journey of life is not about where you're going, but who walks beside you when the roads are unknown.", author: newAuthors[5], intro: intros[18], reader: "quote10.mp3" },
+        { quote: "True art isn't what you see; it's what you feel long after the moment has passed.",  author: newAuthors[19], intro: intros[6], reader: "quote11.mp3" },
+        { quote: "Love is the silent conversation between two souls, where words fall away and only the truth remains.", author: newAuthors[10], intro: intros[9], reader: "quote12.mp3" },
+        { quote: "Friendship is the quiet miracle that grows in the garden of time, nourished by trust and laughter.", author:  newAuthors[0], intro:intros[22], reader: "quote13.mp3"}, 
+        { quote: "Music is the heartbeat of the universe, connecting us all in a symphony only the soul can hear.",  author:  newAuthors[6], intro:intros[22], reader: "quote14.mp3" },
+        { quote: "Life’s beauty is not in perfection but in the courage to live boldly, with all its mess and magic.", author:  newAuthors[20], intro:intros[21], reader: "quote15.mp3" },
+        { quote: "Love is the art of writing poetry on the canvas of time, with ink made of shared moments and memories.", author: newAuthors[0],intro:intros[4],reader: "quote16.mp3"  },
+        { quote: "A friend is the echo of your laughter, the mirror to your tears, and the hand that holds yours through it all.",  author: newAuthors[0],intro:intros[15],reader: "quote17.mp3" },
+        { quote: "Art is where the heart meets the hands, crafting stories that words alone could never tell.", author: newAuthors[1], intro:intros[12], reader: "quote18.mp3" },
+        { quote: "Love isn't just a feeling; it's a choice to keep painting the same picture, no matter how many times it rains.", author:  newAuthors[17], intro:intros[13], reader: "quote19.mp3" },
+        { quote: "Friendship is not in the years we share but in the moments that stay with us long after time moves on.", author: newAuthors[0], intro:intros[5], reader: "quote20.mp3"  },
+        { quote: "Life is a canvas, and love is the brush that paints our existence with vibrant hues.", author: newAuthors[11], intro:intros[16], reader: "quote22.mp3" },
+        { quote: "True friendship is a symphony of shared moments, each note a testament to mutual trust and respect.", author: newAuthors[13], intro:intros[24], reader: "quote21.mp3"},
+        { quote: "Art is the soul's whisper, a gentle reminder that beauty exists in every breath we take.", author: newAuthors[16],intro:intros[19], reader: "quote23.mp3" },
+        { quote: "Love is the spark that ignites the flame of creativity, illuminating even the darkest of paths.", author: newAuthors[15], intro:intros[10], reader: "quote24.mp3" },
+        { quote: "In the dance of life, every step we take is choreographed by the rhythm of our hearts.", author: newAuthors[14], intro: intros[21], reader: "quote25.mp3" },
+        { quote: "Music is the universal language that bridges the gaps between our souls and the infinite cosmos.", author: newAuthors[9], intro:intros[4], reader: "quote26.mp3" },
+        { quote: "Friendship is a garden where each seed of kindness blooms into a lifelong bond.", author: newAuthors[0], intro:intros[8], reader:"quote27.mp3" },
+        { quote: "Life's greatest masterpiece is created in the moments we share with those we love.", author: newAuthors[8], intro:intros[20], reader: "quote28.mp3" },
+        { quote: "The essence of art is found in the silent dialogue between the creator and the observer.", author: newAuthors[3], intro:intros[2], reader: "quote29.mp3" },
+        { quote: "Love is the melody that harmonizes the symphony of our existence.", author: newAuthors[2], intro:intros[28], reader: "quote30.mp3" },
+        { quote: "In every brushstroke, there is a story waiting to be told and a heart waiting to be touched.", author: newAuthors[6], intro:intros[16], reader: "quote31.mp3" },
+        { quote: "True friends are the stars that guide us through life's darkest nights, their light unwavering.", author: newAuthors[14], intro:intros[11], reader: "quote32.mp3" },
+        { quote: "Music is the heartbeat of the universe, a constant reminder that we are all connected.", author: newAuthors[7], intro:intros[29], reader: "quote33.mp3" },
+        { quote: "Life is a fleeting moment, but the love we share echoes through eternity.", author: newAuthors[12], intro:intros[16], reader: "quote34.mp3" },
+        { quote: "Friendship is the foundation upon which the castle of happiness is built.", author: newAuthors[0], intro:intros[23], reader: "quote35.mp3" },
+        { quote: "Art is the silent scream of the soul, an expression of the inexpressible.", author: newAuthors[15], intro:intros[20], reader: "quote36.mp3" },
+        { quote: "Love is the thread that weaves our lives into a tapestry of joy and sorrow, beauty and pain.", author: newAuthors[11], intro:intros[25], reader: "quote37.mp3" },
+        { quote: "In the melody of life, every note we play contributes to the symphony of our journey.", author: newAuthors[19], intro:intros[14], reader: "quote38.mp3" },
+        { quote: "True beauty lies not in the eyes, but in the heart that perceives it.", author: newAuthors[4], intro:intros[19], reader: "quote39.mp3" },
+        { quote: "Life is a dance, and the partners we choose determine the steps we take and the memories we make.", author: newAuthors[1], intro:intros[9], reader: "quote40.mp3" },
+        { quote: "The stars above and the dreams within are connected by the light of hope.", author: newAuthors[5], intro:intros[25], reader: "quote41.mp3" },
+        { quote: "Friendship is the invisible bridge that connects hearts across oceans and time.", author: newAuthors[0], intro:intros[41], reader: "quote42.mp3" },
+        { quote: "With every breath, life paints a new stroke on the canvas of our existence.", author: newAuthors[13], intro:intros[44], reader: "quote43.mp3" },
+        { quote: "Love is the light that flickers even in the darkest corners of the heart.", author: newAuthors[1], intro:intros[32], reader: "quote44.mp3" },
+        { quote: "Courage is the quiet voice that whispers 'I will try again tomorrow.", author: newAuthors[17], intro:intros[35], reader: "quote45.mp3" },
+        { quote: "In the embrace of nature, we rediscover the beauty of simplicity and the power of peace.", author: newAuthors[8], intro:intros[38], reader: "quote46.mp3" },
+        { quote: "Happiness is not found in what we possess, but in how deeply we cherish the present moment.", author: newAuthors[18], intro:intros[34], reader: "quote47.mp3" },
+        { quote: "In every heartbeat, there’s a story waiting to be told, an adventure waiting to be lived.", author: newAuthors[20], intro:intros[37], reader: "quote48.mp3" },
+        { quote: "Hope is the lighthouse guiding us through the storms of doubt and fear.", author: newAuthors[10], intro:intros[44], reader: "quote49.mp3" },
+        { quote: "Wisdom grows not from knowing the answers, but from embracing the questions.", author: newAuthors[16], intro:intros[40], reader: "quote50.mp3" },
+        { quote: "The beauty of life lies in its imperfections, which paint the canvas of our existence with vibrant hues.", author: newAuthors[3], intro: intros[36], reader: "quote51.mp3" },
+        { quote: "Love is the melody that plays in the background, even when silence fills the air.", author: newAuthors[5], intro: intros[39], reader: "quote52.mp3" },
+        { quote: "Friendship is the golden thread that weaves through the fabric of our lives, binding hearts together.", author: newAuthors[6], intro: intros[31], reader: "quote53.mp3" },
+        { quote: "In every sunset, there’s a promise of a new dawn, a chance to begin again.", author: newAuthors[19], intro: intros[38], reader: "quote54.mp3" },
+        { quote: "Love is the gentle whisper that tells us we are not alone, that we are cherished.", author: newAuthors[7], intro: intros[27], reader: "quote55.mp3" },
+        { quote: "Life is a journey, and the moments we share with loved ones are the treasures we collect along the way.", author: newAuthors[12], intro: intros[0], reader: "quote56.mp3" },
+        { quote: "True friendship is like a lighthouse, guiding us through the storms of life and leading us to safe harbors.", author: newAuthors[2], intro: intros[30], reader: "quote57.mp3" },
+        { quote: "In the tapestry of existence, love is the thread that holds everything together.", author: newAuthors[4], intro: intros[22], reader: "quote58.mp3" },
+        { quote: "Life is a dance of shadows and light, and love is the rhythm that moves us all.", author: newAuthors[1], intro: intros[16], reader: "quote59.mp3" },
+        { quote: "With every heartbeat, we write a new chapter in the story of our lives, filled with love and wonder.", author: newAuthors[20], intro: intros[9], reader: "quote60.mp3" } 
+    ];
+
+   
+    // Select elements
+    const quoteIcon = document.querySelector('.quote-icon');
+    const quoteSideDiv = document.querySelector('.quote-side-div');
+    const quoteClose = document.querySelector('.quote-close');
+
+    // Show the side menu when the quote icon is clicked
+    quoteIcon.addEventListener('click', () => {
+        quoteSideDiv.classList.add('open');
+
+        // Reset index if it exceeds the number of quotes
+        if (currentQuoteIndex >= imajinQuotes.length) {
+            currentQuoteIndex = 0;
+        }
+
+        // Show the current quote
+        showCurrentQuote(currentQuoteIndex);
+
+        pauseMedia(currentVideo);
+        pauseMedia(currentSong);
+        pauseMedia(currentVoice);
+        pauseMedia(narrator);
+
+        
+    });
+
+    // Hide the side menu when the close icon is clicked
+    quoteClose.addEventListener('click', () => {
+       closeQuoteRader();
+    });
+
+    function closeQuoteRader() {
+        quoteSideDiv.classList.remove('open');
+
+        if(currentReader) {
+            currentReader.pause();
+        }
+    }
+
+    function getModifiedAuthor(author) {
+        const authorMap = {
+            "Friends of imajin": "Imajin",
+            "Mi$$ Bad Mind": "Winnie",
+            "Naya Milae": "Naya",
+            "Kinara Fao": "Pagees JB",
+            "lilpretty nigga" : "Lilpretty",
+            "milly mungats" : "Milly",
+            "bruz Lily" : "Lily Wangari",
+            'misting Enable Mreggae' : 'Enable Mreggae',
+            "Mickey": "Rihanna Mickey",
+            'Bruz Liz' : 'Elizabeth',
+            'Milly Mungats' : 'Milly'
+            // Add more replacements as needed
+        };
+    
+        return authorMap[author] || author; // Return modified name or original author if not found
+    }
+    
+    function getBackgroundImageForAuthor(author) {
+        const authorIndex = newAuthors.indexOf(author); // Find the index of the author in newAuthors
+        if (authorIndex !== -1) {
+            return bgPhotos[authorIndex]; // Return the corresponding image from bgPhotos
+        }
+        return null; // Return null if no image is found
+    }
+    
+
+    function showCurrentQuote(index) {
+        const currentQuote = imajinQuotes[index]; // Get the current quote object
+
+        // Update the relevant elements in your side menu
+        const quoteTextElement = document.querySelector('.quote-text'); // Ensure you have this element in your HTML
+        const quoteAuthorElement = document.querySelector('.quote-author'); // Ensure you have this element in your HTML
+        const quoteSideDiv = document.querySelector('.quote-side-div'); // Select the side div for background
+
+         // Get the current author and modify it if needed
+        let currentAuthor = getModifiedAuthor(currentQuote.author);
+        
+        // Display the quote with its intro and author
+        quoteTextElement.innerHTML = `<strong>${currentQuote.intro.replace('author', currentAuthor)}</strong> <p>${currentQuote.quote}</p>`;
+        quoteAuthorElement.textContent = currentAuthor; // Display the modified author if necessary
+       
+        // Get the background image based on the original author from the quote
+        const bgImage = getBackgroundImageForAuthor(currentQuote.author); // Use currentQuote.author directly
+
+
+        if (bgImage) {
+            // Set the background image if found
+            quoteSideDiv.style.backgroundImage = `url(${bgImage})`;
+        } else {
+            // Set a default background if no image is found
+            quoteSideDiv.style.backgroundImage = "url('logo.jpg')";
+        }
+
+        
+        const audio = new Audio(currentQuote.reader); // Create an audio object
+
+        // Stop and pause the current audio if it's playing
+        if (currentReader && !currentReader.paused) {
+            currentReader.pause(); // Pause the current audio
+            currentReader.currentTime = 0; // Reset to the beginning (optional)
+        }
+    
+        // Assign the new audio to currentReader and play it
+        currentReader = audio;
+        currentReader.play(); // Play the audio
+
+        if(currentVideo) {
+            currentVideo.pause();
+            isPlaying = false;
+        }
+
+        currentReader.addEventListener('ended', () => {
+            disableNextAndPrevBtn(false);
+        });
+
+        currentReader.addEventListener('playing', () => {
+            disableNextAndPrevBtn(true);
+        });
+    }
+
+    document.addEventListener('click', (event) => {
+        const quoteSideDiv = document.querySelector('.quote-side-div');
+        
+        if (!quoteSideDiv.contains(event.target) && quoteSideDiv.classList.contains('open')) {
+            if (currentReader.paused) {
+                closeQuoteRader();
+            }
+        }
+    }, true);
+    
+    
+
+    const copyQuoteBtn = document.querySelectorAll('.quote-controls-buttons button')[0];
+    const  prevQuoteBtn = document.querySelectorAll('.quote-controls-buttons button')[1];
+    const nextQuoteBtn = document.querySelectorAll('.quote-controls-buttons button')[2];
+    const downloadReaderBtn = document.querySelectorAll('.quote-controls-buttons button')[3];
+
+
+    function disableNextAndPrevBtn(state){
+        nextQuoteBtn.disabled = state;
+        prevQuoteBtn.disabled = state;
+        downloadReaderBtn.disabled = state;
+        
+    }
+
+    nextQuoteBtn.onclick = function () {
+        currentQuoteIndex = (currentQuoteIndex + 1) % imajinQuotes.length;
+        showCurrentQuote(currentQuoteIndex);
+        disableNextAndPrevBtn(true);
+    }
+
+    prevQuoteBtn.onclick = function() {
+        // Move to the previous quote
+        if(currentQuoteIndex > 0) {
+            currentQuoteIndex--; // Decrement to move to the previous quote
+        } else {
+            currentQuoteIndex = imajinQuotes.length - 1; // Loop back to the last quote
+        }
+        showCurrentQuote(currentQuoteIndex);
+        disableNextAndPrevBtn(true);
+    }
+
+    copyQuoteBtn.onclick = function () {
+        const texts = imajinQuotes[currentQuoteIndex];
+        const modifiedAuthor = getModifiedAuthor( texts.author);
+        const fullText = texts.intro.replace('author',modifiedAuthor) + " " +  texts.quote + " " + " – Authored by " + modifiedAuthor;
+        navigator.clipboard.writeText(fullText).then(() => {
+            copyQuoteBtn.innerHTML = '<i class="fas fa-check"></i> Copied';
+
+            setTimeout(function() {
+                copyQuoteBtn.innerHTML = '<i class="fas fa-clipboard"></i> Copy';
+            },3000)
+        }).catch(err => {
+            console.error("failed tp copy error", err)
+            copyQuoteBtn.innerHTML = '<i class="fas fa-xmark"></i> Failed';
+
+            setTimeout(function() {
+                copyQuoteBtn.innerHTML = '<i class="fas fa-clipboard"></i> Copy';
+            },3000)
+        })
+    }
+
+    downloadReaderBtn.addEventListener('click', function () {
+        closeQuoteRader();
+        document.querySelector('.quote-preview-overlay').style.display = 'flex';
+        
+        displayContent(currentQuoteIndex);
+    });
+
+    const displayContent = function (index) {
+        const quotetextArea = document.querySelector('.quote-preview-text');
+        const imagePreview = document.querySelector('.quote-preview-image .image-arena');
+        const audioField = document.querySelector('.quote-preview-audio');
+
+        const quotePreview = imajinQuotes[index].quote;
+        const bgImage = getBackgroundImageForAuthor(imajinQuotes[index].author);
+        const audioPreview = imajinQuotes[index].reader;
+
+        const modifiedAuthor = getModifiedAuthor(imajinQuotes[index].author);
+        const fullText = imajinQuotes[index].intro.replace('author',modifiedAuthor) + " " +  quotePreview + " " + " – Authored by " + modifiedAuthor;
+
+         
+        quotetextArea.innerHTML = `<p> ${fullText }</p>`;
+        imagePreview.innerHTML = `<img src='${bgImage}'>`;
+        audioField.innerHTML = `<audio src='${audioPreview}'>`;
+        document.querySelector('.quote-preview-image .text-arena').innerHTML = `<p> ${fullText }</p>`;
+
+        currentReader.play();
+
+    }
+
+    const imgDownload =  document.querySelectorAll('.quote-preview-actions button')[0];
+    const audioDownload = document.querySelectorAll('.quote-preview-actions button')[1];
+    const closePreview = document.querySelectorAll('.quote-preview-actions button')[2];
+
+    closePreview.onclick = () => { document.querySelector('.quote-preview-overlay').style.display = 'none'; currentReader.pause()}
+
+    audioDownload.onclick = function () {
+        currentReader.pause();
+        audioDownload.innerHTML = '<i class="fas fa-spinner"></i> Downloading';
+
+        setTimeout(function () {
+
+            const currentvoiceReader = imajinQuotes[currentQuoteIndex].reader;
+            const audioName = getModifiedAuthor(imajinQuotes[currentQuoteIndex].author)
+            const link = document.createElement('a');
+            link.href = currentvoiceReader;
+            link.download = `${audioName}.mp3`;
+
+            // Append the link to the body (required for Firefox)
+            document.body.appendChild(link);
+            
+            // Trigger the download
+            link.click();
+            
+            // Remove the link after triggering download
+            document.body.removeChild(link);
+
+            audioDownload.innerHTML = '<i class="fas fa-volume-up"></i> Download Audio';
+        },2000);
+    }
+
+    imgDownload.onclick = function () {
+        currentReader.pause();
+        const imgurl = getBackgroundImageForAuthor(imajinQuotes[currentQuoteIndex].author);
+        const quoteText = imajinQuotes[currentQuoteIndex].quote;
+        const modifiedAuthor = getModifiedAuthor(imajinQuotes[currentQuoteIndex].author);
+        const fullText = imajinQuotes[currentQuoteIndex].intro.replace('author',modifiedAuthor) + " " +  quoteText;
+
+        downloadTextOnTopOfImage(imgurl,fullText, modifiedAuthor);
+
+    }
+
+    function downloadTextOnTopOfImage(imgurl, fullText, authorName) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+    
+        const img = new Image();
+        img.src = imgurl;
+    
+        img.onload = function () {
+            // Set the canvas dimensions to match the image
+            canvas.width = img.width;
+            canvas.height = img.height;
+    
+            // Draw the image onto the canvas
+            ctx.drawImage(img, 0, 0);
+    
+            // Draw a semi-transparent black rectangle over the image to darken it
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.7)'; // 0.7 opacity for better contrast
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+            // Create a gradient for the text
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+            gradient.addColorStop(0, '#4fe305');
+            gradient.addColorStop(0.5, '#03ffd5');
+            gradient.addColorStop(1, '#03f7db');
+    
+            // Set text properties (we will adjust the font size dynamically)
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = gradient;
+    
+            // Function to calculate the appropriate font size to fit the text
+            function calculateFontSize(text, maxWidth, startingFontSize, minFontSize) {
+                let fontSize = startingFontSize;
+                do {
+                    ctx.font = `bold ${fontSize}px Arial`;
+                    const metrics = ctx.measureText(text);
+                    if (metrics.width <= maxWidth) {
+                        return fontSize;
+                    }
+                    fontSize -= 1; // Decrease font size until it fits
+                } while (fontSize >= minFontSize);
+                return fontSize; // Return the smallest font size if it doesn't fit
+            }
+    
+            // Calculate and set the font size for the full text
+            const maxWidth = canvas.width - 40; // Max width for the text
+            const startingFontSize = canvas.height / 15; // Start with a large size based on image height
+            const minFontSize = canvas.height / 30; // Minimum font size
+            const fontSize = calculateFontSize(fullText, maxWidth, startingFontSize, minFontSize);
+    
+            // Wrap text to the next line if it's too long
+            const words = fullText.split(' ');
+            let line = '';
+            const lineHeight = fontSize * 1.2; // Adjust line height based on font size
+            const x = canvas.width / 2;
+            let y = canvas.height / 2 - ((words.length / maxWidth) * lineHeight) / 2; // Start y-position for centered text
+    
+            for (let i = 0; i < words.length; i++) {
+                const testLine = line + words[i] + ' ';
+                const metrics = ctx.measureText(testLine);
+                const testWidth = metrics.width;
+    
+                if (testWidth > maxWidth && i > 0) {
+                    ctx.fillText(line, x, y);
+                    line = words[i] + ' ';
+                    y += lineHeight;
+                } else {
+                    line = testLine;
+                }
+            }
+            ctx.fillText(line, x, y);
+    
+            // Set styles for the author name (golden color) and adjust font size
+            const authorFontSize = calculateFontSize(authorName, maxWidth, fontSize * 0.8, minFontSize * 0.8);
+            ctx.font = `bold ${authorFontSize}px Arial`; // Adjusted font size for author name
+            ctx.fillStyle = 'gold'; // Golden color for author name
+            ctx.fillText(authorName, canvas.width / 2, y + lineHeight + 20); // Position for author name
+    
+            // Create a download link
+            const link = document.createElement('a');
+            link.download = `${authorName}.jpg`; // Specify the name for the downloaded image
+            link.href = canvas.toDataURL(); // Convert canvas to image URL
+    
+            // Trigger the download
+            link.click();
+        };
+    }
+    
+    
+    const fetchedQuotes = imajinQuotes.map(q => q.quote);
+    const imageBtn = document.querySelectorAll('.more-actions button')[0];
+    const  nameBtn = document.querySelectorAll('.more-actions button')[1];
+    const testBtn =  document.querySelectorAll('.more-actions button')[2];
+    const introTextBtn = document.querySelectorAll('.more-actions button')[3];
+    const quotetextBtn = document.querySelectorAll('.more-actions button')[4];
+    const donloadqtAudio = document.querySelectorAll('.more-actions button')[5];
+    const generateBtn = document.querySelectorAll('.more-actions button')[6];
+
+    
+    const disableBtn = function(btn,state) {
+        btn.disabled = state;
+    }
+
+    function checkUserQuote() {
+    
+        // Check if userQuote has all required properties
+        if (userQuote.intro && userQuote.name && userQuote.image && userQuote.quote) {
+           disableBtn(testBtn, false) // Enable the button if all properties are present
+        } else {
+            disableBtn(testBtn, true) // Disable the button if any property is missing
+        }
+    }
+
+    fetchedQuotes.forEach((q, index) => {
+        const li = document.createElement('li');
+        li.textContent = index + 1;  // Displays the index (1-based)
+        document.querySelector('.quote-list ul').appendChild(li);
+
+        li.addEventListener('click', function () {
+            document.querySelectorAll('.quote-list ul li').forEach(li => li.classList.remove('active'));
+            displayQuotText(q, index);
+            currentQuoteMakerElement = li;
+            currentQuoteMakerElement.classList.add('active');
+
+            userQuote.quote = q;
+            disableBtn(quotetextBtn, false);
+            checkUserQuote();
+        })
+    });
+    
+    intros.forEach((introQuote,index) => {
+        const li = document.createElement('li');
+        li.textContent = index + 1;  // Displays the index (1-based)
+        document.querySelector('.quote-intro-list ul').appendChild(li);
+
+        li.addEventListener('click', () => {
+            document.querySelectorAll('.quote-intro-list ul li').forEach(li => li.classList.remove('active'));
+            displayQuoteIntro(introQuote,index);
+            currentIntroElement = li;
+            currentIntroElement.classList.add('active');
+
+
+            // Storing the selected intro in userQuote object
+            userQuote.intro = introQuote; 
+            disableBtn(introTextBtn, false);
+            checkUserQuote();
+        });
+    });
+
+    let introCount = 0;
+
+    quotemakerIcon.addEventListener('click', function () {
+        const overlay = document.querySelector('.quote-maker-verlay');
+        const introPreview = document.querySelector('.quote-intro-preview');
+        const quoteMakerPreview = document.querySelector('.quote-maker-preview');
+        
+        // Show the overlay
+        overlay.style.display = 'flex';
+
+        introPreview.innerHTML = '';
+        quoteMakerPreview.innerHTML = '';
+      
+        if(introCount < 1) {
+            displayRandomIntroAndQuote();
+            
+        }
+
+        introCount++;
+    });
+    
+
+    function displayRandomIntroAndQuote() {
+        const introPreview = document.querySelector('.quote-intro-preview');
+        const quoteMakerPreview = document.querySelector('.quote-maker-preview');
+        const notice = document.querySelector('.quote-maker-notice');
+
+        const randomIntroIndex = Math.floor(Math.random() * intros.length);
+        const randomQuoteIndex = Math.floor(Math.random() * fetchedQuotes.length);
+
+       
+        notice.style.display = 'block';
+
+        // Select the li element based on the random intro index
+        const allIntroElements = document.querySelectorAll('.quote-intro-list ul li');
+        
+        // Remove 'active' class from all intro elements
+        allIntroElements.forEach(li => li.classList.remove('active'));
+
+        // Set the current intro element and add the 'active' class
+        currentIntroElement = allIntroElements[randomIntroIndex];
+        
+        document.querySelectorAll('.quote-list ul li').forEach(li => li.classList.remove('active'));
+
+        currentQuoteMakerElement = document.querySelectorAll('.quote-list ul li')[randomQuoteIndex];
+
+        introPreview.parentElement.scrollIntoView({ behavior: "smooth", block: "center"});
+
+        // Choose the correct notice audio based on window width
+        const noticeAudio = window.innerWidth < 800 ? new Audio(notice2) : new Audio(notice1);
+        currentNotice = noticeAudio;
+         
+        pauseMedia(currentAudio);
+        pauseMedia(currentVideo);
+        pauseMedia(currentAudioDescrption);
+        pauseMedia(currentSong);
+        pauseMedia(currentVoice);
+         
+        currentNotice.play();
+ 
+        currentNotice.onended = () => {
+            document.querySelectorAll('.more-actions button').forEach(btn => btn.classList.remove('active'))
+            notice.style.display = 'none';
+            generateBtn.disabled = true;
+            testBtn.disabled = true;
+            introTextBtn.disabled = true;
+            quotetextBtn.disabled = true;
+            donloadqtAudio.disabled = true;
+
+            document.querySelectorAll('.quote-intro-list ul li').forEach(li => li.classList.remove('active'));
+            document.querySelectorAll('.quote-list ul li').forEach(li => li.classList.remove('active'));
+            document.querySelectorAll('.more-actions button').forEach(btn => btn.classList.remove('active'));
+            
+            const quoteMakerPreview = document.querySelector('.quote-maker-preview');
+            const introPreview = document.querySelector('.quote-intro-preview');
+
+            quoteMakerPreview.innerHTML = '';
+            introPreview.innerHTML = '';
+     
+        };
+
+
+        currentNotice.ontimeupdate = () => {
+            let times = currentNotice.currentTime;
+
+            // Calculate the delay (in milliseconds) until each event
+            const introDelay = Math.max(0, (4 - times) * 1000);  // Time until 4 seconds
+            const quoteDelay = Math.max(0, (9 - times) * 1000);  // Time until 9 seconds
+            const imageBtnDelay = Math.max(0, (14 - times) * 1000); // Time until 14 seconds
+            const testBtnDelay = Math.max(0, (19 - times) * 1000); // Time until 19 seconds
+            const generateBtnDelay = Math.max(0, (23 - times) * 1000); // Time until 23 seconds
+
+            // Trigger intro at 4 seconds
+            setTimeout(function () {
+                currentIntroElement.classList.add('active');
+                introPreview.innerHTML =`<p>${intros[randomIntroIndex].replace("author", "Imajin")}</p>`;
+                
+            }, introDelay);
+
+            // Trigger quote at 9 seconds
+            setTimeout(function () {
+                currentQuoteMakerElement.classList.add('active');
+                quoteMakerPreview.innerHTML =`<p>${fetchedQuotes[randomQuoteIndex]}</p>`;
+            }, quoteDelay);
+
+            // Scroll to image button and activate it at 14 seconds
+            setTimeout(function () {
+                imageBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+                document.querySelectorAll('.more-actions button').forEach(btn => btn.classList.remove('active'));
+                imageBtn.classList.add('active');
+            }, imageBtnDelay);
+
+            // Scroll to test button and activate it at 19 seconds
+            setTimeout(function () {
+                testBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+                document.querySelectorAll('.more-actions button').forEach(btn => btn.classList.remove('active'));
+                testBtn.classList.add('active');
+            }, testBtnDelay);
+
+            // Scroll to generate button and activate it at 23 seconds
+            setTimeout(function () {
+                generateBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+                document.querySelectorAll('.more-actions button').forEach(btn => btn.classList.remove('active'));
+                generateBtn.classList.add('active');
+            }, generateBtnDelay);
+        };
+
+    }
+
+
+    document.querySelector('.quote-maker-close').addEventListener('click', function () {
+        document.querySelector('.quote-maker-verlay').style.display = 'none';
+        document.querySelectorAll('.quote-intro-list ul li').forEach(li => li.classList.remove('active'));
+        document.querySelectorAll('.quote-list ul li').forEach(li => li.classList.remove('active'));
+        document.querySelectorAll('.more-actions button').forEach(btn => btn.classList.remove('active'));
+        
+        const quoteMakerPreview = document.querySelector('.quote-maker-preview');
+        const introPreview = document.querySelector('.quote-intro-preview');
+
+        quoteMakerPreview.innerHTML = '';
+        introPreview.innerHTML = '';
+
+        generateBtn.disabled = true;
+        testBtn.disabled = true;
+        introTextBtn.disabled = true;
+        quotetextBtn.disabled = true;
+        donloadqtAudio.disabled = true;
+        userQuote.image = null;
+        userQuote.name = null;
+        userQuote.quote = null;
+
+    });
+
+    let typingInProgress = false; // Track if typing is in progress
+
+    function typewriterQuote(element, text) {
+        const notice = document.querySelector('.quote-maker-notice');
+        notice.style.display = 'flex';
+        // If typing is already in progress, clear the element and stop the current typing
+        if (typingInProgress) {
+            clearTimeout(typingTimeout); // Clear the timeout to stop the previous typing
+            typingInProgress = false; // Reset the typing state
+        }
+
+        let index = 0;
+        element.innerHTML = '<p></p>'; // Start with an empty <p> tag
+
+        // Create a function to add each letter with a delay
+        function typeNextChar() {
+            if (index < text.length) {
+                // Update the content inside the <p> tag
+                element.querySelector('p').innerHTML += text.charAt(index);
+                index++;
+                typingTimeout = setTimeout(typeNextChar, 50); // Delay between characters
+            } else {
+                
+                typingInProgress = false; // Typing is finished
+            }
+        }
+
+        typingInProgress = true; // Set typing state to true
+        typeNextChar(); // Start typing
+
+        
+    }
+
+   
+   // Updated function to handle displaying the quote and playing audio
+    function displayQuoteIntro(quote, index) {
+        const introPreview = document.querySelector('.quote-intro-preview');
+        
+        // Replace 'author' with 'Imajin' if found, otherwise just display the quote as is
+        const modifiedQuote = quote.includes('author') ? quote.replace('author', 'Imajin') : quote;
+
+        // Display the modified or unmodified quote
+         typewriterQuote(introPreview, modifiedQuote);
+
+        // Scroll to the preview
+        introPreview.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+        playIntroMaker(introReader[index])
+    }
+
+    function playIntroMaker (audio) {
+        // Play the corresponding audio from introReader
+        const notice = document.querySelector('.quote-maker-notice');
+        
+        if(currentIntroMaker && currentIntroMaker !== audio) {
+            currentIntroMaker.pause();
+        }
+
+        if(currentquotemaker) {
+            currentquotemaker.pause();
+        }
+
+        const read = new Audio(audio); // Create a new Audio object
+        currentIntroMaker = read;
+
+        currentIntroMaker.play();
+
+        currentIntroMaker.onended = () => {notice.style.display = 'none';}
+    }
+
+    function  displayQuotText(q, index) {
+        const quoteMakerPreview = document.querySelector('.quote-maker-preview');
+
+        typewriterQuote(quoteMakerPreview, q)
+
+        playCurrentQuoteMaker(quoteReader[index]);
+
+        quoteMakerPreview.scrollIntoView({behavior:"smooth", block:"center"});
+
+        disableBtn(donloadqtAudio, false);
+    }
+
+    const playCurrentQuoteMaker = (audio) => {
+        const notice = document.querySelector('.quote-maker-notice');
+
+        if(currentquotemaker && currentquotemaker !== audio){
+        currentquotemaker.pause();
+
+        }
+
+        if(currentIntroMaker && !currentIntroMaker.paused) {
+            currentIntroMaker.pause();
+        }
+
+        const audioPrev = new Audio(audio);
+
+        currentquotemaker = audioPrev;
+
+        currentquotemaker.play();
+
+        currentquotemaker.addEventListener('ended', () => {
+            donloadqtAudio.disabled = false;
+            notice.style.display = 'none';
+        })
+    }
+
+   donloadqtAudio.onclick = (event) => {
+        event.target.disabled = true;
+
+        // Get the index of the current active quote maker element
+        const quoteItems = Array.from(document.querySelectorAll('.quote-list ul li'));
+        const index = quoteItems.indexOf(currentQuoteMakerElement);
+
+        // Fetch the current plain quote text from `fetchedQuotes` and sanitize it
+        let quoteText = fetchedQuotes[index]; // Get the plain text quote from fetchedQuotes
+        let sanitizedQuote = quoteText.replace(/[\/\?<>\\:\*\|"]/g, ''); // Remove invalid filename characters
+        sanitizedQuote = sanitizedQuote.substring(0, 50); // Optionally limit the length of the filename
+
+        // Create a link for the audio associated with the current quote
+        const link = document.createElement('a');
+        link.href = quoteReader[index]; // Use the audio link from the `quoteReader` array
+        link.download = `Imajin Quotes_${sanitizedQuote}.mp3`; // Use sanitized quote as the file name
+
+        // Append the link to the document and trigger the download
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link); // Clean up after the download
+};
+
+
+
+    introTextBtn.addEventListener('click', () => {
+        const text = userQuote.intro;
+        const filteredWords = /author|Imajin/g;
+    
+        // If userQuote.name exists, replace 'author' or 'Imajin' with userQuote.name
+        let modifiedText = text.replace(filteredWords, userQuote.name || '').trim(); // Replace names with userQuote.name, defaulting to empty string
+    
+        // Copy the modified text to the clipboard
+        navigator.clipboard.writeText(modifiedText).then(() => {
+            introTextBtn.innerHTML = '<i class="fas fa-check"></i> Copied';
+    
+            setTimeout(function () {
+                introTextBtn.innerHTML = '<i class="fas fa-copy"></i> Copy Intro';
+            }, 3000);
+        }).catch(err => {
+            console.error('Failed to copy', err);
+    
+            introTextBtn.innerHTML = '<i class="fas fa-xmark"></i> Failed';
+    
+            setTimeout(function () {
+                introTextBtn.innerHTML = '<i class="fas fa-copy"></i> Copy Intro';
+            }, 3000);
+        });
+    });
+    
+    
+    
+    quotetextBtn.addEventListener('click', () => {
+        const text = userQuote.quote;
+
+        navigator.clipboard.writeText(text).then(() => {
+            quotetextBtn.innerHTML = '<i class="fas fa-check"></i> Copied';
+    
+            setTimeout(function () {
+                quotetextBtn.innerHTML = '<i class="fas fa-copy"></i>Copy Quote';
+            }, 3000);
+        }).catch(err => {
+            console.error('Failed to copy', err);
+    
+            quotetextBtn.innerHTML = '<i class="fas fa-xmark"></i> Failed';
+    
+            setTimeout(function () {
+                quotetextBtn.innerHTML = '<i class="fas fa-copy"></i> Copy Quote';
+            }, 3000);
+        });
+    })
+    
+
+    nameBtn.addEventListener('click', () => {
+        createModalBox();
+        checkUserQuote();
+    });
+    
+    function createModalBox() {
+        // Create modal elements
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+    
+        const modalContent = document.createElement('div');
+        modalContent.className = 'modal-content';
+    
+        const modalHeader = document.createElement('div');
+        modalHeader.className = 'modal-header';
+        modalHeader.innerText = 'Welcome';
+    
+        const modalBody = document.createElement('div');
+        modalBody.className = 'modal-body';
+        modalBody.innerHTML = `
+            <p>Please enter your name:</p>
+            <div class="input-container">
+                <input type="text" id="nameInputs" placeholder="Your Name" class="fancy-input">
+            </div>
+        `;
+    
+        const modalFooter = document.createElement('div');
+        modalFooter.className = 'modal-footer';
+    
+        const doneBtn = document.createElement('button');
+        doneBtn.innerText = "Done";
+        doneBtn.disabled = true;
+    
+        doneBtn.addEventListener('click', () => {
+            const inputValue = document.getElementById('nameInputs').value.trim();
+            if (inputValue) { // Check if the input is not empty
+                userQuote.name = inputValue;
+                document.body.removeChild(modal); // Close modal after setting name
+            } else {
+                const nameInput = document.getElementById('nameInputs');
+                nameInput.placeholder = "Please enter a valid name.";
+            }
+        });
+    
+        const closeBtn = document.createElement('button');
+        closeBtn.innerText = 'Close';
+        closeBtn.addEventListener('click', () => {
+            document.body.removeChild(modal);
+        });
+    
+        // Add the input event listener after the input has been created
+        modalBody.querySelector('#nameInputs').oninput = function () {
+            doneBtn.disabled = this.value.trim() === ""; // Enable if not empty
+        };
+    
+        modalFooter.appendChild(doneBtn);
+        modalFooter.appendChild(closeBtn);
+        modalContent.appendChild(modalHeader);
+        modalContent.appendChild(modalBody);
+        modalContent.appendChild(modalFooter);
+        modal.appendChild(modalContent);
+    
+        // Add modal to the body
+        document.body.appendChild(modal);
+    }
+    
+    imageBtn.addEventListener('click', () => {
+        document.querySelector('.quote-image-upload').style.display = 'flex';
+    });
+
+    document.querySelector('.close-upload').onclick = () =>{
+        document.querySelector('.quote-image-upload').style.display = 'none';
+    }
+
+    document.querySelectorAll('.actions-upload button')[1].onclick = () =>{
+        document.querySelector('.quote-image-upload').style.display = 'none';
+        userQuote.image = null;
+    }
+
+    document.querySelectorAll('.actions-upload button')[0].disabled = true;
+
+    document.querySelector('#imgFile').onchange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const newImgUrl = URL.createObjectURL(file);
+            document.querySelector('.upload-preview').innerHTML = `<img src='${newImgUrl}' alt='${file.name}'>`;
+
+            userQuote.image = newImgUrl;
+            checkUserQuote();
+
+            document.querySelectorAll('.actions-upload button')[0].disabled = false;
+        }
+    };
+
+    document.querySelectorAll('.actions-upload button')[0].onclick = () =>{
+        document.querySelector('.quote-image-upload').style.display = 'none';
+        document.querySelector('.upload-preview').innerHTML =  '';
+        document.querySelectorAll('.actions-upload button')[0].disabled = true;
+
+    }
+
+    const confirmBtn = document.querySelectorAll('.controls-test button')[0];
+    const cancelBtn = document.querySelectorAll('.controls-test button')[1];
+    
+    testBtn.onclick = function () {
+        document.querySelector('.test-quote-overlay').innerHTML =  "";
+        document.querySelector('.test-content').style.backgroundImage = "url(logo.jpg)";
+        document.querySelector('.test-preview-overlay').style.display = 'flex';
+        const filteredWords = /author|Imajin/g;
+        const words = userQuote.intro;
+        // If userQuote.name exists, replace 'author' or 'Imajin' with userQuote.name
+        const modifiedText = words.replace(filteredWords, userQuote.name || '').trim(); // Replace names with userQuote.name, defaulting to empty string
+    
+        const text = modifiedText + " " + (userQuote.quote || "(Choose Your quote)") +  " - Authored by " + (userQuote.name || "(Choose a name)");
+
+        document.querySelector('.test-quote-overlay').innerHTML = `<p>${text}</p>`;
+        document.querySelector('.test-content').style.backgroundImage = `url(${userQuote.image})`;
+
+        const index = fetchedQuotes.indexOf(userQuote.quote);
+        playCurrentQuoteMaker(quoteReader[index]);
+    }
+
+    document.querySelector('.test-close').onclick = function () {
+        document.querySelector('.test-preview-overlay').style.display = 'none';
+    }
+
+    cancelBtn.onclick = function () {
+        document.querySelector('.test-preview-overlay').style.display = 'none';
+    }
+
+    confirmBtn.onclick = function () {
+        document.querySelector('.test-preview-overlay').style.display = 'none';
+
+       disableBtn( generateBtn, false);
+    }
+
+    generateBtn.onclick = function () {
+        const filteredWords = /author|Imajin/g;
+        const words = userQuote.intro;
+        // If userQuote.name exists, replace 'author' or 'Imajin' with userQuote.name
+        const modifiedText = words.replace(filteredWords, userQuote.name || 'Imajin').trim(); // Replace names with userQuote.name, defaulting to empty string
+    
+        const fullText =  modifiedText + userQuote.quote;
+        downloadTextOnTopOfImage(userQuote.image, fullText, userQuote.name);
+
+        disableBtn(testBtn, true);
+        disableBtn(generateBtn, true);
+    }
+
+
+
+
+
+
+    let currentStoryIndex = 0;
+    const storyIcon = document.querySelector('.story-icon');
+    const stories = document.querySelectorAll('.story');
+
+    function updateStory(index, direction = 'in') {
+        stories.forEach((story, i) => {
+            story.classList.remove('story-slide-left', 'story-slide-right', 'story-slide-in', 'active');
+            if (i === index) {
+                story.classList.add('active', `story-slide-${direction}`);
+            }
+        });
+    }
+
+    document.querySelector('.prev-story').addEventListener('click', () => {
+        const previousIndex = currentStoryIndex;
+        currentStoryIndex = (currentStoryIndex === 0) ? stories.length - 1 : currentStoryIndex - 1;
+        updateStory(previousIndex, 'right');
+        setTimeout(() => updateStory(currentStoryIndex, 'in'), 100); // Brief delay for smooth transition
+    });
+
+    document.querySelector('.next-story').addEventListener('click', () => {
+        const previousIndex = currentStoryIndex;
+        currentStoryIndex = (currentStoryIndex === stories.length - 1) ? 0 : currentStoryIndex + 1;
+        updateStory(previousIndex, 'left');
+        setTimeout(() => updateStory(currentStoryIndex, 'in'), 100); // Brief delay for smooth transition
+    });
+
+    // Initialize the first story
+    updateStory(currentStoryIndex);
+
+
+    storyIcon.addEventListener('click', () => {
+        document.querySelector('.story-preview').style.display = 'flex';
+
+        pauseMedia(currentVideo);
+        pauseMedia(currentSong);
+        pauseMedia(currentVoice);
+        pauseMedia(narrator);
+    });
+
+    document.querySelector('.stories-close').onclick = function () {
+        document.querySelector('.stories-overlay').style.display = 'none';
+    }
+
+    document.querySelector('.close-dialog').onclick = function () {
+        document.querySelector('.story-preview').style.display = 'none';
+    }
+
+    document.addEventListener('click', (event) => {
+        const storyPreview = document.querySelector('.story-preview');
+        
+        // Check if the clicked target is not the story preview or any of its children
+        if (!storyPreview.contains(event.target) && getComputedStyle(storyPreview).display === 'flex') {
+            storyPreview.style.display = 'none';
+        }
+    }, true);
+    
+
+    const viewStories = document.querySelectorAll('.story-preview ul li')[0];
+    const characterPreview = document.querySelectorAll('.story-preview ul li')[1];
+    const SummaryView = document.querySelectorAll('.story-preview ul li')[2];
+
+    viewStories.onclick = ()  => {
+        document.querySelector('.story-preview').style.display = 'none';
+        document.querySelector('.stories-overlay').style.display = 'flex';
+        
+    }
+
+    characterPreview.onclick = () => {
+        document.querySelector('.characters-preview-overlay').style.display = 'flex';
+        document.querySelector('.story-preview').style.display = 'none';
+
+    }
+
+    SummaryView.onclick = function() {
+        document.querySelector('.characters-view-overlay').style.display = 'flex';
+        showCards ();
+    }
+
+    const characterSongtheme0 = document.querySelectorAll('.song-picker ul li')[0];
+    const characterSongtheme1 = document.querySelectorAll('.song-picker ul li')[1];
+
+    characterSongtheme0.onclick = () => {
+        playCharacterTheme(characterSong0,  characterSongtheme0, 9000);
+    }
+
+    characterSongtheme1.onclick = () => {
+        playCharacterTheme(characterSong1,  characterSongtheme1, 8000);
+    }
+
+    const playCharacterTheme = (themeSong, element, duration)=> {
+
+        if(currentThemeSong && currentThemeSong !== themeSong) {
+            currentThemeSong.pause();
+            currentThemeSong.currentTime = 0;
+            
+        }
+
+        if(currentThemeSong && currentThemeSong === themeSong && !currentThemeSong.paused) {
+            currentThemeSong.pause();
+            updatePlayIcon(element ,false);
+        }
+
+        currentThemeSong = new Audio(themeSong);
+        currentThemeSong.play();
+        updatePlayIcon(element , true);
+
+        slideLeftAndRightImages(duration);
+    }
+
+    function resetAllIcons() {
+        // Reset icons for all elements (assuming play icon as default)
+        characterSongtheme0.innerHTML = '<i class="fas fa-play"></i>';
+        characterSongtheme1.innerHTML = '<i class="fas fa-play"></i>';
+    }
+
+    function updatePlayIcon(element, state) {
+        resetAllIcons();
+        element.innerHTML =  state ? '<i class="fas fa-redo rotate"></i>' : '<i class="fas fa-play"></i>';
+    }
+
+    function slideLeftAndRightImages(duration) {
+        clearInterval(timeout);
+        const leftImages = [...document.querySelectorAll('.stories-content .story .story-avatar img')];
+        const rightImages = images.map(img => img.imgsrc).slice(1);
+    
+        if (leftImages.length === 0 || rightImages.length === 0) return;
+    
+        const leftImagePlaceholder = document.querySelector('.left-character');
+        const rightImagePlaceholder = document.querySelector('.right-character');
+        
+        let currentIndex = 0;
+    
+        // Initial image display
+        leftImagePlaceholder.style.backgroundImage = `url(${leftImages[currentIndex].src})`;
+        rightImagePlaceholder.style.backgroundImage = `url(${rightImages[currentIndex]})`;
+    
+        // Set up the interval to change images every specified duration
+        timeout = setInterval(function () {
+            // Increment currentIndex and loop back to 0 if at the end of the array
+            currentIndex = (currentIndex + 1) % Math.min(leftImages.length, rightImages.length);
+            
+            // Start fade-out and black-and-white effect
+            leftImagePlaceholder.classList.remove('fade-in');
+            rightImagePlaceholder.classList.remove('fade-in');
+            
+            leftImagePlaceholder.classList.add('dark-in');
+            rightImagePlaceholder.classList.add('dark-in');
+            
+            // Update images after the transition starts
+            setTimeout(() => {
+                leftImagePlaceholder.style.backgroundImage = `url(${leftImages[currentIndex].src})`;
+                rightImagePlaceholder.style.backgroundImage = `url(${rightImages[currentIndex]})`;
+    
+                // Start fade-in after a short delay
+                setTimeout(() => {
+                    leftImagePlaceholder.classList.add('fade-in');
+                    rightImagePlaceholder.classList.add('fade-in');
+                }, 50); // 50ms delay to ensure the dark-in effect is visible
+    
+            }, 1000); // Delay to allow for the dark-in effect to be visible before changing the image
+    
+            // Remove the dark-in effect after the transition
+            setTimeout(() => {
+                leftImagePlaceholder.classList.remove('dark-in');
+                rightImagePlaceholder.classList.remove('dark-in');
+            }, 2000); // Keep the dark-in effect for 2 seconds (adjust as needed)
+            
+        }, duration);
+    
+        currentThemeSong.onended = () => { clearInterval(timeout); resetAllIcons(); }
+    }
+     
+    
+    
+    
+
+    document.querySelector('.character-close').onclick = () => {
+        resetAllIcons();
+        if(currentThemeSong) {
+            currentThemeSong.pause();
+            currentThemeSong.currentTime = 0;
+        }
+
+        clearInterval(timeout);
+
+        const leftImagePlaceholder = document.querySelector('.left-character');
+        const rightImagePlaceholder = document.querySelector('.right-character');
+
+        leftImagePlaceholder.style.backgroundImage = `url(logo2.jpg)`;
+        rightImagePlaceholder.style.backgroundImage = `url(logo.jpg)`;
+
+        document.querySelector('.characters-preview-overlay').style.display = 'none';
+    }
+
+    
+    stories.forEach((story, index) => {
+        const name = story.querySelector('h2').innerText; // Get the narrator's name
+        const avatar = story.querySelector('.story-avatar img').src; // Get the avatar image source
+        const paragraphs = Array.from(story.querySelectorAll('.fairy-tale p')).map(p => p.innerText); // Get all paragraphs in an array
+        
+       
+
+        const readMoreBtn = story.querySelector('.read-story button');
+        
+        readMoreBtn.onclick = () => {
+
+             // Create a currentStory object for the current story
+            currentStory = {
+                name: name,
+                avatar: avatar,
+                paragraphs: paragraphs,
+                narrator: story.getAttribute("data-story") // Get the story audio file
+            };
+
+            narrateStory(currentStory);
+        }
+    });
+
+    const narrateStory = function(currentStory) {
+
+        // Stop previous audio if it's playing
+        if (narratorAudio) {
+            narratorAudio.pause();
+            narratorAudio.currentTime = 0; // Reset to the beginning
+        }
+
+        // Update the UI
+        document.querySelector('.header-text').innerHTML = `<h2>${currentStory.name}</h2>`;
+        document.querySelector('.narration img').src = currentStory.avatar;
+        
+        // Display each paragraph as a separate <p> tag
+        document.querySelector('.narration-text').innerHTML = currentStory.paragraphs.map(p => `<p>${p}</p>`).join('');
+
+
+        document.querySelector('.narration-content').style.backgroundImage = `url(${currentStory.avatar})`;
+
+        // Create a new Audio object
+        narratorAudio = new Audio(currentStory.narrator);
+        
+        // Show the narration overlay
+        document.querySelector('.narration-overlay').style.display = 'flex';
+
+        // Play the audio
+        narratorAudio.play();
+    }
+
+
+
+    document.querySelector('.narration-close').onclick = () => {
+        document.querySelector('.header-text').innerHTML = '';
+        document.querySelector('.narration img').src = "";
+        document.querySelector('.narration-text').innerHTML = '';
+        narratorAudio.pause();
+        narratorAudio.currentTime = 0;
+        document.querySelector('.narration-overlay').style.display = 'none';
+    }
+
+
+    function showCards () {
+        document.querySelector('.content-character-view').innerHTML = '';
+
+        const frontCardImages = [...document.querySelectorAll('.stories-content .story .story-avatar img')];
+        const backCardImages = images.map(img => img.imgsrc).slice(1);
+        const namesOfCharacters =  images.map(namme => namme.names).slice(1);
+        const voices = [...document.querySelectorAll('.friends-section ul li .friend')];
+
+        frontCardImages.forEach((img,index )=> {
+            const imgcard = document.createElement('div');
+            imgcard.classList.add("card");
+            imgcard.style.backgroundImage = `url(${img.src})`;
+            const  voice = new Audio(voices[index].getAttribute('data-voice'));
+
+            document.querySelector('.content-character-view').appendChild(imgcard);
+
+            let lastImageIndex = 0;
+
+            setTimeout(function () {
+               setInterval(function() {
+                imgcard.style.backgroundImage = `url(${backCardImages[index]})`;
+                lastImageIndex = index;
+
+               }, index * 2000)
+            },3000);
+
+
+            imgcard.onclick = () => {
+               playCurrentDecription(voice);
+               recommendSong(backCardImages[index], img.src, namesOfCharacters[index]);
+
+            }
+
+            
+        });
+    }
+
+    function  playCurrentDecription(voice) {
+        if(currentAudioDescrption && currentAudioDescrption !== voice) {
+            currentAudioDescrption.pause();
+        }
+
+        currentAudioDescrption = voice;
+        currentAudioDescrption.currentTime = 0;
+        currentAudioDescrption.play();
+
+    }
+
+    document.querySelector('.close-characters-view').onclick = function() {
+        document.querySelector('.characters-view-overlay').style.display = 'none';
+        if(!currentAudioDescrption.paused) {
+            currentAudioDescrption.pause();
+        }
+    }
+
+    const RPlay = document.querySelectorAll('.buttons-actions button')[0];
+    const Rdone = document.querySelectorAll('.buttons-actions button')[1];
+
+    function  recommendSong(leftImage, rightImage, name) {
+        document.querySelector('.left-preview-recommendation').innerHTML = `<img src="${leftImage}" alt="Characters_img">`;
+        document.querySelector('.right-preview-recommendation').innerHTML = `<img src="${rightImage}" alt="Characters_img">`;
+        document.querySelector("#character-names").textContent = name;
+        RPlay.innerHTML = "&#x2191;";
+        document.querySelector('.recommendation-overlay').style.display = 'flex';
+    
+        shareItem.leftImg = leftImage;
+        shareItem.rightImg = rightImage;
+        shareItem.ImajinFriendname = name;
+    }
+
+    
+
+    document.querySelector('.close-recomendation').onclick = function () {
+        closeRecommendations()
+    }
+
+   function closeRecommendations () {
+        document.querySelector('.recommendation-overlay').style.display = 'none';
+        document.querySelector('.left-preview-recommendation').innerHTML = "";
+        document.querySelector('.right-preview-recommendation').innerHTML = "";
+        document.querySelector("#character-names").textContent = "";
+        
+        if(!currentAudioDescrption.paused) {
+            currentAudioDescrption.pause();
+        }
+
+        pauseMedia(currentRecommendedSong);
+
+        disableBtn(RPlay, true);
+        disableBtn(Rdone, true);
+
+        playSelected = false;
+   }
+   
+    document.querySelector('#audioFileRecommendation').addEventListener('change', function () {
+
+        if(!currentAudioDescrption.paused) {
+            currentAudioDescrption.pause();
+        }
+
+        const file = this.files[0];
+        
+        if (file) {
+
+             // Check if file size is greater than 10 MB
+            const maxFileSizeMB = 10;
+            const maxFileSizeBytes = maxFileSizeMB * 1024 * 1024; // Convert MB to bytes
+
+            if (file.size > maxFileSizeBytes) {
+                alert("The audio file size must not exceed 10 MB.");
+                return; // Exit the function if file is too large
+            }
+
+            disableBtn(RPlay, false);
+            disableBtn(Rdone, false);
+            if(currentRecommendedSong) {pauseMedia(currentRecommendedSong); playSelected = false;}
+            RPlay.innerHTML = "&#9654;";
+
+            const audiourl = URL.createObjectURL(file);
+            const song = new Audio(audiourl);
+            currentRecommendedSong = song;
+
+            shareItem.songAudio = file;
+            shareItem.songTitle = file.name.replace(".mp3", "");
+
+            RPlay.onclick = () => {
+                playSelected = !playSelected;
+
+                if(playSelected) {
+                    currentRecommendedSong.play();
+                    RPlay.innerHTML = "&#10074;&#10074;";
+                }
+                else {
+                    song.pause();
+                    RPlay.innerHTML = "&#9654;";
+                }
+                
+
+                currentRecommendedSong.onended = () => {RPlay.innerHTML = "&#9654;"; playSelected = false;}
+            }
+        }
+    });
+
+    Rdone.onclick = () => {
+        closeRecommendations();
+        showShareView();
+    }
+
+
+    function showShareView() {
+
+        if(!currentAudioDescrption.paused) {
+            currentAudioDescrption.pause();
+            currentRecommendedSong.currentTime = 0;
+            playSelected =  false;
+            RPlay.innerHTML = "&#9654;";
+        }
+
+
+        if(shareItem.leftImg &&shareItem.rightImg && shareItem.ImajinFriendname && shareItem.songAudio && shareItem.songTitle ) {
+            document.querySelector('.progress-bar-preview').style.width = '';
+            document.querySelector('.leftside-preview').innerHTML = `<img src="${shareItem.leftImg}" alt="Characters_img">`;
+            document.querySelector('.rightside-preview').innerHTML = `<img src="${shareItem.rightImg}" alt="Characters_img">`;
+            document.querySelector('.audio-name').innerHTML = ` <h3>${shareItem.songTitle}</h3>`;
+            document.querySelector('#statement').textContent = `${shareItem.ImajinFriendname ? `This song is recommended to ${shareItem.ImajinFriendname}` : "recommends this song for a friend"}`;
+        
+            document.querySelector('.share-recomendation-overlay').style.display = 'flex';
+
+
+            document.querySelector('.audio-preview .icon button').onclick = function () {
+                playSelected = !playSelected;
+                
+                if(playSelected) {
+
+                   if(!currentRecommendedSong.paused) {
+                        currentRecommendedSong = shareItem.songAudio;
+                        currentRecommendedSong.currentTime = 0;
+                        currentRecommendedSong.play();
+                        this.innerHTML = "&#10074;&#10074;";
+                   }
+                   else{
+                        currentRecommendedSong.play();
+                        this.innerHTML = "&#10074;&#10074;";
+                   }
+                }
+
+                else{
+
+                    currentRecommendedSong.pause();
+                    this.innerHTML = "&#9654;";
+                }
+
+                currentRecommendedSong.ontimeupdate = () => {
+                    const percent = (currentRecommendedSong.currentTime / currentRecommendedSong.duration) * 100;
+
+                    document.querySelector('.progress-bar-preview').style.width = `${percent}%`;
+                }
+
+                currentRecommendedSong.onended = () => {this.innerHTML = "&#9654;"; playSelected = false;}
+            }
+        }
+        
+    }
+
+    const UserInfoBtn = document.querySelectorAll(".actions-share-controls button")[0];
+    const postBtn = document.querySelectorAll(".actions-share-controls button")[1];
+
+    function closeRecomShare() {
+
+        document.querySelector('.share-recomendation-overlay').style.display = 'none';
+        document.querySelector('.leftside-preview').innerHTML = ``;
+        document.querySelector('.rightside-preview').innerHTML = ``;
+        document.querySelector('.audio-name').innerHTML = ``;
+        document.querySelector('#statement').textContent = `Has a recommendation for Imajin this song`;
+        document.querySelector('.audio-preview .icon button').innerHTML = "&#9654;";
+        document.querySelector('.progress-bar-preview').style.width = '';
+        currentRecommendedSong.pause();
+        document.querySelector('.image-user-preview').innerHTML = `<img src="logo.jpg" alt="user_image">`;
+        document.querySelector('.name-input-user input').value = "";
+        document.querySelector('.name-of-person h2').textContent = `Add your name`;
+        document.querySelector('.user-profile').innerHTML = `<img src="logo2.jpg" alt="user">`;
+        playSelected = false;
+        postBtn.disabled = true;
+    }
+
+
+    document.querySelector(".close-share-recomendation").onclick = function () {
+       closeRecomShare();
+    }
+
+    
+
+    UserInfoBtn.onclick = function () {
+        document.querySelector('.user-form-overlay').style.display = "flex";
+        currentRecommendedSong.pause();
+        document.querySelector('.audio-preview .icon button').innerHTML = "&#9654;";
+        playSelected = false;
+    }
+
+    function closeUserForm(clear) {
+        document.querySelector('.user-form-overlay').style.display = "none";
+        
+        if(shareItem.leftImg &&shareItem.rightImg && shareItem.ImajinFriendname && shareItem.songAudio && shareItem.songTitle && shareItem.userImage && shareItem.UserName) {
+            disableBtn(postBtn, false);
+        }
+        else {
+            disableBtn(postBtn, true);
+        }
+
+       if(!currentRecommendedSong.paused) {
+            currentRecommendedSong.pause();
+       }
+
+      if(clear) {
+        document.querySelector('.image-user-preview').innerHTML = `<img src="logo.jpg" alt="user_image">`;
+        document.querySelector('.name-input-user input').value = "";
+        document.querySelector('.name-of-person h2').textContent = `Add your name`;
+        document.querySelector('.user-profile').innerHTML = `<img src="logo2.jpg" alt="user">`;
+      }
+
+
+    }
+
+    postBtn.onclick = async function () {
+        postBtn.disabled = true;
+        
+        function toBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+            });
+        }
+        
+        const newPost = {
+            leftImg: shareItem.leftImg,
+            rightImg: shareItem.rightImg,
+            ImajinFriendname: shareItem.ImajinFriendname,
+            songAudio: shareItem.songAudio instanceof File ? await toBase64(shareItem.songAudio) : shareItem.songAudio,
+            songTitle: shareItem.songTitle,
+            userImage: shareItem.userImage instanceof File ? await toBase64(shareItem.userImage) : shareItem.userImage,
+            UserName: shareItem.UserName,
+        };
+    
+        fetch('https://imajin-backend.onrender.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newPost),
+        })
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+        })
+        .then(data => {
+            console.log('Post added:', data);
+            loadPosts(); // Refresh the feed to include the new post
+           
+        })
+        .catch(error => console.error('Error:', error))
+        .finally(() => {
+            postBtn.disabled = false;
+        });
+
+        closeRecomShare();
+    };
+    
+
+    document.querySelector('.close-user-form-overlay').onclick = function () {
+        closeUserForm(true);
+    }
+
+    document.querySelectorAll('.controls-user-form button')[1].onclick = function () {
+        closeUserForm(false);
+    }
+
+    document.querySelector('#imageFileInput').addEventListener('change',  function () {
+        const file = this.files[0];
+        document.querySelector('.image-user-preview').innerHTML = "";
+
+        if(file) {
+    
+
+            shareItem.userImage = file;
+            document.querySelector('.image-user-preview').innerHTML = `<img src="${URL.createObjectURL(shareItem.userImage)}" alt="user_image">`;
+
+           
+
+            updateDoneFormBtn();
+        }
+
+        
+    });
+
+    function updateDoneFormBtn() {
+        const userNameInput = document.querySelector('.name-input-user input').value.trim();
+        document.querySelectorAll('.controls-user-form button')[0].disabled = !(shareItem.userImage && userNameInput);
+    }
+    
+
+    document.querySelector('.name-input-user input').addEventListener('input', function () {
+        updateDoneFormBtn();
+    });
+    
+    document.querySelectorAll('.controls-user-form button')[0].onclick = function () {
+        this.disabled = true;
+        
+
+        shareItem.UserName = document.querySelector('.name-input-user input').value;
+
+        document.querySelector('.name-of-person h2').textContent = `${shareItem.UserName}`;
+        document.querySelector('.user-profile').innerHTML = `<img src="${URL.createObjectURL(shareItem.userImage)}" alt="user">`;
+        closeUserForm(false);
+       
+    }
+
+
+    postFeedIcon.onclick = () => {
+        document.querySelector('.feed-overlay').style.display = "flex";
+        loadPosts();
+    }
+
+    document.querySelector('.feed-close').onclick = function () {
+        document.querySelector('.feed-overlay').style.display = "none";
+        if(currentSongAudio) {
+            currentSongAudio.pause();
+        }
+    }
+
+    function createPostFeed (index, userPhoto, userFname,friendname,songTitlePost,friendPhoto,friendAvator,songAudio) {
+        const newLiPost = document.createElement('li');
+
+        const postHeader = document.createElement('div');
+        postHeader.classList.add("post-header");
+        newLiPost.appendChild(postHeader);
+
+
+        const postNumber = document.createElement('div');
+        postNumber.classList.add("post-number");
+        postNumber.innerHTML = `<h1>${index}</h1>`;
+        postHeader.appendChild(postNumber);
+
+        const postTitle = document.createElement('div');
+        postTitle.classList.add("post-title");
+        postHeader.appendChild(postTitle);
+
+        const postUserIcon = document.createElement('div');
+        postUserIcon.classList.add("user-icon");
+        postUserIcon.innerHTML = `<img src="${userPhoto}" alt="user_icon">`
+        postTitle.appendChild(postUserIcon);
+
+        const postUserName = document.createElement('div');
+        postUserName.classList.add("userName-holder");
+        postUserName.innerHTML = `<h3>${userFname} has a recommendation for ${friendname}: this song.</h3><p>${songTitlePost}</p>`;
+        postTitle.appendChild(postUserName);
+
+        const postBody = document.createElement('div');
+        postBody.classList.add("post-body");
+
+        postBody.innerHTML = `<div class="imajin-friend-image">
+                                <img src="${friendPhoto}" alt="friend_image">
+                            </div>
+
+                            <div class="imajin-friend-avator">
+                                <img src="${friendAvator}" alt="friend_image">
+                            </div>`
+        newLiPost.appendChild(postBody);
+
+        // Create the play button in the footer
+        const postFooter = document.createElement('div');
+        postFooter.classList.add("post-footer");
+        const playButton = document.createElement('button');
+        playButton.innerHTML = "&#9654;"; // Play icon
+        postFooter.appendChild(playButton);
+
+         // Create progress elements
+        const progressTrack = document.createElement('div');
+        progressTrack.classList.add("progress-track-audio");
+        const progressBarAudio = document.createElement('div');
+        progressBarAudio.classList.add("progress-bar-audio");
+        progressTrack.appendChild(progressBarAudio);
+        postFooter.appendChild(progressTrack);
+
+        newLiPost.appendChild(postFooter);
+
+        document.querySelector('.feed-section ul').appendChild(newLiPost);
+
+
+        // Event listener for play button
+        playButton.onclick = () => {
+            if (currentSongAudio && !currentSongAudio.paused) {
+                // Pause the currently playing audio
+                currentSongAudio.pause();
+               playButton.innerHTML = "&#9654;"; // Reset previous button to play icon
+                progressBarAudio.style.width = "0%"; // Reset previous progress bar
+            }
+
+            // Play the new audio
+            playAudioFromBase64(songAudio, playButton, progressBarAudio);
+        };
+
+    }
+
+    function playAudioFromBase64(songAudio, button, progressBar) {
+        // Decode Base64 audio and create a Blob
+        const base64Data = songAudio.split(',')[1];
+        const binaryString = atob(base64Data);
+        const byteArray = new Uint8Array(binaryString.length);
+
+        for (let i = 0; i < binaryString.length; i++) {
+            byteArray[i] = binaryString.charCodeAt(i);
+        }
+
+        const audioBlob = new Blob([byteArray], { type: 'audio/mpeg' });
+        const audioUrl = URL.createObjectURL(audioBlob);
+
+        // Play the new audio and set it as current
+        currentSongAudio = new Audio(audioUrl);
+        currentSongAudio.play();
+        button.innerHTML = "<span>&#10074;&#10074;</span>"; // Change button to pause icon
+        currentProgressBar = progressBar; // Update current progress bar
+        isSongAudioPlaying = true;
+
+        // Update progress bar as the audio plays
+        currentSongAudio.addEventListener("timeupdate", () => {
+            if (currentSongAudio.duration) { // Check if duration is valid
+                const percentage = (currentSongAudio.currentTime / currentSongAudio.duration) * 100;
+                progressBar.style.width = `${percentage}%`;
+            }
+        });
+
+        // Clean up URL after playing to free resources
+        currentSongAudio.onended = () => {
+            button.innerHTML = "&#9654;"; // Reset button to play icon
+            isSongAudioPlaying = false;
+            progressBar.style.width = "0%"; // Reset progress bar
+            URL.revokeObjectURL(audioUrl);
+            currentSongAudio = null; // Clear the reference
+            currentPlayingButton = null; // Clear the reference
+            currentProgressBar = null; // Clear the reference
+        };
+    }
+    
+    
+    // Fetch and display posts in the feed section
+    function loadPosts() {
+        const spinner = document.getElementById('loadingSpinner');
+        spinner.style.display = 'block'; // Show spinner
+    
+        fetch('https://imajin-backend.onrender.com/posts')
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(posts => {
+                // Clear existing posts in the feed
+                document.querySelector('.feed-section ul').innerHTML = '';
+    
+                // Populate feed with posts from JSON
+                posts.forEach((post, index) => {
+                    createPostFeed(
+                        index + 1,
+                        post.userImage,
+                        post.UserName,
+                        post.ImajinFriendname,
+                        post.songTitle,
+                        post.leftImg,
+                        post.rightImg,
+                        post.songAudio // Pass songAudio here
+                    );
+                });
+            })
+            .catch(error => console.error('Error loading posts:', error))
+            .finally(() => {
+                spinner.style.display = 'none'; // Hide spinner after loading
+            });
+    }
+    
+    
+
+    // Call loadPosts() whenever you open the feed overlay
+    document.querySelector('.feed-overlay').addEventListener('click', loadPosts);
+
+});
+
+//----------------------------------------------------------------------------------------------------------------------------------
