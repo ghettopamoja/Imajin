@@ -5,18 +5,9 @@ const cors = require('cors'); // Import CORS
 
 const app = express();
 
-const allowedOrigins = ['https://ghettopamoja.github.io', 'http://127.0.0.1:5501'];
-
+// Configure CORS to allow requests from the specific GitHub Pages URL
 app.use(cors({
-    origin: function (origin, callback) {
-        // Allow requests with no origin (like mobile apps or curl requests)
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    }
+    origin: 'https://ghettopamoja.github.io/Imajin/', // Update to the correct path
 }));
 
 
