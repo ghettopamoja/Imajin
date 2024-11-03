@@ -1,16 +1,14 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const cors = require('cors'); // Import CORS
+const cors = require('cors');
 
 const app = express();
 
-// Configure CORS to allow requests from the specific GitHub Pages URL
+// Configure CORS to allow requests from your GitHub Pages domain
 app.use(cors({
-    origin: 'https://ghettopamoja.github.io/Imajin/', // Update to the correct path
+    origin: 'https://ghettopamoja.github.io',
 }));
-
-
 
 app.use(express.json({ limit: '500mb' }));
 
