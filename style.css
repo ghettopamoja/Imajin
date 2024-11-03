@@ -1463,6 +1463,7 @@ button i {
     cursor: pointer;
     color: white;
     transition: color 0.3s;
+    z-index: 3;
 }
 
 .trailer-close:hover {
@@ -5273,6 +5274,7 @@ ul li:hover {
         align-items: center; /* Center items horizontally */
         justify-content: center; /* Center items vertically */
         text-align: center; /* Center text */
+        padding:10px;
     }
 
     .post-title {
@@ -5280,6 +5282,7 @@ ul li:hover {
         align-items: center; /* Center items */
         justify-content: flex-start; /* Center vertically */
         text-align: center; /* Center text */
+        padding:10px;
     }
 
     .user-icon {
@@ -5310,10 +5313,12 @@ ul li:hover {
 
     .userName-holder h3 {
         font-size: 1.2rem; /* Larger font size for readability */
+        padding:10px;
     }
 
     .userName-holder p {
         font-size: 1rem; /* Adjust font size for readability */
+        padding-left: 10px ;
     }
 
     .imajin-friend-image,
