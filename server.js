@@ -10,7 +10,10 @@ app.use(cors({
 
 app.use(express.json({ limit: '500mb' }));
 
-mongoose.connect('mongodb://127.0.0.1:27017/imajinPosts')
+
+const mongoURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/imajinPosts'; // Fallback to local for development
+
+mongoose.connect(mongoURI)
     .then(() => console.log('Connected to MongoDB'))
     .catch((error) => console.error('MongoDB connection error:', error));
 
