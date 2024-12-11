@@ -67,7 +67,7 @@ app.use(cors({
 app.use(express.json({ limit: '500mb' }));
 
 
-const mongoURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/imajinPosts'; // Fallback to local for development
+const mongoURI = process.env.MONGODB_URI || 'mongodb+srv://Vlad_Permaz:permaz2024@cluster0.upk0ngn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Fallback to local for development
 
 mongoose.connect(mongoURI)
     .then(() => console.log('Connected to MongoDB'))
